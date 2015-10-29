@@ -1,6 +1,9 @@
 # Poderosa ConnectProfile plugin
 ※日本語から英語への翻訳はBing翻訳を使用しています。  
-(* From Japanese to English translations use the Bing translator.)
+(* Japanese to English translations use the Bing translator.)
+
+※プラグインDLLは[Download & History](#dl_history)または[release][MENU-RELEASE]からダウンロードできます。  
+(* The plug-in DLL [Download & History](#dl_history) or can be downloaded from [release][MENU-RELEASE].)
 
 Poderosa用の接続プロファイルプラグインです。  
 (This is for Poderosa connection profile plugin.)
@@ -81,8 +84,8 @@ Poderosaディレクトリ内に下記のように配置します。
 ![UsageImg4](https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/wiki/img/img4.png)
 
 
-## History
-* 2015/10/29 v1.0  
+## <a name ="dl_history">Download & History
+* 2015/10/29 [v1.0][DL-1.0]
 初期リリース  
 (Initial release.)
 
@@ -91,3 +94,9 @@ Poderosaディレクトリ内に下記のように配置します。
 Copyright 2015 yoshikixxxx.  
 Licensed under the Apache License, Version 2.0 (the "License");  
 you may not use this file except in compliance with the License.
+
+
+
+
+[MENU-RELEASE]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases
+[DL-1.0]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.0/connectprofile_1.0.zip
