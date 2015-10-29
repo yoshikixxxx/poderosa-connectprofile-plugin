@@ -85,7 +85,7 @@ Poderosaディレクトリ内に下記のように配置します。
 
 
 ## <a name ="dl_history">Download & History
-* 2015/10/29 [v1.0][DL-1.0]
+* 2015/10/29 [v1.0][DL-1.0]  
 初期リリース  
 (Initial release.)
 
