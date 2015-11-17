@@ -5,8 +5,8 @@
 ※プラグインDLLは[Download & History](#dl_history)または[release][MENU-RELEASE]からダウンロードできます。  
 (* The plug-in DLL [Download & History](#dl_history) or can be downloaded from [release][MENU-RELEASE].)
 
-Poderosa用の接続プロファイルプラグインです。  
-(This is for Poderosa connection profile plugin.)
+Poderosaのプラグインです。(接続プロファイルプラグイン)  
+(This plugin is for Poderosa. connection profile plugin.)
 
 このプラグインは、接続先ホストをプロファイル管理するものです。  
 (This plugin is a connected host to manage profile.)
