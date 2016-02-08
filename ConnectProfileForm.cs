@@ -295,7 +295,17 @@ namespace Contrib.ConnectProfile {
         /// </summary>
         private void _filterTextBox_KeyDown(object sender, KeyEventArgs e) {
             // 上下キー押下時はリストビューにフォーカス
-            if ((e.KeyCode == Keys.Up) || (e.KeyCode == Keys.Down)) _profileListView.Focus();
+            if ((e.KeyCode == Keys.Up) || (e.KeyCode == Keys.Down)) {
+                // ウィンドウ表示後にListViewをアクティブにしたかどうか(一度でもアイテムを選択したかどうか)
+                if (_profileListView.FocusedItem == null) {
+                    // 一度もアクティブにしていない場合は最上部を選択
+                    _profileListView.Items[0].Selected = true;
+                } else {
+                    // FocusedItem.Indexの値を選択
+                    _profileListView.Items[_profileListView.FocusedItem.Index].Selected = true;
+                }
+                _profileListView.Focus();
+            }
         }
 
         /// <summary>

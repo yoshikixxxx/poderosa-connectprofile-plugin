@@ -130,23 +130,23 @@
   </data>
   <data name="Form.AddProfile.Hint._autoLoginCheck">
     <value>If you use the auto-login feature on the check.
-  When using this feature can be used Run Command"" and ""SU switch"".""</value>
+When using this feature can be used Run Command"" and ""SU switch"".""</value>
   </data>
   <data name="Form.AddProfile.Hint._charCodeBox">
     <value>Select a character set.</value>
   </data>
   <data name="Form.AddProfile.Hint._commandSendIntBox">
     <value>Enter the interval for issuing commands.
-  Unit is milliseconds.</value>
+Unit is milliseconds.</value>
   </data>
   <data name="Form.AddProfile.Hint._descriptionBox">
     <value>Enter a description for the profile.</value>
   </data>
   <data name="Form.AddProfile.Hint._execCommandBox">
     <value>Enter the one-liner command to run automatically after login.
-  If you use SU switch function runs SU switch later.
-  If you use this feature with caution.
-  This feature is not used if left blank.</value>
+If you use SU switch function runs SU switch later.
+If you use this feature with caution.
+This feature is not used if left blank.</value>
   </data>
   <data name="Form.AddProfile.Hint._hostNameBox">
     <value>Enter the destination host name or IP address.</value>
@@ -156,8 +156,8 @@
   </data>
   <data name="Form.AddProfile.Hint._loginPromptBox">
     <value>Enter the login prompt.
-  After receiving the prompt string given the username is entered automatically.
-  This item can use regular expressions.</value>
+After receiving the prompt string given the username is entered automatically.
+This item can use regular expressions.</value>
   </data>
   <data name="Form.AddProfile.Hint._newLineTypeBox">
     <value>Select the new line code.</value>
@@ -167,8 +167,8 @@
   </data>
   <data name="Form.AddProfile.Hint._passwordPromptBox">
     <value>Enter the password prompt.
-  After receiving the prompt string given the password is entered automatically.
-  This item can use regular expressions.</value>
+After receiving the prompt string given the password is entered automatically.
+This item can use regular expressions.</value>
   </data>
   <data name="Form.AddProfile.Hint._portBox">
     <value>Enter the connection port. Usually Telnet is 23, SSH is 22.</value>
@@ -178,22 +178,22 @@
   </data>
   <data name="Form.AddProfile.Hint._promptRecvTimeoutBox">
     <value>If you use the auto-login feature, enter the prompts the receive timeout.
-  Unit is milliseconds.</value>
+Unit is milliseconds.</value>
   </data>
   <data name="Form.AddProfile.Hint._protocolBox">
     <value>Select the connection protocol.</value>
   </data>
   <data name="Form.AddProfile.Hint._suPasswordBox">
     <value>Enter the password for the user to switch.
-  Passwords are automatically populated after receiving prompt string specified in item "Password Prompt".</value>
+Passwords are automatically populated after receiving prompt string specified in item "Password Prompt".</value>
   </data>
   <data name="Form.AddProfile.Hint._suTypeRadio">
     <value>Select the switch command.</value>
   </data>
   <data name="Form.AddProfile.Hint._suUserNameBox">
     <value>Enter the user name to switch to auto login after.
-  If you use this feature with caution.
-  This feature is not used if left blank.</value>
+If you use this feature with caution.
+This feature is not used if left blank.</value>
   </data>
   <data name="Form.AddProfile.Hint._telnetNewLineCheck">
     <value>If you use the "Telnet NewLine" on the check.</value>
@@ -347,18 +347,18 @@
   </data>
   <data name="Message.ConnectProfile.ConnectConfirm">
     <value>{0} profile is selected. Do you want to connect?
-  {1}</value>
+{1}</value>
   </data>
   <data name="Message.ConnectProfile.CSVExportComplete">
     <value>CSV export is complete. Encoding is UTF8.
-  Because consistency checks during the Import CSV header information please do not modify or delete.</value>
+Because consistency checks during the Import CSV header information please do not modify or delete.</value>
   </data>
   <data name="Message.ConnectProfile.CSVExportDetetePasssword">
     <value>Removing password from the output?</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportAppendProfileList">
     <value>Do you add in the current profile it?
-  If you choose 'NO' will remove all current profile list.</value>
+If you choose 'NO' will remove all current profile list.</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportCancel">
     <value>Import has been canceled.</value>
@@ -368,7 +368,7 @@
   </data>
   <data name="Message.ConnectProfile.CSVImportConfirm">
     <value>Perform the import?
-  If you encounter errors during the import process is aborted, retains the current profile.</value>
+If you encounter errors during the import process is aborted, retains the current profile.</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportFailed">
     <value>CSV import failed. (at line {0})</value>
@@ -390,7 +390,7 @@
   </data>
   <data name="Message.ConnectProfile.CSVImportInvalidHeader">
     <value>CSV header integrity check failed.  (at line {0})
-  See identical to the header to print on CSV export.</value>
+See identical to the header to print on CSV export.</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportInvalidHostName">
     <value>HostName specified is not valid.</value>

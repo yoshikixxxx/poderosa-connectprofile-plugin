@@ -130,7 +130,7 @@
   </data>
   <data name="Form.AddProfile.Hint._autoLoginCheck">
     <value>自動ログインを使用する場合はチェックをONにします。
-  この機能を使用した場合は「実行コマンド」と「SUスイッチ」が使用できます。</value>
+この機能を使用した場合は「実行コマンド」と「SUスイッチ」が使用できます。</value>
   </data>
   <data name="Form.AddProfile.Hint._charCodeBox">
     <value>文字コードを選択します。</value>
@@ -143,9 +143,9 @@
   </data>
   <data name="Form.AddProfile.Hint._execCommandBox">
     <value>自動ログイン完了後に実行するコマンドをワンライナーで入力します。
-  SUスイッチ機能を使用する場合は、SUスイッチ後に実行されます。
-  この機能を使用する場合は十分注意してください。
-  未入力の場合はこの機能は使用されません。</value>
+SUスイッチ機能を使用する場合は、SUスイッチ後に実行されます。
+この機能を使用する場合は十分注意してください。
+未入力の場合はこの機能は使用されません。</value>
   </data>
   <data name="Form.AddProfile.Hint._hostNameBox">
     <value>接続先のホスト名またはIPアドレスを入力します。</value>
@@ -155,8 +155,8 @@
   </data>
   <data name="Form.AddProfile.Hint._loginPromptBox">
     <value>ログインプロンプトを入力します。
-  指定されたプロンプト文字列を受信後に自動的にユーザ名が入力されます。
-  この項目では正規表現を使用することができます。</value>
+指定されたプロンプト文字列を受信後に自動的にユーザ名が入力されます。
+この項目では正規表現を使用することができます。</value>
   </data>
   <data name="Form.AddProfile.Hint._newLineTypeBox">
     <value>改行コードを選択します。</value>
@@ -166,34 +166,34 @@
   </data>
   <data name="Form.AddProfile.Hint._passwordPromptBox">
     <value>パスワードプロンプトを入力します。
-  指定されたプロンプト文字列を受信後に自動的にパスワードが入力されます。
-  この項目では正規表現を使用することができます。</value>
+指定されたプロンプト文字列を受信後に自動的にパスワードが入力されます。
+この項目では正規表現を使用することができます。</value>
   </data>
   <data name="Form.AddProfile.Hint._portBox">
     <value>接続ポート番号を入力します。
-  通常、Telnetは23番、SSHは22番です。</value>
+通常、Telnetは23番、SSHは22番です。</value>
   </data>
   <data name="Form.AddProfile.Hint._profileItemColorButton">
     <value>プロファイルの表示色を選択します。</value>
   </data>
   <data name="Form.AddProfile.Hint._promptRecvTimeoutBox">
     <value>自動ログイン機能を使用する際のプロンプトの受信タイムアウトを入力します。
-  単位はミリ秒です。</value>
+単位はミリ秒です。</value>
   </data>
   <data name="Form.AddProfile.Hint._protocolBox">
     <value>接続プロトコルを選択します。</value>
   </data>
   <data name="Form.AddProfile.Hint._suPasswordBox">
     <value>スイッチするユーザのパスワードを入力します。
-  パスワードは「パスワードプロンプト」で指定された文字列を受信後に自動的に入力されます。</value>
+パスワードは「パスワードプロンプト」で指定された文字列を受信後に自動的に入力されます。</value>
   </data>
   <data name="Form.AddProfile.Hint._suTypeRadio">
     <value>スイッチコマンドを選択します。</value>
   </data>
   <data name="Form.AddProfile.Hint._suUserNameBox">
     <value>自動ログイン完了後にスイッチするユーザ名を入力します。
-  この機能を使用する場合は十分注意してください。
-  未入力の場合はこの機能は使用されません。</value>
+この機能を使用する場合は十分注意してください。
+未入力の場合はこの機能は使用されません。</value>
   </data>
   <data name="Form.AddProfile.Hint._telnetNewLineCheck">
     <value>TelnetNewLineを使用する場合はチェックをONにします。</value>
@@ -347,18 +347,18 @@
   </data>
   <data name="Message.ConnectProfile.ConnectConfirm">
     <value>{0}個のプロファイルが選択されています。接続しますか？
-  {1}</value>
+{1}</value>
   </data>
   <data name="Message.ConnectProfile.CSVExportComplete">
     <value>CSVエクスポートが完了しました。文字コードはUTF8です。
-  CSVヘッダー情報はインポート時に整合性確認を行っているため変更や削除は行わないでください。</value>
+CSVヘッダー情報はインポート時に整合性確認を行っているため変更や削除は行わないでください。</value>
   </data>
   <data name="Message.ConnectProfile.CSVExportDetetePasssword">
     <value>パスワードを削除して出力しますか？</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportAppendProfileList">
     <value>現在のプロファイルリストに追加しますか？
-  いいえを選択した場合は現在のプロファイルリストは全て削除されます。</value>
+いいえを選択した場合は現在のプロファイルリストは全て削除されます。</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportCancel">
     <value>インポートをキャンセルしました。</value>
@@ -368,7 +368,7 @@
   </data>
   <data name="Message.ConnectProfile.CSVImportConfirm">
     <value>インポートを実行しますか？
-  インポート中にエラーが発生した場合は処理が中止され、現在のプロファイルリストが保持されます。</value>
+インポート中にエラーが発生した場合は処理が中止され、現在のプロファイルリストが保持されます。</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportFailed">
     <value>CSVインポートに失敗しました。({0}行目)</value>
@@ -390,7 +390,7 @@
   </data>
   <data name="Message.ConnectProfile.CSVImportInvalidHeader">
     <value>CSVヘッダーの整合性チェックに失敗しました。({0}行目)
-  CSVエクスポート時に出力されるヘッダーと同一にしてください。</value>
+CSVエクスポート時に出力されるヘッダーと同一にしてください。</value>
   </data>
   <data name="Message.ConnectProfile.CSVImportInvalidHostName">
     <value>ホスト名の指定が正しくありません。</value>

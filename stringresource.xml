@@ -201,9 +201,9 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Form.AddProfile.Hint._autoLoginCheck">
      <ja>自動ログインを使用する場合はチェックをONにします。
-  この機能を使用した場合は「実行コマンド」と「SUスイッチ」が使用できます。</ja>
+この機能を使用した場合は「実行コマンド」と「SUスイッチ」が使用できます。</ja>
      <en>If you use the auto-login feature on the check.
-  When using this feature can be used Run Command"" and ""SU switch"".""</en>
+When using this feature can be used Run Command"" and ""SU switch"".""</en>
   </record>
 
   <record name="Form.AddProfile.Hint._charCodeBox">
@@ -214,7 +214,7 @@ Copyright 2015 yoshikixxxx.
   <record name="Form.AddProfile.Hint._commandSendIntBox">
     <ja>コマンド発行の間隔を入力します。単位はミリ秒です。</ja>
      <en>Enter the interval for issuing commands.
-  Unit is milliseconds.</en>
+Unit is milliseconds.</en>
   </record>
 
   <record name="Form.AddProfile.Hint._descriptionBox">
@@ -224,13 +224,13 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Form.AddProfile.Hint._execCommandBox">
      <ja>自動ログイン完了後に実行するコマンドをワンライナーで入力します。
-  SUスイッチ機能を使用する場合は、SUスイッチ後に実行されます。
-  この機能を使用する場合は十分注意してください。
-  未入力の場合はこの機能は使用されません。</ja>
+SUスイッチ機能を使用する場合は、SUスイッチ後に実行されます。
+この機能を使用する場合は十分注意してください。
+未入力の場合はこの機能は使用されません。</ja>
      <en>Enter the one-liner command to run automatically after login.
-  If you use SU switch function runs SU switch later.
-  If you use this feature with caution.
-  This feature is not used if left blank.</en>
+If you use SU switch function runs SU switch later.
+If you use this feature with caution.
+This feature is not used if left blank.</en>
   </record>
 
   <record name="Form.AddProfile.Hint._hostNameBox">
@@ -245,11 +245,11 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Form.AddProfile.Hint._loginPromptBox">
      <ja>ログインプロンプトを入力します。
-  指定されたプロンプト文字列を受信後に自動的にユーザ名が入力されます。
-  この項目では正規表現を使用することができます。</ja>
+指定されたプロンプト文字列を受信後に自動的にユーザ名が入力されます。
+この項目では正規表現を使用することができます。</ja>
      <en>Enter the login prompt.
-  After receiving the prompt string given the username is entered automatically.
-  This item can use regular expressions.</en>
+After receiving the prompt string given the username is entered automatically.
+This item can use regular expressions.</en>
   </record>
 
   <record name="Form.AddProfile.Hint._newLineTypeBox">
@@ -264,16 +264,16 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Form.AddProfile.Hint._passwordPromptBox">
      <ja>パスワードプロンプトを入力します。
-  指定されたプロンプト文字列を受信後に自動的にパスワードが入力されます。
-  この項目では正規表現を使用することができます。</ja>
+指定されたプロンプト文字列を受信後に自動的にパスワードが入力されます。
+この項目では正規表現を使用することができます。</ja>
      <en>Enter the password prompt.
-  After receiving the prompt string given the password is entered automatically.
-  This item can use regular expressions.</en>
+After receiving the prompt string given the password is entered automatically.
+This item can use regular expressions.</en>
   </record>
 
   <record name="Form.AddProfile.Hint._portBox">
      <ja>接続ポート番号を入力します。
-  通常、Telnetは23番、SSHは22番です。</ja>
+通常、Telnetは23番、SSHは22番です。</ja>
     <en>Enter the connection port. Usually Telnet is 23, SSH is 22.</en>
   </record>
 
@@ -284,9 +284,9 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Form.AddProfile.Hint._promptRecvTimeoutBox">
      <ja>自動ログイン機能を使用する際のプロンプトの受信タイムアウトを入力します。
-  単位はミリ秒です。</ja>
+単位はミリ秒です。</ja>
      <en>If you use the auto-login feature, enter the prompts the receive timeout.
-  Unit is milliseconds.</en>
+Unit is milliseconds.</en>
   </record>
 
   <record name="Form.AddProfile.Hint._protocolBox">
@@ -296,9 +296,9 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Form.AddProfile.Hint._suPasswordBox">
      <ja>スイッチするユーザのパスワードを入力します。
-  パスワードは「パスワードプロンプト」で指定された文字列を受信後に自動的に入力されます。</ja>
+パスワードは「パスワードプロンプト」で指定された文字列を受信後に自動的に入力されます。</ja>
      <en>Enter the password for the user to switch.
-  Passwords are automatically populated after receiving prompt string specified in item "Password Prompt".</en>
+Passwords are automatically populated after receiving prompt string specified in item "Password Prompt".</en>
   </record>
 
   <record name="Form.AddProfile.Hint._suTypeRadio">
@@ -308,11 +308,11 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Form.AddProfile.Hint._suUserNameBox">
      <ja>自動ログイン完了後にスイッチするユーザ名を入力します。
-  この機能を使用する場合は十分注意してください。
-  未入力の場合はこの機能は使用されません。</ja>
+この機能を使用する場合は十分注意してください。
+未入力の場合はこの機能は使用されません。</ja>
      <en>Enter the user name to switch to auto login after.
-  If you use this feature with caution.
-  This feature is not used if left blank.</en>
+If you use this feature with caution.
+This feature is not used if left blank.</en>
   </record>
 
   <record name="Form.AddProfile.Hint._telnetNewLineCheck">
@@ -567,16 +567,16 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Message.ConnectProfile.ConnectConfirm">
      <ja>{0}個のプロファイルが選択されています。接続しますか？
-  {1}</ja>
+{1}</ja>
      <en>{0} profile is selected. Do you want to connect?
-  {1}</en>
+{1}</en>
   </record>
 
   <record name="Message.ConnectProfile.CSVExportComplete">
      <ja>CSVエクスポートが完了しました。文字コードはUTF8です。
-  CSVヘッダー情報はインポート時に整合性確認を行っているため変更や削除は行わないでください。</ja>
+CSVヘッダー情報はインポート時に整合性確認を行っているため変更や削除は行わないでください。</ja>
      <en>CSV export is complete. Encoding is UTF8.
-  Because consistency checks during the Import CSV header information please do not modify or delete.</en>
+Because consistency checks during the Import CSV header information please do not modify or delete.</en>
   </record>
 
   <record name="Message.ConnectProfile.CSVExportDetetePasssword">
@@ -586,9 +586,9 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Message.ConnectProfile.CSVImportAppendProfileList">
      <ja>現在のプロファイルリストに追加しますか？
-  いいえを選択した場合は現在のプロファイルリストは全て削除されます。</ja>
+いいえを選択した場合は現在のプロファイルリストは全て削除されます。</ja>
      <en>Do you add in the current profile it?
-  If you choose 'NO' will remove all current profile list.</en>
+If you choose 'NO' will remove all current profile list.</en>
   </record>
 
   <record name="Message.ConnectProfile.CSVImportCancel">
@@ -603,9 +603,9 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Message.ConnectProfile.CSVImportConfirm">
      <ja>インポートを実行しますか？
-  インポート中にエラーが発生した場合は処理が中止され、現在のプロファイルリストが保持されます。</ja>
+インポート中にエラーが発生した場合は処理が中止され、現在のプロファイルリストが保持されます。</ja>
      <en>Perform the import?
-  If you encounter errors during the import process is aborted, retains the current profile.</en>
+If you encounter errors during the import process is aborted, retains the current profile.</en>
   </record>
 
   <record name="Message.ConnectProfile.CSVImportFailed">
@@ -640,9 +640,9 @@ Copyright 2015 yoshikixxxx.
 
   <record name="Message.ConnectProfile.CSVImportInvalidHeader">
      <ja>CSVヘッダーの整合性チェックに失敗しました。({0}行目)
-  CSVエクスポート時に出力されるヘッダーと同一にしてください。</ja>
+CSVエクスポート時に出力されるヘッダーと同一にしてください。</ja>
      <en>CSV header integrity check failed.  (at line {0})
-  See identical to the header to print on CSV export.</en>
+See identical to the header to print on CSV export.</en>
   </record>
 
   <record name="Message.ConnectProfile.CSVImportInvalidHostName">
