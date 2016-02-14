@@ -294,8 +294,8 @@ namespace Contrib.ConnectProfile {
         /// フィルターテキストキー押下イベント
         /// </summary>
         private void _filterTextBox_KeyDown(object sender, KeyEventArgs e) {
-            // 上下キー押下時はリストビューにフォーカス
-            if ((e.KeyCode == Keys.Up) || (e.KeyCode == Keys.Down)) {
+            // 上下キー押下時はリストビューにフォーカス(リストアイテムが0以外の場合のみ)
+            if (((e.KeyCode == Keys.Up) || (e.KeyCode == Keys.Down)) && (_profileListView.Items.Count > 0)) {
                 // ウィンドウ表示後にListViewをアクティブにしたかどうか(一度でもアイテムを選択したかどうか)
                 if (_profileListView.FocusedItem == null) {
                     // 一度もアクティブにしていない場合は最上部を選択

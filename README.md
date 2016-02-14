@@ -1,4 +1,4 @@
-# Poderosa 接続プロファイルプラグイン (v1.1)
+# Poderosa 接続プロファイルプラグイン (v1.2)
 ※日本語から英語への翻訳はBing翻訳を使用しています。  
 (* Japanese to English translations use the Bing translator.)
 
@@ -27,6 +27,9 @@ VisualC# 2013で開発し、Poderosa v4.3.16(.Net4.5と2.0)で動作確認して
 
 * プロファイルリストはフィルタリングを行うことができます  
 (Profile you can do filtering.)
+
+* フィルタテキストボックス内で上下キーを押下するとプロファイルリストビューにフォーカスを移すことができます(クイック選択)  
+(You can press the up and down keys in the filter text box and give the focus to the "profile list view". (Quick select))
 
 * プロファイルを複数選択することで選択ホストへの連続接続ができます  
 (To select multiple profiles that enables continuous connection to the selected host.)
@@ -85,6 +88,10 @@ Poderosaディレクトリ内に下記のように配置します。
 
 
 ## <a name ="dl_history">Download & History
+* 2016/02/15 v1.2 [(.Net2.0)][DL-1.2-net20] [(.Net4.5)][DL-1.2-net45]  
+プロファイルリストアイテムが空の場合にクイック選択を使用するとエラーが発生してしまう不具合を修正しました。  
+(Fixed bug if using quick select profile list item and it fails.)
+
 * 2016/02/08 v1.1 [(.Net2.0)][DL-1.1-net20] [(.Net4.5)][DL-1.1-net45]  
 フィルタテキストボックスにフォーカスがある場合、上下キーで「プロファイルリストビュー」をアクティブにする際の挙動を変更しました。  
 (Changed the behavior to activate "profile list view" up/down keys when focus is in the filter text box.)  
@@ -109,4 +116,6 @@ you may not use this file except in compliance with the License.
 [DL-1.0-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.0/connectprofile_1.0_net45.zip
 [DL-1.1-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.1/connectprofile_1.1_net20.zip
 [DL-1.1-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.1/connectprofile_1.1_net45.zip
+[DL-1.2-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.2/connectprofile_1.2_net20.zip
+[DL-1.2-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.2/connectprofile_1.2_net45.zip
 [TWITTER]: https://twitter.com/yoshikixxxxaol

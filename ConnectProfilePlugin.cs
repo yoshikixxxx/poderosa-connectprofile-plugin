@@ -28,7 +28,7 @@ namespace Contrib.ConnectProfile {
     /********* プラグイン情報 *********/
     [PluginInfo(
         ID           = PLUGIN_ID,
-        Version      = "1.1",
+        Version      = "1.2",
         Author       = "yoshikixxxx",
         Dependencies = "org.poderosa.core.window"
     )]
