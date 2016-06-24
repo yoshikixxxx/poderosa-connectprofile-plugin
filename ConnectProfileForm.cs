@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015 yoshikixxxx.
+ * Copyright 2015-2016 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -243,7 +243,7 @@ namespace Contrib.ConnectProfile {
         }
 
         /// <summary>
-        /// プロファイルコピー&編集
+        /// プロファイルコピー/編集
         /// </summary>
         private void CopyEditProfile() {
             ConnectProfileStruct prof = GetSelectedProfile();

@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015 yoshikixxxx.
+ * Copyright 2015-2016 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,10 +27,10 @@ using Poderosa.Terminal;
 namespace Contrib.ConnectProfile {
     /********* プラグイン情報 *********/
     [PluginInfo(
-        ID           = PLUGIN_ID,
-        Version      = "1.2",
-        Author       = "yoshikixxxx",
-        Dependencies = "org.poderosa.core.window"
+        ID = PLUGIN_ID,
+        Version = "1.3",
+        Author = "yoshikixxxx",
+        Dependencies = "org.poderosa.core.commands;org.poderosa.core.preferences;org.poderosa.core.serializing;org.poderosa.core.sessions;org.poderosa.core.window;org.poderosa.protocols;org.poderosa.telnet_ssh;org.poderosa.terminalemulator;org.poderosa.terminalsessions;org.poderosa.terminalui;org.poderosa.usability"
     )]
     /**********************************/
 
@@ -43,12 +43,14 @@ namespace Contrib.ConnectProfile {
     internal class ConnectProfilePlugin : PluginBase {
         // メンバー変数
         public const string PLUGIN_ID = "contrib.yoshikixxxx.connectprofile";
+        public const string CMD_ID_MAIN = PLUGIN_ID + ".main";
+        public const string CMD_ID_ADDPROFILE = PLUGIN_ID + ".addprofile";
         private static ConnectProfilePlugin _instance;
         private static ICoreServices _coreServices;
-        private static ConnectProfileCommand _connectProfileCommand;
         private static Poderosa.StringResource _stringResource;
         private static ConnectProfileList _profiles;
         private static ConnectProfileOptionsSupplier _connectProfileOptionSupplier;
+        private ITerminalEmulatorService _terminalEmulatorPlugin;
 
         /// <summary>
         /// コンストラクタ
@@ -61,13 +63,23 @@ namespace Contrib.ConnectProfile {
             _stringResource = new Poderosa.StringResource("Contrib.ConnectProfile.strings", typeof(ConnectProfilePlugin).Assembly);
             ConnectProfilePlugin.Instance.PoderosaWorld.Culture.AddChangeListener(_stringResource);
 
-            // メニュー登録
+            // コマンド登録
             IPluginManager pm = poderosa.PluginManager;
             _coreServices = (ICoreServices)poderosa.GetAdapter(typeof(ICoreServices));
-            _connectProfileCommand = new ConnectProfileCommand();
-            _coreServices.CommandManager.Register(_connectProfileCommand);
+            _terminalEmulatorPlugin = (ITerminalEmulatorService)pm.FindPlugin("org.poderosa.terminalemulator", typeof(ITerminalEmulatorService));
+            ConnectProfileCommand.Register(_coreServices.CommandManager);
+
+            // メニューリスト作成
+            ConnectProfileMenuGroup menulist = new ConnectProfileMenuGroup();
+            ConnectProfileContextMenuGroup contextmenulist = new ConnectProfileContextMenuGroup();
+
+            // メニュー登録
             IExtensionPoint toolmenu = pm.FindExtensionPoint("org.poderosa.menu.tool");
-            toolmenu.RegisterExtension(new PoderosaMenuGroupImpl(new IPoderosaMenu[] { new PoderosaMenuItemImpl(_connectProfileCommand, ConnectProfilePlugin.Strings, "Menu.ConnectProfile") }, false));
+            toolmenu.RegisterExtension(menulist);
+
+            // コンテキストメニュー登録
+            IExtensionPoint contextmenu = pm.FindExtensionPoint("org.poderosa.terminalemulator.contextMenu");
+            contextmenu.RegisterExtension(contextmenulist);
 
             // 設定ファイル連携
             _connectProfileOptionSupplier = new ConnectProfileOptionsSupplier();
@@ -187,21 +199,189 @@ namespace Contrib.ConnectProfile {
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public ConnectProfileCommand()
-            : base(ConnectProfilePlugin.PLUGIN_ID, ConnectProfilePlugin.Strings, "Command.ConnectProfile", ConnectProfilePlugin.Instance.CommandManager.CommandCategories.Dialogs) {
-            return;
+        /// <param name="cmdID">コマンドID</param>
+        /// <param name="textID">コマンド説明文ID</param>
+        /// <param name="body">実行Delegate</param>
+        public ConnectProfileCommand(string cmdID, string textID, ExecuteDelegate body)
+            :
+            base(cmdID, ConnectProfilePlugin.Strings, textID, ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalCommandCategory, body) {
         }
 
         /// <summary>
-        /// プラグイン実行
+        /// コンストラクタ(実行可否チェックあり)
         /// </summary>
-        public override CommandResult InternalExecute(ICommandTarget target, params Poderosa.IAdaptable[] args) {
-            IPoderosaMainWindow window = CommandTargetUtil.AsWindow(target);
-            ConnectProfileForm Form = new ConnectProfileForm();
-            if (Form.ShowDialog(window.AsForm()) == DialogResult.OK) {
-                return CommandResult.Succeeded;
+        /// <param name="cmdID">コマンドID</param>
+        /// <param name="textID">コマンド説明文ID</param>
+        /// <param name="body">実行Delegate</param>
+        /// <param name="enabled">実行可否Delegate</param>
+        public ConnectProfileCommand(string cmdID, string textID, ExecuteDelegate body, CanExecuteDelegate enabled)
+            :
+            base(cmdID, ConnectProfilePlugin.Strings, textID, ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalCommandCategory, body, enabled) {
+        }
+
+        /// <summary>
+        /// コマンド登録
+        /// </summary>
+        /// <param name="cm">コマンドマネージャ</param>
+        public static void Register(ICommandManager cm) {
+            // 実行可否Delegate
+            CanExecuteDelegate does_open_target_session = new CanExecuteDelegate(DoesOpenTargetSession);
+
+            // 登録
+            cm.Register(new ConnectProfileCommand(ConnectProfilePlugin.CMD_ID_MAIN, "Command.ConnectProfile", new ExecuteDelegate(MainWindow)));
+            cm.Register(new ConnectProfileCommand(ConnectProfilePlugin.CMD_ID_ADDPROFILE, "Command.AddConnectProfile", new ExecuteDelegate(AddConnectProfile), does_open_target_session));
+        }
+
+        /// <summary>
+        /// 実行可否チェックDelegate
+        /// </summary>
+        public static EnabledDelegate DoesOpenTargetSession {
+            get {
+                return delegate(ICommandTarget target) {
+                    ITerminalSession s = AsTerminalSession(target);
+                    return (s != null) && (!s.TerminalTransmission.Connection.IsClosed);
+                };
+            }
+        }
+
+        /// <summary>
+        /// CommandTargetからTerminalSessionを取得
+        /// </summary>
+        /// <param name="target">CommandTarget</param>
+        public static ITerminalSession AsTerminalSession(ICommandTarget target) {
+            IPoderosaDocument doc = CommandTargetUtil.AsDocumentOrViewOrLastActivatedDocument(target);
+            if (doc != null) {
+                ISession s = doc.OwnerSession;
+                return (ITerminalSession)s.GetAdapter(typeof(ITerminalSession));
             } else {
-                return CommandResult.Cancelled;
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// メインウィンドウ表示コマンド
+        /// </summary>
+        /// <param name="target">CommandTarget</param>
+        private static CommandResult MainWindow(ICommandTarget target) {
+            IPoderosaMainWindow window = CommandTargetUtil.AsWindow(target);
+            if (window != null) {
+                ConnectProfileForm Form = new ConnectProfileForm();
+                if (Form.ShowDialog(window.AsForm()) == DialogResult.OK) {
+                    return CommandResult.Succeeded;
+                }
+            }
+            return CommandResult.Cancelled;
+        }
+
+        /// <summary>
+        /// アクティブセッション追加コマンド
+        /// </summary>
+        /// <param name="target">CommandTarget</param>
+        private static CommandResult AddConnectProfile(ICommandTarget target) {
+            IPoderosaDocument document = CommandTargetUtil.AsDocumentOrViewOrLastActivatedDocument(target);
+            if (document != null) {
+                ITerminalSession ts = (ITerminalSession)document.OwnerSession.GetAdapter(typeof(ITerminalSession));
+                if (ts != null) {
+                    Commands _cmd = new Commands();
+                    _cmd.NewProfileCurrentSessionCommand(ts);
+                    return CommandResult.Succeeded;
+                }
+            }
+            return CommandResult.Cancelled;
+        }
+    }
+
+
+
+
+    /// <summary>
+    /// 標準メニューアイテムクラス
+    /// </summary>
+    internal class StandardMenuItem : PoderosaMenuItemImpl {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="commandID">コマンドID</param>
+        /// <param name="textID">メニュ文字列ID</param>
+        public StandardMenuItem(string commandID, string textID)
+            : base(commandID, ConnectProfilePlugin.Strings, textID) {
+        }
+
+        /// <summary>
+        /// コンストラクタ(チェック付きメニュー)
+        /// </summary>
+        /// <param name="commandID">コマンドID</param>
+        /// <param name="textID">メニュ文字列ID</param>
+        /// <param name="cd">チェック付きメニューDelegate</param>
+        public StandardMenuItem(string commandID, string textID, CheckedDelegate cd)
+            : base(commandID, ConnectProfilePlugin.Strings, textID) {
+            _checked = cd;
+        }
+    }
+
+
+
+
+    /// <summary>
+    /// 標準メニューグループクラス
+    /// </summary>
+    internal abstract class StandarMenuGroup : PoderosaMenuGroupImpl {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public StandarMenuGroup() {
+            _designationTarget = null;
+            _positionType = PositionType.First;
+        }
+    }
+
+
+
+
+    /// <summary>
+    /// メニュークラス
+    /// </summary>
+    internal class ConnectProfileMenuGroup : StandarMenuGroup {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public override IPoderosaMenu[] ChildMenus {
+            get {
+                return new IPoderosaMenu[] {
+                    new StandardMenuItem(ConnectProfilePlugin.CMD_ID_MAIN, "Menu.ConnectProfile"),
+                    new StandardMenuItem(ConnectProfilePlugin.CMD_ID_ADDPROFILE, "Menu.AddConnectProfile")
+                };
+            }
+        }
+
+        public override PositionType DesignationPosition {
+            get {
+                return PositionType.Last;
+            }
+        }
+    }
+
+
+
+
+    /// <summary>
+    /// コンテキストメニュークラス
+    /// </summary>
+    internal class ConnectProfileContextMenuGroup : StandarMenuGroup {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public override IPoderosaMenu[] ChildMenus {
+            get {
+                return new IPoderosaMenu[] {
+                    new StandardMenuItem(ConnectProfilePlugin.CMD_ID_ADDPROFILE, "Menu.AddConnectProfile")
+                };
+            }
+        }
+
+        public override PositionType DesignationPosition {
+            get {
+                return PositionType.Last;
             }
         }
     }

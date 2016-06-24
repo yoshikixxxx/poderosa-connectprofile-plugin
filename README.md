@@ -1,4 +1,4 @@
-# Poderosa 接続プロファイルプラグイン (v1.2)
+# Poderosa 接続プロファイルプラグイン (v1.3)
 ※日本語から英語への翻訳はBing翻訳を使用しています。  
 (* Japanese to English translations use the Bing translator.)
 
@@ -18,6 +18,9 @@ VisualC# 2013で開発し、Poderosa v4.3.16(.Net4.5と2.0)で動作確認して
 ## Features
 * 各項目を入力して接続先ホストをプロファイル管理します  
 (Enter each item, manages the connected host profile.)
+
+* アクティブセッションを接続プロファイルに直接追加できます(v1.3以降)  
+(Active session you can add directly in the connection profile.)
 
 * プロファイル操作は、接続/追加/編集/削除/コピー/CSVエクスポート/CSVインポートができます  
 (Profile operation makes connections / add / edit / delete / copy / CSV export / CSV import.)
@@ -88,6 +91,12 @@ Poderosaディレクトリ内に下記のように配置します。
 
 
 ## <a name ="dl_history">Download & History
+* 2016/06/24 v1.3 [(.Net2.0)][DL-1.3-net20] [(.Net4.5)][DL-1.3-net45]  
+メインメニューまたはコンテキストメニューからアクティブセッションを接続プロファイルに追加する機能を追加しました。  
+(Added the ability to add active session connection profile from the main menu or the context menu.)  
+プラグインの登録処理を修正しました。  
+(Fixed plug-in registration process.)
+
 * 2016/02/15 v1.2 [(.Net2.0)][DL-1.2-net20] [(.Net4.5)][DL-1.2-net45]  
 プロファイルリストアイテムが空の場合にクイック選択を使用するとエラーが発生してしまう不具合を修正しました。  
 (Fixed bug if using quick select profile list item and it fails.)
@@ -118,4 +127,6 @@ you may not use this file except in compliance with the License.
 [DL-1.1-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.1/connectprofile_1.1_net45.zip
 [DL-1.2-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.2/connectprofile_1.2_net20.zip
 [DL-1.2-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.2/connectprofile_1.2_net45.zip
+[DL-1.3-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.3/connectprofile_1.3_net20.zip
+[DL-1.3-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.3/connectprofile_1.3_net45.zip
 [TWITTER]: https://twitter.com/yoshikixxxxaol
