@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-Copyright 2015 yoshikixxxx.
+Copyright 2015-2016 yoshikixxxx.
 -->
 
 <string-resource>
@@ -22,6 +22,11 @@ Copyright 2015 yoshikixxxx.
   <record name="Command.ConnectProfile">
     <ja>Telnet/SSH接続プロファイル</ja>
     <en>Telnet/SSH Connection Profile</en>
+  </record>
+
+  <record name="Command.AddConnectProfile">
+    <ja>接続プロファイルに追加</ja>
+    <en>Add Connection Profile</en>
   </record>
 
   <record name="Form.AddProfile._accountGroup">
@@ -503,6 +508,11 @@ This feature is not used if left blank.</en>
   <record name="Menu.ConnectProfile">
     <ja>Telnet/SSH接続プロファイル</ja>
     <en>Telnet/SSH Connection Profile</en>
+  </record>
+
+  <record name="Menu.AddConnectProfile">
+    <ja>接続プロファイルに追加</ja>
+    <en>Add Connection Profile</en>
   </record>
 
   <record name="Message.AddProfile.EmptyHostName">

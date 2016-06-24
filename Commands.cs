@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015 yoshikixxxx.
+ * Copyright 2015-2016 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,57 @@ namespace Contrib.ConnectProfile {
             ProfileEditForm dlg = new ProfileEditForm(null);
             if (dlg.ShowDialog() == DialogResult.OK) {
                 AddProfileCommand(proflist, dlg.ResultProfile);
+            }
+        }
+
+        /// <summary>
+        /// カレントセッションプロファイルを新規作成
+        /// </summary>
+        /// <param name="ts">ターミナルセッション</param>
+        public void NewProfileCurrentSessionCommand(ITerminalSession ts) {
+            ISSHLoginParameter ssh = (ISSHLoginParameter)ts.TerminalConnection.Destination.GetAdapter(typeof(ISSHLoginParameter));
+            ITelnetParameter telnet = (ITelnetParameter)ts.TerminalConnection.Destination.GetAdapter(typeof(ITelnetParameter));
+            ITCPParameter tcp = null;
+            ConnectProfileStruct prof = new ConnectProfileStruct();
+
+            // プロトコルチェック
+            if (telnet != null) {
+                // Telnet
+                tcp = (ITCPParameter)ts.TerminalConnection.Destination.GetAdapter(typeof(ITCPParameter));
+                prof.Protocol = ConnectionMethod.Telnet;
+                prof.HostName = tcp.Destination;
+                prof.Port = tcp.Port;
+                prof.TelnetNewLine = telnet.TelnetNewLine;
+            } else {
+                // SSH
+                tcp = (ITCPParameter)ssh.GetAdapter(typeof(ITCPParameter));
+                prof.HostName = tcp.Destination;
+                prof.Port = tcp.Port;
+                prof.UserName = ssh.Account;
+                prof.Password = ssh.PasswordOrPassphrase;
+                prof.KeyFile = ssh.IdentityFileName;
+                prof.AutoLogin = true;
+                if (ssh.Method.ToString() == "SSH1") { prof.Protocol = ConnectionMethod.SSH1; }
+                else if (ssh.Method.ToString() == "SSH2") { prof.Protocol = ConnectionMethod.SSH2; }
+                if (ssh.AuthenticationType.ToString() == "Password") { prof.AuthType = AuthType.Password; }
+                else if (ssh.AuthenticationType.ToString() == "PublicKey") { prof.AuthType = AuthType.PublicKey; }
+                else if (ssh.AuthenticationType.ToString() == "KeyboardInteractive") { prof.AuthType = AuthType.KeyboardInteractive; }
+            }
+
+            // その他設定
+            prof.CharCode = ts.TerminalSettings.Encoding;
+            prof.NewLine = ts.TerminalSettings.TransmitNL;
+            prof.TerminalType = ts.TerminalSettings.TerminalType;
+            prof.TerminalFontColor = ts.TerminalSettings.RenderProfile.ForeColor;
+            prof.TerminalBGColor = ts.TerminalSettings.RenderProfile.BackColor;
+            prof.CommandSendInterval = ConnectProfileStruct.DEFAULT_CMD_SEND_INTERVAL;
+            prof.PromptRecvTimeout = ConnectProfileStruct.DEFAULT_PROMPT_RECV_TIMEOUT;
+            prof.ProfileItemColor = System.Drawing.Color.Black;
+
+            // ウィンドウ表示/プロファイル追加
+            ProfileEditForm dlg = new ProfileEditForm(prof);
+            if (dlg.ShowDialog() == DialogResult.OK) {
+                AddProfileCommand(ConnectProfilePlugin.Profiles, dlg.ResultProfile);
             }
         }
 

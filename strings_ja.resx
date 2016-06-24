@@ -23,6 +23,9 @@
   <data name="Command.ConnectProfile">
     <value>Telnet/SSH接続プロファイル</value>
   </data>
+  <data name="Command.AddConnectProfile">
+    <value>接続プロファイルに追加</value>
+  </data>
   <data name="Form.AddProfile._accountGroup">
     <value>アカウント</value>
   </data>
@@ -308,6 +311,9 @@ SUスイッチ機能を使用する場合は、SUスイッチ後に実行され�
   </data>
   <data name="Menu.ConnectProfile">
     <value>Telnet/SSH接続プロファイル</value>
+  </data>
+  <data name="Menu.AddConnectProfile">
+    <value>接続プロファイルに追加</value>
   </data>
   <data name="Message.AddProfile.EmptyHostName">
     <value>ホスト名が入力されていません。</value>

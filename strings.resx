@@ -23,6 +23,9 @@
   <data name="Command.ConnectProfile">
     <value>Telnet/SSH Connection Profile</value>
   </data>
+  <data name="Command.AddConnectProfile">
+    <value>Add Connection Profile</value>
+  </data>
   <data name="Form.AddProfile._accountGroup">
     <value>Account</value>
   </data>
@@ -308,6 +311,9 @@ This feature is not used if left blank.</value>
   </data>
   <data name="Menu.ConnectProfile">
     <value>Telnet/SSH Connection Profile</value>
+  </data>
+  <data name="Menu.AddConnectProfile">
+    <value>Add Connection Profile</value>
   </data>
   <data name="Message.AddProfile.EmptyHostName">
     <value>Host name has not been entered.</value>
