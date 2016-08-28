@@ -81,6 +81,15 @@
   <ItemGroup>
     <Compile Include="Commands.cs" />
     <Compile Include="ConnectProfileList.cs" />
+    <Compile Include="EditEscapeSequenceColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRenderProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProfileEditForm.cs">
       <SubType>Form</SubType>
     </Compile>

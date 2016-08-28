@@ -78,8 +78,13 @@ namespace Contrib.ConnectProfile {
             prof.CharCode = ts.TerminalSettings.Encoding;
             prof.NewLine = ts.TerminalSettings.TransmitNL;
             prof.TerminalType = ts.TerminalSettings.TerminalType;
-            prof.TerminalFontColor = ts.TerminalSettings.RenderProfile.ForeColor;
-            prof.TerminalBGColor = ts.TerminalSettings.RenderProfile.BackColor;
+            if (ts.TerminalSettings.RenderProfile == null) {
+                prof.RenderProfile = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions.CreateRenderProfile();
+                prof.RenderProfile.ESColorSet = new EscapesequenceColorSet();
+                prof.RenderProfile.ESColorSet.ResetToDefault();
+            } else {
+                prof.RenderProfile = ts.TerminalSettings.RenderProfile;
+            }
             prof.CommandSendInterval = ConnectProfileStruct.DEFAULT_CMD_SEND_INTERVAL;
             prof.PromptRecvTimeout = ConnectProfileStruct.DEFAULT_PROMPT_RECV_TIMEOUT;
             prof.ProfileItemColor = System.Drawing.Color.Black;
@@ -198,8 +203,24 @@ namespace Contrib.ConnectProfile {
                 prof.NewLine.ToString(),
                 prof.TelnetNewLine.ToString(),
                 prof.TerminalType.ToString(),
-                Convert.ToString(prof.TerminalFontColor.ToArgb(), 16),
-                Convert.ToString(prof.TerminalBGColor.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ForeColor.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.BackColor.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[0].Color.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[1].Color.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[2].Color.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[3].Color.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[4].Color.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[5].Color.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[6].Color.ToArgb(), 16),
+                Convert.ToString(prof.RenderProfile.ESColorSet[7].Color.ToArgb(), 16),
+                prof.RenderProfile.FontName,
+                prof.RenderProfile.CJKFontName,
+                prof.RenderProfile.FontSize.ToString(),
+                prof.RenderProfile.UseClearType.ToString(),
+                prof.RenderProfile.EnableBoldStyle.ToString(),
+                prof.RenderProfile.ForceBoldStyle.ToString(),
+                prof.RenderProfile.BackgroundImageFileName,
+                prof.RenderProfile.ImageStyle.ToString(),
                 prof.CommandSendInterval.ToString(),
                 prof.PromptRecvTimeout.ToString(),
                 Convert.ToString(prof.ProfileItemColor.ToArgb(), 16),
@@ -230,8 +251,10 @@ namespace Contrib.ConnectProfile {
         /// <param name="data">CSVデータ</param>
         public ConnectProfileStruct CheckCSVData(string data) {
             ConnectProfileStruct prof = new ConnectProfileStruct();
+            ITerminalEmulatorOptions terminalOptions = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions;
             string[] ary = data.Split(',');
             int tmp;
+            float tmpfloat;
 
             // ホスト名
             if (ary[0] != "") prof.HostName = ary[0];
@@ -289,6 +312,8 @@ namespace Contrib.ConnectProfile {
             if (ary[13].ToLower() == "") prof.SUType = "";
             else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio1")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio1");
             else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio2")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio2");
+            else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio3")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio3");
+            else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio4")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio4");
             else {
                 ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidSUType"), MessageBoxIcon.Error);
                 return null;
@@ -336,31 +361,98 @@ namespace Contrib.ConnectProfile {
                 return null;
             }
 
-            // フォント色/背景色
-            prof.TerminalFontColor = Poderosa.ParseUtil.ParseColor(ary[18].ToLower(), Color.White);
-            prof.TerminalBGColor = Poderosa.ParseUtil.ParseColor(ary[19].ToLower(), Color.Black);
+            // 表示オプション(背景/フォント/エスケープシーケンス色)
+            prof.RenderProfile = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions.CreateRenderProfile();
+            prof.RenderProfile.ForeColor = Poderosa.ParseUtil.ParseColor(ary[18].ToLower(), terminalOptions.TextColor);
+            prof.RenderProfile.BackColor = Poderosa.ParseUtil.ParseColor(ary[19].ToLower(), terminalOptions.BGColor);
+            prof.RenderProfile.ESColorSet = new EscapesequenceColorSet();
+            prof.RenderProfile.ESColorSet.ResetToDefault();
+            prof.RenderProfile.ESColorSet[0] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[20].ToLower(), terminalOptions.EscapeSequenceColorSet[0].Color), false);
+            prof.RenderProfile.ESColorSet[1] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[21].ToLower(), terminalOptions.EscapeSequenceColorSet[1].Color), false);
+            prof.RenderProfile.ESColorSet[2] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[22].ToLower(), terminalOptions.EscapeSequenceColorSet[2].Color), false);
+            prof.RenderProfile.ESColorSet[3] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[23].ToLower(), terminalOptions.EscapeSequenceColorSet[3].Color), false);
+            prof.RenderProfile.ESColorSet[4] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[24].ToLower(), terminalOptions.EscapeSequenceColorSet[4].Color), false);
+            prof.RenderProfile.ESColorSet[5] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[25].ToLower(), terminalOptions.EscapeSequenceColorSet[5].Color), false);
+            prof.RenderProfile.ESColorSet[6] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[26].ToLower(), terminalOptions.EscapeSequenceColorSet[6].Color), false);
+            prof.RenderProfile.ESColorSet[7] = new ESColor(Poderosa.ParseUtil.ParseColor(ary[27].ToLower(), terminalOptions.EscapeSequenceColorSet[7].Color), false);
 
-            // コマンド発行間隔(空白=200ms)
-            if (ary[20] == "") prof.CommandSendInterval = 200;
-            else if (int.TryParse(ary[20], out tmp) == true) prof.CommandSendInterval = tmp;
+            // 表示オプション(フォント)
+            prof.RenderProfile.FontName = (ary[28] != "") ? ary[28] : terminalOptions.Font.Name;
+            prof.RenderProfile.CJKFontName = (ary[29] != "") ? ary[29] : terminalOptions.CJKFont.Name;
+            if (ary[30] == "") prof.RenderProfile.FontSize = terminalOptions.Font.Size;
+            else if (float.TryParse(ary[30], out tmpfloat) == true) prof.RenderProfile.FontSize = tmpfloat;
             else {
-                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportCommandSendInterval"), MessageBoxIcon.Error);
+                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidFontSize"), MessageBoxIcon.Error);
+                return null;
+            }
+            if (ary[31] == "") prof.RenderProfile.UseClearType = terminalOptions.UseClearType;
+            else if (ary[31].ToLower() == "true") prof.RenderProfile.UseClearType = true;
+            else if (ary[31].ToLower() == "false") prof.RenderProfile.UseClearType = false;
+            else {
+                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidClearType"), MessageBoxIcon.Error);
+                return null;
+            }
+            if (ary[32] == "") prof.RenderProfile.EnableBoldStyle = terminalOptions.EnableBoldStyle;
+            else if (ary[32].ToLower() == "true") prof.RenderProfile.EnableBoldStyle = true;
+            else if (ary[32].ToLower() == "false") prof.RenderProfile.EnableBoldStyle = false;
+            else {
+                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidBoldStyle"), MessageBoxIcon.Error);
+                return null;
+            }
+            if (ary[33] == "") prof.RenderProfile.ForceBoldStyle = terminalOptions.ForceBoldStyle;
+            else if (ary[33].ToLower() == "true") prof.RenderProfile.ForceBoldStyle = true;
+            else if (ary[33].ToLower() == "false") prof.RenderProfile.ForceBoldStyle = false;
+            else {
+                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidForceBoldStyle"), MessageBoxIcon.Error);
                 return null;
             }
 
-            // プロンプト受信タイムアウト(空白=5000ms)
-            if (ary[21] == "") prof.PromptRecvTimeout = 5000;
-            else if (int.TryParse(ary[21], out tmp) == true) prof.PromptRecvTimeout = tmp;
+            // 表示オプション(背景画像, ファイルチェックあり)
+            if (ary[34] == "") prof.RenderProfile.BackgroundImageFileName = terminalOptions.BackgroundImageFileName;
+            else prof.RenderProfile.BackgroundImageFileName = ary[34];
+            if (prof.RenderProfile.BackgroundImageFileName != "") {
+                try {
+                    Image.FromFile(prof.RenderProfile.BackgroundImageFileName);
+                } catch (Exception) {
+                    ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidBackgroundImageFileName"), MessageBoxIcon.Error);
+                    return null;
+                }
+            }
+            if (ary[35] == "") prof.RenderProfile.ImageStyle = terminalOptions.ImageStyle;
+            else if (ary[35].ToLower() == "center") prof.RenderProfile.ImageStyle = ImageStyle.Center;
+            else if (ary[35].ToLower() == "topleft") prof.RenderProfile.ImageStyle = ImageStyle.TopLeft;
+            else if (ary[35].ToLower() == "topright") prof.RenderProfile.ImageStyle = ImageStyle.TopRight;
+            else if (ary[35].ToLower() == "bottomleft") prof.RenderProfile.ImageStyle = ImageStyle.BottomLeft;
+            else if (ary[35].ToLower() == "bottomright") prof.RenderProfile.ImageStyle = ImageStyle.BottomRight;
+            else if (ary[35].ToLower() == "scaled") prof.RenderProfile.ImageStyle = ImageStyle.Scaled;
+            else if (ary[35].ToLower() == "horizontalfit") prof.RenderProfile.ImageStyle = ImageStyle.HorizontalFit;
+            else if (ary[35].ToLower() == "verticalfit") prof.RenderProfile.ImageStyle = ImageStyle.VerticalFit;
             else {
-                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportPromptRecvTimeout"), MessageBoxIcon.Error);
+                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidImageStyle"), MessageBoxIcon.Error);
+                return null;
+            }
+
+            // コマンド発行間隔
+            if (ary[36] == "") prof.CommandSendInterval = ConnectProfileStruct.DEFAULT_CMD_SEND_INTERVAL;
+            else if (int.TryParse(ary[36], out tmp) == true) prof.CommandSendInterval = tmp;
+            else {
+                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidCommandSendInterval"), MessageBoxIcon.Error);
+                return null;
+            }
+
+            // プロンプト受信タイムアウト
+            if (ary[37] == "") prof.PromptRecvTimeout = ConnectProfileStruct.DEFAULT_PROMPT_RECV_TIMEOUT;
+            else if (int.TryParse(ary[37], out tmp) == true) prof.PromptRecvTimeout = tmp;
+            else {
+                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidPromptRecvTimeout"), MessageBoxIcon.Error);
                 return null;
             }
 
             // 項目色
-            prof.ProfileItemColor = Poderosa.ParseUtil.ParseColor(ary[22].ToLower(), Color.Black);
+            prof.ProfileItemColor = Poderosa.ParseUtil.ParseColor(ary[38].ToLower(), Color.Black);
 
             // 説明
-            prof.Description = ary[23];
+            prof.Description = ary[39];
 
             return prof;
         }
@@ -392,6 +484,22 @@ namespace Contrib.ConnectProfile {
                     "TERMINAL_TYPE",
                     "TERMINAL_FONTCOLOR",
                     "TERMINAL_BGCOLOR",
+                    "TERMINAL_ESCCOLOR0",
+                    "TERMINAL_ESCCOLOR1",
+                    "TERMINAL_ESCCOLOR2",
+                    "TERMINAL_ESCCOLOR3",
+                    "TERMINAL_ESCCOLOR4",
+                    "TERMINAL_ESCCOLOR5",
+                    "TERMINAL_ESCCOLOR6",
+                    "TERMINAL_ESCCOLOR7",
+                    "TERMINAL_ASCIIFONT",
+                    "TERMINAL_CJKFONT",
+                    "TERMINAL_FONTSIZE",
+                    "TERMINAL_CLEARTYPE",
+                    "TERMINAL_BOLD",
+                    "TERMINAL_FORCEBOLD",
+                    "TERMINAL_BGIMAGE",
+                    "TERMINAL_BGIMAGE_POS",
                     "COMMAND_SEND_INTERVAL",
                     "PROMPT_RECV_TIMEOUT",
                     "PROFILE_ITEM_COLOR",
@@ -449,29 +557,10 @@ namespace Contrib.ConnectProfile {
                 ssh.LetUserInputPassword = (_prof.AutoLogin == true) ? false : true;
             }
 
-            // ターミナルオプション取得
-            ITerminalEmulatorOptions terminalOptions = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions;
-
-            // 表示プロファイル(背景/フォント色以外はターミナルオプション値を設定)
-            RenderProfile render = new RenderProfile();
-            render.ForeColor = _prof.TerminalFontColor;
-            render.BackColor = _prof.TerminalBGColor;
-            render.FontSize = terminalOptions.Font.Size;
-            render.FontName = terminalOptions.Font.Name;
-            render.CJKFontName = terminalOptions.CJKFont.Name;
-            render.UseClearType = terminalOptions.UseClearType;
-            render.EnableBoldStyle = terminalOptions.EnableBoldStyle;
-            render.ForceBoldStyle = terminalOptions.ForceBoldStyle;
-            render.LineSpacing = terminalOptions.LineSpacing;
-            render.ESColorSet = (EscapesequenceColorSet)terminalOptions.EscapeSequenceColorSet.Clone();
-            render.DarkenEsColorForBackground = terminalOptions.DarkenEsColorForBackground;
-            render.BackgroundImageFileName = terminalOptions.BackgroundImageFileName;
-            render.ImageStyle = terminalOptions.ImageStyle;
-
             // TerminalSettings(表示プロファイル/改行コード/文字コード)
             ITerminalSettings terminalSettings = ConnectProfilePlugin.Instance.TerminalEmulatorService.CreateDefaultTerminalSettings(_prof.HostName, null);
             terminalSettings.BeginUpdate();
-            terminalSettings.RenderProfile = render;
+            terminalSettings.RenderProfile = _prof.RenderProfile;
             terminalSettings.TransmitNL = _prof.NewLine;
             terminalSettings.Encoding = _prof.CharCode;
             terminalSettings.LocalEcho = false;

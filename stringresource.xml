@@ -69,6 +69,16 @@ Copyright 2015-2016 yoshikixxxx.
     <en>Description</en>
   </record>
 
+  <record name="Form.AddProfile._editRenderButton">
+    <ja>編集</ja>
+    <en>Edit</en>
+  </record>
+
+  <record name="Form.AddProfile._editRenderLabel">
+    <ja>表示オプション</ja>
+    <en>Display option</en>
+  </record>
+
   <record name="Form.AddProfile._etcGroup">
     <ja>その他</ja>
     <en>Etc</en>
@@ -139,6 +149,11 @@ Copyright 2015-2016 yoshikixxxx.
     <en>SSH Parameter</en>
   </record>
 
+  <record name="Form.AddProfile._showPasswordCheck">
+    <ja>パスワードを表示</ja>
+    <en>Show password</en>
+  </record>
+
   <record name="Form.AddProfile._suGroup">
     <ja>SUスイッチ</ja>
     <en>SU Switch</en>
@@ -164,6 +179,16 @@ Copyright 2015-2016 yoshikixxxx.
     <en>su -</en>
   </record>
 
+  <record name="Form.AddProfile._suTypeRadio3">
+    <ja>sudo su</ja>
+    <en>sudo su</en>
+  </record>
+
+  <record name="Form.AddProfile._suTypeRadio4">
+    <ja>sudo su -</ja>
+    <en>sudo su -</en>
+  </record>
+
   <record name="Form.AddProfile._suUserNameLabel">
     <ja>SUユーザ名</ja>
     <en>SU UserName</en>
@@ -172,11 +197,6 @@ Copyright 2015-2016 yoshikixxxx.
   <record name="Form.AddProfile._telnetNewLineCheck">
     <ja>TelnetNewLine</ja>
     <en>TelnetNewLine</en>
-  </record>
-
-  <record name="Form.AddProfile._terminalBGColorLabel">
-    <ja>ターミナル背景色</ja>
-    <en>Background Color</en>
   </record>
 
   <record name="Form.AddProfile._terminalFontColorLabel">
@@ -225,6 +245,11 @@ Unit is milliseconds.</en>
   <record name="Form.AddProfile.Hint._descriptionBox">
     <ja>プロファイルの説明を入力します。</ja>
     <en>Enter a description for the profile.</en>
+  </record>
+
+  <record name="Form.AddProfile.Hint._editRenderButton">
+    <ja>背景色やフォント色などの表示オプションを編集します。</ja>
+    <en>Edit the display options such as background color and font color.</en>
   </record>
 
   <record name="Form.AddProfile.Hint._execCommandBox">
@@ -299,6 +324,11 @@ Unit is milliseconds.</en>
     <en>Select the connection protocol.</en>
   </record>
 
+  <record name="Form.AddProfile.Hint._showPasswordCheck">
+    <ja>パスワードを表示します。</ja>
+    <en>Displays the password.</en>
+  </record>
+
   <record name="Form.AddProfile.Hint._suPasswordBox">
      <ja>スイッチするユーザのパスワードを入力します。
 パスワードは「パスワードプロンプト」で指定された文字列を受信後に自動的に入力されます。</ja>
@@ -358,11 +388,6 @@ This feature is not used if left blank.</en>
   <record name="Form.Common._okButton">
     <ja>OK</ja>
     <en>OK</en>
-  </record>
-
-  <record name="Form.Common.WaterMark.Required">
-    <ja>必須</ja>
-    <en>Required</en>
   </record>
 
   <record name="Form.ConnectProfile._addProfileButton">
@@ -425,11 +450,6 @@ This feature is not used if left blank.</en>
     <en>Filter</en>
   </record>
 
-  <record name="Form.ConnectProfile._filterTextBox">
-    <ja>空白区切りでAND条件検索</ja>
-    <en>White space is 'AND condition'</en>
-  </record>
-
   <record name="Form.ConnectProfile._hintLabel">
     <ja>リスト上のダブルクリック操作 (左ボタン = 接続 / 中ボタン = 追加 / 右ボタン = 編集)</ja>
     <en>Double-click action on the list (LeftButton = Connect / MiddleButton = Add / RightButton = Edit)</en>
@@ -481,13 +501,13 @@ This feature is not used if left blank.</en>
   </record>
 
   <record name="Form.ConnectProfile._suSwitchColumn">
-    <ja>SUスイッチ</ja>
-    <en>SU Switch</en>
+    <ja>SU</ja>
+    <en>SU</en>
   </record>
 
-  <record name="Form.ConnectProfile._terminalBGColorColumn">
-    <ja>背景色</ja>
-    <en>BG Color</en>
+  <record name="Form.ConnectProfile._terminalDisplayColorColumn">
+    <ja>表示色</ja>
+    <en>Display Color</en>
   </record>
 
   <record name="Form.ConnectProfile._userNameColumn">
@@ -530,21 +550,6 @@ This feature is not used if left blank.</en>
     <en>Login prompt has not been entered.</en>
   </record>
 
-  <record name="Message.AddProfile.EmptyPassword">
-    <ja>パスワードが入力されていません。</ja>
-    <en>Password has not been entered.</en>
-  </record>
-
-  <record name="Message.AddProfile.EmptyPasswordPrompt">
-    <ja>パスワードプロンプトが入力されていません。</ja>
-    <en>Password prompt has not been entered.</en>
-  </record>
-
-  <record name="Message.AddProfile.EmptySUPassword">
-    <ja>スイッチするユーザのパスワードが入力されていません。</ja>
-    <en>Switch to the user's password is not entered.</en>
-  </record>
-
   <record name="Message.AddProfile.EmptyUserName">
     <ja>ユーザ名が入力されていません。</ja>
     <en>User name has not been entered.</en>
@@ -580,6 +585,11 @@ This feature is not used if left blank.</en>
 {1}</ja>
      <en>{0} profile is selected. Do you want to connect?
 {1}</en>
+  </record>
+
+  <record name="Message.ConnectProfile.ConfirmProfileDelete">
+     <ja>プロファイルを削除しますか？</ja>
+     <en>Delete profile?</en>
   </record>
 
   <record name="Message.ConnectProfile.CSVExportComplete">
@@ -695,8 +705,192 @@ See identical to the header to print on CSV export.</en>
     <en>TerminalType specified is not valid.</en>
   </record>
 
+  <record name="Message.ConnectProfile.CSVImportInvalidFontSize">
+    <ja>フォントサイズの指定が正しくありません。</ja>
+    <en>FontSize specified is not valid.</en>
+  </record>
+
+  <record name="Message.ConnectProfile.CSVImportInvalidClearType">
+    <ja>ClearTypeの指定が正しくありません。</ja>
+    <en>ClearType specified is not valid.</en>
+  </record>
+
+  <record name="Message.ConnectProfile.CSVImportInvalidBoldStyle">
+    <ja>太字使用有無の指定が正しくありません。</ja>
+    <en>BoldStyle specified is not valid.</en>
+  </record>
+
+  <record name="Message.ConnectProfile.CSVImportInvalidForceBoldStyle">
+    <ja>太字強制使用の指定が正しくありません。</ja>
+    <en>ForceBoldStyle specified is not valid.</en>
+  </record>
+
+  <record name="Message.ConnectProfile.CSVImportInvalidBackgroundImageFileName">
+    <ja>背景画像に指定されているファイルが存在しません。</ja>
+    <en>Background image specified file does not exist.</en>
+  </record>
+
+  <record name="Message.ConnectProfile.CSVImportInvalidImageStyle">
+    <ja>背景画像配置の指定が正しくありません。</ja>
+    <en>ImageStyle specified is not valid.</en>
+  </record>
+
   <record name="Message.ConnectProfile.ProfileNotSelected">
     <ja>プロファイルが選択されていません。</ja>
     <en>Profile is not selected.</en>
   </record>
+
+
+
+
+  <!--=================-->
+  <!-- UsabilityCommon -->
+  <!--=================-->
+  <record name="Common.OK">
+    <ja>OK</ja>
+    <en>OK</en>
+  </record>
+
+  <record name="Common.Cancel">
+    <ja>キャンセル</ja>
+    <en>Cancel</en>
+  </record>
+
+  <record name="Common.FontSample">
+    <ja>Poderosa</ja>
+    <en>Poderosa</en>
+  </record>
+
+  <record name="Common.CJKFontSample">
+    <ja>ポデローザ</ja>
+    <en></en><!-- This caption is used in Japanese only -->
+  </record>
+
+
+  <!--======================-->
+  <!-- EditRenderProfile.cs -->
+  <!--======================-->
+  <record name="Form.EditRenderProfile._bgColorLabel">
+    <ja>背景色(&amp;B)</ja>
+    <en>&amp;Back color</en>
+  </record>
+
+  <record name="Form.EditRenderProfile._textColorLabel">
+    <ja>テキスト色(&amp;T)</ja>
+    <en>&amp;Text color</en>
+  </record>
+
+  <record name="Form.EditRenderProfile._editEscapeSequenceColorBox">
+    <ja>色指定エスケープシーケンスの設定...(&amp;E)</ja>
+    <en>Color settings for &amp;escape sequences...</en>
+  </record>
+
+  <record name="Form.EditRenderProfile._fontSelectButton">
+    <ja>変更...</ja>
+    <en>Change...</en>
+  </record>
+
+  <record name="Form.EditRenderProfile._fontLabel">
+    <ja>フォント(&amp;F)</ja>
+    <en>&amp;Font</en>
+  </record>
+
+  <record name="Form.EditRenderProfile._backgroungImageLabel">
+    <ja>背景画像(&amp;P)</ja>
+    <en>Back &amp;picture</en>
+  </record>
+
+  <record name="Form.EditRenderProfile._imageStyleLabel">
+    <ja>画像の配置(&amp;L)</ja>
+    <en>Picture &amp;location</en>
+  </record>
+
+  <record name="Form.EditRenderProfile._setToDefaultButton">
+    <ja>標準に戻す(&amp;R)</ja>
+    <en>&amp;Reset</en>
+  </record>
+
+  <record name="Form.EditRenderProfile.Text">
+    <ja>表示プロファイルの編集</ja>
+    <en>Edit display profile</en>
+  </record>
+
+  <record name="Message.EditRenderProfile.InvalidPicture">
+    <ja>{0}は有効な画像ファイル名ではありません。</ja>
+    <en>{0} is not a correct picture file.</en>
+  </record>
+
+  <record name="Util.SelectPicture.Caption">
+    <ja>画像の選択</ja>
+    <en>Select picture file</en>
+  </record>
+
+
+  <!--============================-->
+  <!-- EditEscapesequenceColor.cs -->
+  <!--============================-->
+  <record name="Form.EditEscapesequenceColor.Text">
+    <ja>色指定エスケープシーケンスの設定</ja>
+    <en>Color settings for escape sequences</en>
+  </record>
+
+  <record name="Form.EditEscapesequenceColor._setDefaultButton">
+    <ja>デフォルトに戻す(&amp;D)</ja>
+    <en>Set to &amp;default</en>
+  </record>
+
+  <record name="Caption.EditEscapesequenceColor.DefaultColor">
+    <ja>標準</ja>
+    <en>Default</en>
+  </record>
+
+  <record name="Caption.EditEscapesequenceColor.BackColor">
+    <ja>背景</ja>
+    <en>Background</en>
+  </record>
+
+
+  <!--================-->
+  <!-- GFontDialog.cs -->
+  <!--================-->
+  <record name="Form.GFontDialog._lAsciiFont">
+    <ja>ASCII文字のフォント</ja>
+    <en>Font Name</en> <!-- ascii characters only in english version -->
+  </record>
+
+  <record name="Form.GFontDialog._lCJKFont">
+    <ja>CJK文字のフォント</ja>
+    <en>CJK Font Name</en>
+  </record>
+
+  <record name="Form.GFontDialog._lFontSize">
+    <ja>サイズ(&amp;S)</ja>
+    <en>&amp;Size</en>
+  </record>
+
+  <record name="Form.GFontDialog._checkClearType">
+    <ja>可能であれば常にClearTypeフォントを使う(&amp;C)</ja>
+    <en>Use &amp;Clear Type Font as much as possible</en>
+  </record>
+
+  <record name="Form.GFontDialog._checkBoldStyle">
+    <ja>ボールドフォントを有効にする(&amp;B)</ja>
+    <en>Enables &amp;bold fonts</en>
+  </record>
+
+  <record name="Form.GFontDialog._checkForceBoldStyle">
+    <ja>ボールドフォントを強制する(&amp;F)</ja>
+    <en>&amp;Force bold fonts</en>
+  </record>
+
+  <record name="Form.GFontDialog.Text">
+    <ja>フォントの選択</ja>
+    <en>Select font</en>
+  </record>
+
+  <record name="Message.GFontDialog.NotTrueTypeWarning">
+    <ja>TrueTypeでない{0}フォントを使っているため、サイズは{1}に変更されます。</ja>
+    <en>The size was changed to {1} since {0} is not a TrueType font.</en>
+  </record>
+
 </string-resource>

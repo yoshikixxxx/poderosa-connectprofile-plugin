@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015 yoshikixxxx.
+ * Copyright 2015-2016 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,15 +71,13 @@ namespace Contrib.ConnectProfile {
             this._commandSendIntLabel = new System.Windows.Forms.Label();
             this._descriptionLabel = new System.Windows.Forms.Label();
             this._profileItemColorLabel = new System.Windows.Forms.Label();
-            this._terminalFontColorButton = new Poderosa.UI.ColorButton();
-            this._terminalFontColorLabel = new System.Windows.Forms.Label();
-            this._terminalBGColorButton = new Poderosa.UI.ColorButton();
-            this._terminalBGColorLabel = new System.Windows.Forms.Label();
+            this._editRenderLabel = new System.Windows.Forms.Label();
             this._execCommandBox = new System.Windows.Forms.TextBox();
             this._execCommandLabel = new System.Windows.Forms.Label();
             this._charCodeLabel = new System.Windows.Forms.Label();
             this._charCodeBox = new System.Windows.Forms.ComboBox();
             this._terminalGroup = new System.Windows.Forms.GroupBox();
+            this._editRenderButton = new System.Windows.Forms.Button();
             this._telnetNewLineCheck = new System.Windows.Forms.CheckBox();
             this._terminalTypeBox = new System.Windows.Forms.ComboBox();
             this._newLineTypeBox = new System.Windows.Forms.ComboBox();
@@ -88,6 +86,9 @@ namespace Contrib.ConnectProfile {
             this._hintLabel = new System.Windows.Forms.Label();
             this._autoLoginGroup = new System.Windows.Forms.GroupBox();
             this._accountGroup = new System.Windows.Forms.GroupBox();
+            this._showPasswordCheck = new System.Windows.Forms.CheckBox();
+            this._suTypeRadio3 = new System.Windows.Forms.RadioButton();
+            this._suTypeRadio4 = new System.Windows.Forms.RadioButton();
             this._basicGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._portBox)).BeginInit();
             this._sshGroup.SuspendLayout();
@@ -333,7 +334,7 @@ namespace Contrib.ConnectProfile {
             // _okButton
             //
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(269, 491);
+            this._okButton.Location = new System.Drawing.Point(269, 506);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(116, 23);
             this._okButton.TabIndex = 7;
@@ -345,7 +346,7 @@ namespace Contrib.ConnectProfile {
             // _cancelButton
             //
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(403, 491);
+            this._cancelButton.Location = new System.Drawing.Point(403, 506);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(116, 23);
             this._cancelButton.TabIndex = 8;
@@ -355,6 +356,8 @@ namespace Contrib.ConnectProfile {
             //
             // _suGroup
             //
+            this._suGroup.Controls.Add(this._suTypeRadio4);
+            this._suGroup.Controls.Add(this._suTypeRadio3);
             this._suGroup.Controls.Add(this._suTypeRadio2);
             this._suGroup.Controls.Add(this._suUserNameBox);
             this._suGroup.Controls.Add(this._suPasswordBox);
@@ -364,19 +367,19 @@ namespace Contrib.ConnectProfile {
             this._suGroup.Controls.Add(this._suPasswordLabel);
             this._suGroup.Location = new System.Drawing.Point(8, 119);
             this._suGroup.Name = "_suGroup";
-            this._suGroup.Size = new System.Drawing.Size(232, 100);
+            this._suGroup.Size = new System.Drawing.Size(232, 119);
             this._suGroup.TabIndex = 4;
             this._suGroup.TabStop = false;
             this._suGroup.Text = "_suGroup";
             //
             // _suTypeRadio2
             //
-            this._suTypeRadio2.Location = new System.Drawing.Point(165, 71);
+            this._suTypeRadio2.Location = new System.Drawing.Point(101, 95);
             this._suTypeRadio2.Name = "_suTypeRadio2";
             this._suTypeRadio2.Size = new System.Drawing.Size(67, 18);
             this._suTypeRadio2.TabIndex = 3;
             this._suTypeRadio2.TabStop = true;
-            this._suTypeRadio2.Text = "_suTypeRadio2";
+            this._suTypeRadio2.Text = "su -";
             this._suTypeRadio2.UseVisualStyleBackColor = true;
             this._suTypeRadio2.Enter += new System.EventHandler(this.ShowHint);
             //
@@ -406,7 +409,7 @@ namespace Contrib.ConnectProfile {
             this._suTypeRadio1.Size = new System.Drawing.Size(58, 18);
             this._suTypeRadio1.TabIndex = 2;
             this._suTypeRadio1.TabStop = true;
-            this._suTypeRadio1.Text = "_suTypeRadio1";
+            this._suTypeRadio1.Text = "su";
             this._suTypeRadio1.UseVisualStyleBackColor = true;
             this._suTypeRadio1.Enter += new System.EventHandler(this.ShowHint);
             //
@@ -447,9 +450,9 @@ namespace Contrib.ConnectProfile {
             this._etcGroup.Controls.Add(this._commandSendIntLabel);
             this._etcGroup.Controls.Add(this._descriptionLabel);
             this._etcGroup.Controls.Add(this._profileItemColorLabel);
-            this._etcGroup.Location = new System.Drawing.Point(269, 203);
+            this._etcGroup.Location = new System.Drawing.Point(269, 169);
             this._etcGroup.Name = "_etcGroup";
-            this._etcGroup.Size = new System.Drawing.Size(250, 132);
+            this._etcGroup.Size = new System.Drawing.Size(250, 128);
             this._etcGroup.TabIndex = 6;
             this._etcGroup.TabStop = false;
             this._etcGroup.Text = "_etcGroup";
@@ -461,7 +464,7 @@ namespace Contrib.ConnectProfile {
             0,
             0,
             0});
-            this._promptRecvTimeoutBox.Location = new System.Drawing.Point(188, 47);
+            this._promptRecvTimeoutBox.Location = new System.Drawing.Point(184, 47);
             this._promptRecvTimeoutBox.Maximum = new decimal(new int[] {
             60000,
             0,
@@ -490,7 +493,7 @@ namespace Contrib.ConnectProfile {
             0,
             0,
             0});
-            this._commandSendIntBox.Location = new System.Drawing.Point(188, 22);
+            this._commandSendIntBox.Location = new System.Drawing.Point(184, 22);
             this._commandSendIntBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -514,7 +517,7 @@ namespace Contrib.ConnectProfile {
             //
             // _descriptionBox
             //
-            this._descriptionBox.Location = new System.Drawing.Point(113, 101);
+            this._descriptionBox.Location = new System.Drawing.Point(109, 101);
             this._descriptionBox.Name = "_descriptionBox";
             this._descriptionBox.Size = new System.Drawing.Size(131, 19);
             this._descriptionBox.TabIndex = 3;
@@ -523,7 +526,7 @@ namespace Contrib.ConnectProfile {
             // _profileItemColorButton
             //
             this._profileItemColorButton.BackColor = System.Drawing.SystemColors.Control;
-            this._profileItemColorButton.Location = new System.Drawing.Point(113, 72);
+            this._profileItemColorButton.Location = new System.Drawing.Point(109, 72);
             this._profileItemColorButton.Name = "_profileItemColorButton";
             this._profileItemColorButton.SelectedColor = System.Drawing.Color.Black;
             this._profileItemColorButton.Size = new System.Drawing.Size(131, 23);
@@ -567,45 +570,14 @@ namespace Contrib.ConnectProfile {
             this._profileItemColorLabel.TabIndex = 11;
             this._profileItemColorLabel.Text = "_profileItemColorLabel";
             //
-            // _terminalFontColorButton
+            // _editRenderLabel
             //
-            this._terminalFontColorButton.BackColor = System.Drawing.SystemColors.Control;
-            this._terminalFontColorButton.Location = new System.Drawing.Point(109, 121);
-            this._terminalFontColorButton.Name = "_terminalFontColorButton";
-            this._terminalFontColorButton.SelectedColor = System.Drawing.Color.Black;
-            this._terminalFontColorButton.Size = new System.Drawing.Size(131, 23);
-            this._terminalFontColorButton.TabIndex = 4;
-            this._terminalFontColorButton.UseVisualStyleBackColor = false;
-            this._terminalFontColorButton.Enter += new System.EventHandler(this.ShowHint);
-            //
-            // _terminalFontColorLabel
-            //
-            this._terminalFontColorLabel.AutoSize = true;
-            this._terminalFontColorLabel.Location = new System.Drawing.Point(6, 126);
-            this._terminalFontColorLabel.Name = "_terminalFontColorLabel";
-            this._terminalFontColorLabel.Size = new System.Drawing.Size(127, 12);
-            this._terminalFontColorLabel.TabIndex = 22;
-            this._terminalFontColorLabel.Text = "_terminalFontColorLabel";
-            //
-            // _terminalBGColorButton
-            //
-            this._terminalBGColorButton.BackColor = System.Drawing.SystemColors.Control;
-            this._terminalBGColorButton.Location = new System.Drawing.Point(109, 149);
-            this._terminalBGColorButton.Name = "_terminalBGColorButton";
-            this._terminalBGColorButton.SelectedColor = System.Drawing.Color.Black;
-            this._terminalBGColorButton.Size = new System.Drawing.Size(131, 23);
-            this._terminalBGColorButton.TabIndex = 5;
-            this._terminalBGColorButton.UseVisualStyleBackColor = false;
-            this._terminalBGColorButton.Enter += new System.EventHandler(this.ShowHint);
-            //
-            // _terminalBGColorLabel
-            //
-            this._terminalBGColorLabel.AutoSize = true;
-            this._terminalBGColorLabel.Location = new System.Drawing.Point(6, 154);
-            this._terminalBGColorLabel.Name = "_terminalBGColorLabel";
-            this._terminalBGColorLabel.Size = new System.Drawing.Size(120, 12);
-            this._terminalBGColorLabel.TabIndex = 4;
-            this._terminalBGColorLabel.Text = "_terminalBGColorLabel";
+            this._editRenderLabel.AutoSize = true;
+            this._editRenderLabel.Location = new System.Drawing.Point(6, 126);
+            this._editRenderLabel.Name = "_editRenderLabel";
+            this._editRenderLabel.Size = new System.Drawing.Size(91, 12);
+            this._editRenderLabel.TabIndex = 22;
+            this._editRenderLabel.Text = "_editRenderLabel";
             //
             // _execCommandBox
             //
@@ -645,23 +617,31 @@ namespace Contrib.ConnectProfile {
             //
             // _terminalGroup
             //
-            this._terminalGroup.Controls.Add(this._terminalFontColorButton);
+            this._terminalGroup.Controls.Add(this._editRenderButton);
             this._terminalGroup.Controls.Add(this._telnetNewLineCheck);
             this._terminalGroup.Controls.Add(this._charCodeBox);
-            this._terminalGroup.Controls.Add(this._terminalBGColorButton);
             this._terminalGroup.Controls.Add(this._terminalTypeBox);
             this._terminalGroup.Controls.Add(this._newLineTypeBox);
-            this._terminalGroup.Controls.Add(this._terminalFontColorLabel);
+            this._terminalGroup.Controls.Add(this._editRenderLabel);
             this._terminalGroup.Controls.Add(this._charCodeLabel);
             this._terminalGroup.Controls.Add(this._newLineTypeLabel);
-            this._terminalGroup.Controls.Add(this._terminalBGColorLabel);
             this._terminalGroup.Controls.Add(this._terminalTypeLabel);
             this._terminalGroup.Location = new System.Drawing.Point(269, 12);
             this._terminalGroup.Name = "_terminalGroup";
-            this._terminalGroup.Size = new System.Drawing.Size(250, 185);
+            this._terminalGroup.Size = new System.Drawing.Size(250, 151);
             this._terminalGroup.TabIndex = 5;
             this._terminalGroup.TabStop = false;
             this._terminalGroup.Text = "_terminalGroup";
+            //
+            // _editRenderButton
+            //
+            this._editRenderButton.Location = new System.Drawing.Point(109, 121);
+            this._editRenderButton.Name = "_editRenderButton";
+            this._editRenderButton.Size = new System.Drawing.Size(131, 23);
+            this._editRenderButton.TabIndex = 4;
+            this._editRenderButton.Text = "_editRenderButton";
+            this._editRenderButton.UseVisualStyleBackColor = true;
+            this._editRenderButton.Click += new System.EventHandler(this._editRenderButton_Click);
             //
             // _telnetNewLineCheck
             //
@@ -715,9 +695,9 @@ namespace Contrib.ConnectProfile {
             // _hintLabel
             //
             this._hintLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._hintLabel.Location = new System.Drawing.Point(269, 338);
+            this._hintLabel.Location = new System.Drawing.Point(269, 325);
             this._hintLabel.Name = "_hintLabel";
-            this._hintLabel.Size = new System.Drawing.Size(250, 150);
+            this._hintLabel.Size = new System.Drawing.Size(250, 163);
             this._hintLabel.TabIndex = 28;
             this._hintLabel.Text = "_hintLabel";
             //
@@ -733,7 +713,7 @@ namespace Contrib.ConnectProfile {
             this._autoLoginGroup.Controls.Add(this._passwordPromptLabel);
             this._autoLoginGroup.Location = new System.Drawing.Point(12, 284);
             this._autoLoginGroup.Name = "_autoLoginGroup";
-            this._autoLoginGroup.Size = new System.Drawing.Size(251, 230);
+            this._autoLoginGroup.Size = new System.Drawing.Size(251, 245);
             this._autoLoginGroup.TabIndex = 3;
             this._autoLoginGroup.TabStop = false;
             this._autoLoginGroup.Text = "_autoLoginGroup";
@@ -751,13 +731,44 @@ namespace Contrib.ConnectProfile {
             this._accountGroup.TabStop = false;
             this._accountGroup.Text = "_accountGroup";
             //
+            // _showPasswordCheck
+            //
+            this._showPasswordCheck.Location = new System.Drawing.Point(269, 303);
+            this._showPasswordCheck.Name = "_showPasswordCheck";
+            this._showPasswordCheck.Size = new System.Drawing.Size(250, 19);
+            this._showPasswordCheck.TabIndex = 29;
+            this._showPasswordCheck.Text = "_showPasswordCheck";
+            this._showPasswordCheck.UseVisualStyleBackColor = true;
+            this._showPasswordCheck.CheckedChanged += new System.EventHandler(this._showPasswordCheck_CheckedChanged);
+            //
+            // _suTypeRadio3
+            //
+            this._suTypeRadio3.Location = new System.Drawing.Point(153, 71);
+            this._suTypeRadio3.Name = "_suTypeRadio3";
+            this._suTypeRadio3.Size = new System.Drawing.Size(73, 18);
+            this._suTypeRadio3.TabIndex = 5;
+            this._suTypeRadio3.TabStop = true;
+            this._suTypeRadio3.Text = "sudo su";
+            this._suTypeRadio3.UseVisualStyleBackColor = true;
+            //
+            // _suTypeRadio4
+            //
+            this._suTypeRadio4.Location = new System.Drawing.Point(153, 95);
+            this._suTypeRadio4.Name = "_suTypeRadio4";
+            this._suTypeRadio4.Size = new System.Drawing.Size(74, 18);
+            this._suTypeRadio4.TabIndex = 6;
+            this._suTypeRadio4.TabStop = true;
+            this._suTypeRadio4.Text = "sudo su -";
+            this._suTypeRadio4.UseVisualStyleBackColor = true;
+            //
             // ProfileEditForm
             //
             this.AcceptButton = this._okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(527, 522);
+            this.ClientSize = new System.Drawing.Size(527, 536);
+            this.Controls.Add(this._showPasswordCheck);
             this.Controls.Add(this._accountGroup);
             this.Controls.Add(this._autoLoginGroup);
             this.Controls.Add(this._hintLabel);
@@ -828,15 +839,12 @@ namespace Contrib.ConnectProfile {
         private System.Windows.Forms.Label _descriptionLabel;
         private System.Windows.Forms.Label _profileItemColorLabel;
         private System.Windows.Forms.ComboBox _charCodeBox;
-        private System.Windows.Forms.Label _terminalBGColorLabel;
         private System.Windows.Forms.Label _charCodeLabel;
         private System.Windows.Forms.TextBox _execCommandBox;
         private System.Windows.Forms.Label _execCommandLabel;
         private Poderosa.UI.ColorButton _profileItemColorButton;
-        private Poderosa.UI.ColorButton _terminalBGColorButton;
         private System.Windows.Forms.GroupBox _etcGroup;
-        private Poderosa.UI.ColorButton _terminalFontColorButton;
-        private System.Windows.Forms.Label _terminalFontColorLabel;
+        private System.Windows.Forms.Label _editRenderLabel;
         private System.Windows.Forms.GroupBox _terminalGroup;
         private System.Windows.Forms.ComboBox _terminalTypeBox;
         private System.Windows.Forms.Label _terminalTypeLabel;
@@ -856,5 +864,9 @@ namespace Contrib.ConnectProfile {
         private System.Windows.Forms.CheckBox _telnetNewLineCheck;
         private System.Windows.Forms.GroupBox _autoLoginGroup;
         private System.Windows.Forms.GroupBox _accountGroup;
+        private System.Windows.Forms.Button _editRenderButton;
+        private System.Windows.Forms.CheckBox _showPasswordCheck;
+        private System.Windows.Forms.RadioButton _suTypeRadio4;
+        private System.Windows.Forms.RadioButton _suTypeRadio3;
     }
 }

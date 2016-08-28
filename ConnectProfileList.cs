@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015 yoshikixxxx.
+ * Copyright 2015-2016 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -9,6 +9,7 @@ using System.Collections;
 using System.Drawing;
 
 using Poderosa.ConnectionParam;
+using Poderosa.View;
 
 
 namespace Contrib.ConnectProfile {
@@ -94,33 +95,32 @@ namespace Contrib.ConnectProfile {
         public const int DEFAULT_SSH_PORT = 22;
         public const int DEFAULT_CMD_SEND_INTERVAL = 200;
         public const int DEFAULT_PROMPT_RECV_TIMEOUT = 5000;
-        public const string FMT_CSV = "{00},{01},{02},{03},{04},{05},{06},{07},{08},{09},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23}";
-        public const int CSV_FIELD_CNT = 24;
-        private string _hostName;           // ホスト名
-        private ConnectionMethod _protocol; // プロトコル
-        private int _port;                  // ポート
-        private AuthType _authType;         // SSH認証方法
-        private string _keyFile;            // 秘密鍵ファイル
-        private string _userName;           // ユーザ名
-        private string _password;           // パスワード
-        private bool _autoLogin;            // 自動ログイン
-        private string _loginPrompt;        // ログインプロンプト
-        private string _passwordPrompt;     // パスワードプロンプト
-        private string _execCommand;        // 実行コマンド
-        private string _suUserName;         // SUユーザ名
-        private string _suPassword;         // SUパスワード
-        private string _suType;             // SUコマンド種類
-        private EncodingType _charCode;     // 文字コード
-        private NewLine _newLine;           // 改行コード
-        private bool _telnetNewLine;        // TelnetNewLine
-        private TerminalType _terminalType; // ターミナル種類
-        private Color _terminalFontColor;   // フォント色
-        private Color _terminalBGColor;     // 背景色
-        private int _commandSendInterval;   // コマンド発行間隔
-        private int _promptRecvTimeout;     // プロンプト受信タイムアウト
-        private Color _profileItemColor;    // プロファイル項目色
-        private string _description;        // 説明
-        private bool _checkState = false;   // リストチェック状態(ListView用)
+        public const string FMT_CSV = "{00},{01},{02},{03},{04},{05},{06},{07},{08},{09},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39}";
+        public const int CSV_FIELD_CNT = 40;
+        private string _hostName;             // ホスト名
+        private ConnectionMethod _protocol;   // プロトコル
+        private int _port;                    // ポート
+        private AuthType _authType;           // SSH認証方法
+        private string _keyFile;              // 秘密鍵ファイル
+        private string _userName;             // ユーザ名
+        private string _password;             // パスワード
+        private bool _autoLogin;              // 自動ログイン
+        private string _loginPrompt;          // ログインプロンプト
+        private string _passwordPrompt;       // パスワードプロンプト
+        private string _execCommand;          // 実行コマンド
+        private string _suUserName;           // SUユーザ名
+        private string _suPassword;           // SUパスワード
+        private string _suType;               // SUコマンド種類
+        private EncodingType _charCode;       // 文字コード
+        private NewLine _newLine;             // 改行コード
+        private bool _telnetNewLine;          // TelnetNewLine
+        private TerminalType _terminalType;   // ターミナル種類
+        private RenderProfile _renderProfile; // 表示オプション
+        private int _commandSendInterval;     // コマンド発行間隔
+        private int _promptRecvTimeout;       // プロンプト受信タイムアウト
+        private Color _profileItemColor;      // プロファイル項目色
+        private string _description;          // 説明
+        private bool _checkState = false;     // リストチェック状態(ListView用)
 
         /// <summary>
         /// ホスト名
@@ -267,19 +267,11 @@ namespace Contrib.ConnectProfile {
         }
 
         /// <summary>
-        /// フォント色
+        /// 表示オプション
         /// </summary>
-        public Color TerminalFontColor {
-            get { return _terminalFontColor; }
-            set { _terminalFontColor = value; }
-        }
-
-        /// <summary>
-        /// 背景色
-        /// </summary>
-        public Color TerminalBGColor {
-            get { return _terminalBGColor; }
-            set { _terminalBGColor = value; }
+        public RenderProfile RenderProfile {
+            get { return _renderProfile; }
+            set { _renderProfile = value; }
         }
 
         /// <summary>
