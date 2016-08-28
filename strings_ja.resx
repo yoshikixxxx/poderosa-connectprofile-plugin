@@ -50,6 +50,12 @@
   <data name="Form.AddProfile._descriptionLabel">
     <value>備考</value>
   </data>
+  <data name="Form.AddProfile._editRenderButton">
+    <value>編集</value>
+  </data>
+  <data name="Form.AddProfile._editRenderLabel">
+    <value>表示オプション</value>
+  </data>
   <data name="Form.AddProfile._etcGroup">
     <value>その他</value>
   </data>
@@ -92,6 +98,9 @@
   <data name="Form.AddProfile._sshGroup">
     <value>SSHパラメータ</value>
   </data>
+  <data name="Form.AddProfile._showPasswordCheck">
+    <value>パスワードを表示</value>
+  </data>
   <data name="Form.AddProfile._suGroup">
     <value>SUスイッチ</value>
   </data>
@@ -107,14 +116,17 @@
   <data name="Form.AddProfile._suTypeRadio2">
     <value>su -</value>
   </data>
+  <data name="Form.AddProfile._suTypeRadio3">
+    <value>sudo su</value>
+  </data>
+  <data name="Form.AddProfile._suTypeRadio4">
+    <value>sudo su -</value>
+  </data>
   <data name="Form.AddProfile._suUserNameLabel">
     <value>SUユーザ名</value>
   </data>
   <data name="Form.AddProfile._telnetNewLineCheck">
     <value>TelnetNewLine</value>
-  </data>
-  <data name="Form.AddProfile._terminalBGColorLabel">
-    <value>ターミナル背景色</value>
   </data>
   <data name="Form.AddProfile._terminalFontColorLabel">
     <value>フォント色</value>
@@ -143,6 +155,9 @@
   </data>
   <data name="Form.AddProfile.Hint._descriptionBox">
     <value>プロファイルの説明を入力します。</value>
+  </data>
+  <data name="Form.AddProfile.Hint._editRenderButton">
+    <value>背景色やフォント色などの表示オプションを編集します。</value>
   </data>
   <data name="Form.AddProfile.Hint._execCommandBox">
     <value>自動ログイン完了後に実行するコマンドをワンライナーで入力します。
@@ -186,6 +201,9 @@ SUスイッチ機能を使用する場合は、SUスイッチ後に実行され�
   <data name="Form.AddProfile.Hint._protocolBox">
     <value>接続プロトコルを選択します。</value>
   </data>
+  <data name="Form.AddProfile.Hint._showPasswordCheck">
+    <value>パスワードを表示します。</value>
+  </data>
   <data name="Form.AddProfile.Hint._suPasswordBox">
     <value>スイッチするユーザのパスワードを入力します。
 パスワードは「パスワードプロンプト」で指定された文字列を受信後に自動的に入力されます。</value>
@@ -221,9 +239,6 @@ SUスイッチ機能を使用する場合は、SUスイッチ後に実行され�
   </data>
   <data name="Form.Common._okButton">
     <value>OK</value>
-  </data>
-  <data name="Form.Common.WaterMark.Required">
-    <value>必須</value>
   </data>
   <data name="Form.ConnectProfile._addProfileButton">
     <value>追加(&amp;A)</value>
@@ -261,9 +276,6 @@ SUスイッチ機能を使用する場合は、SUスイッチ後に実行され�
   <data name="Form.ConnectProfile._filterLabel">
     <value>フィルタ</value>
   </data>
-  <data name="Form.ConnectProfile._filterTextBox">
-    <value>空白区切りでAND条件検索</value>
-  </data>
   <data name="Form.ConnectProfile._hintLabel">
     <value>リスト上のダブルクリック操作 (左ボタン = 接続 / 中ボタン = 追加 / 右ボタン = 編集)</value>
   </data>
@@ -295,10 +307,10 @@ SUスイッチ機能を使用する場合は、SUスイッチ後に実行され�
     <value>選択数：{0}</value>
   </data>
   <data name="Form.ConnectProfile._suSwitchColumn">
-    <value>SUスイッチ</value>
+    <value>SU</value>
   </data>
-  <data name="Form.ConnectProfile._terminalBGColorColumn">
-    <value>背景色</value>
+  <data name="Form.ConnectProfile._terminalDisplayColorColumn">
+    <value>表示色</value>
   </data>
   <data name="Form.ConnectProfile._userNameColumn">
     <value>ユーザ名</value>
@@ -324,15 +336,6 @@ SUスイッチ機能を使用する場合は、SUスイッチ後に実行され�
   <data name="Message.AddProfile.EmptyLoginPrompt">
     <value>ログインプロンプトが入力されていません。</value>
   </data>
-  <data name="Message.AddProfile.EmptyPassword">
-    <value>パスワードが入力されていません。</value>
-  </data>
-  <data name="Message.AddProfile.EmptyPasswordPrompt">
-    <value>パスワードプロンプトが入力されていません。</value>
-  </data>
-  <data name="Message.AddProfile.EmptySUPassword">
-    <value>スイッチするユーザのパスワードが入力されていません。</value>
-  </data>
   <data name="Message.AddProfile.EmptyUserName">
     <value>ユーザ名が入力されていません。</value>
   </data>
@@ -354,6 +357,9 @@ SUスイッチ機能を使用する場合は、SUスイッチ後に実行され�
   <data name="Message.ConnectProfile.ConnectConfirm">
     <value>{0}個のプロファイルが選択されています。接続しますか？
 {1}</value>
+  </data>
+  <data name="Message.ConnectProfile.ConfirmProfileDelete">
+    <value>プロファイルを削除しますか？</value>
   </data>
   <data name="Message.ConnectProfile.CSVExportComplete">
     <value>CSVエクスポートが完了しました。文字コードはUTF8です。
@@ -422,7 +428,106 @@ CSVエクスポート時に出力されるヘッダーと同一にしてくだ�
   <data name="Message.ConnectProfile.CSVImportInvalidTerminalType">
     <value>ターミナル種類の指定が正しくありません。</value>
   </data>
+  <data name="Message.ConnectProfile.CSVImportInvalidFontSize">
+    <value>フォントサイズの指定が正しくありません。</value>
+  </data>
+  <data name="Message.ConnectProfile.CSVImportInvalidClearType">
+    <value>ClearTypeの指定が正しくありません。</value>
+  </data>
+  <data name="Message.ConnectProfile.CSVImportInvalidBoldStyle">
+    <value>太字使用有無の指定が正しくありません。</value>
+  </data>
+  <data name="Message.ConnectProfile.CSVImportInvalidForceBoldStyle">
+    <value>太字強制使用の指定が正しくありません。</value>
+  </data>
+  <data name="Message.ConnectProfile.CSVImportInvalidBackgroundImageFileName">
+    <value>背景画像に指定されているファイルが存在しません。</value>
+  </data>
+  <data name="Message.ConnectProfile.CSVImportInvalidImageStyle">
+    <value>背景画像配置の指定が正しくありません。</value>
+  </data>
   <data name="Message.ConnectProfile.ProfileNotSelected">
     <value>プロファイルが選択されていません。</value>
+  </data>
+  <data name="Common.OK">
+    <value>OK</value>
+  </data>
+  <data name="Common.Cancel">
+    <value>キャンセル</value>
+  </data>
+  <data name="Common.FontSample">
+    <value>Poderosa</value>
+  </data>
+  <data name="Common.CJKFontSample">
+    <value>ポデローザ</value>
+  </data>
+  <data name="Form.EditRenderProfile._bgColorLabel">
+    <value>背景色(&amp;B)</value>
+  </data>
+  <data name="Form.EditRenderProfile._textColorLabel">
+    <value>テキスト色(&amp;T)</value>
+  </data>
+  <data name="Form.EditRenderProfile._editEscapeSequenceColorBox">
+    <value>色指定エスケープシーケンスの設定...(&amp;E)</value>
+  </data>
+  <data name="Form.EditRenderProfile._fontSelectButton">
+    <value>変更...</value>
+  </data>
+  <data name="Form.EditRenderProfile._fontLabel">
+    <value>フォント(&amp;F)</value>
+  </data>
+  <data name="Form.EditRenderProfile._backgroungImageLabel">
+    <value>背景画像(&amp;P)</value>
+  </data>
+  <data name="Form.EditRenderProfile._imageStyleLabel">
+    <value>画像の配置(&amp;L)</value>
+  </data>
+  <data name="Form.EditRenderProfile._setToDefaultButton">
+    <value>標準に戻す(&amp;R)</value>
+  </data>
+  <data name="Form.EditRenderProfile.Text">
+    <value>表示プロファイルの編集</value>
+  </data>
+  <data name="Message.EditRenderProfile.InvalidPicture">
+    <value>{0}は有効な画像ファイル名ではありません。</value>
+  </data>
+  <data name="Util.SelectPicture.Caption">
+    <value>画像の選択</value>
+  </data>
+  <data name="Form.EditEscapesequenceColor.Text">
+    <value>色指定エスケープシーケンスの設定</value>
+  </data>
+  <data name="Form.EditEscapesequenceColor._setDefaultButton">
+    <value>デフォルトに戻す(&amp;D)</value>
+  </data>
+  <data name="Caption.EditEscapesequenceColor.DefaultColor">
+    <value>標準</value>
+  </data>
+  <data name="Caption.EditEscapesequenceColor.BackColor">
+    <value>背景</value>
+  </data>
+  <data name="Form.GFontDialog._lAsciiFont">
+    <value>ASCII文字のフォント</value>
+  </data>
+  <data name="Form.GFontDialog._lCJKFont">
+    <value>CJK文字のフォント</value>
+  </data>
+  <data name="Form.GFontDialog._lFontSize">
+    <value>サイズ(&amp;S)</value>
+  </data>
+  <data name="Form.GFontDialog._checkClearType">
+    <value>可能であれば常にClearTypeフォントを使う(&amp;C)</value>
+  </data>
+  <data name="Form.GFontDialog._checkBoldStyle">
+    <value>ボールドフォントを有効にする(&amp;B)</value>
+  </data>
+  <data name="Form.GFontDialog._checkForceBoldStyle">
+    <value>ボールドフォントを強制する(&amp;F)</value>
+  </data>
+  <data name="Form.GFontDialog.Text">
+    <value>フォントの選択</value>
+  </data>
+  <data name="Message.GFontDialog.NotTrueTypeWarning">
+    <value>TrueTypeでない{0}フォントを使っているため、サイズは{1}に変更されます。</value>
   </data>
 </root>

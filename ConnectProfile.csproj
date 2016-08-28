@@ -17,59 +17,59 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\ConnectProfile\</OutputPath>
+    <OutputPath>..\..\bin\Debug\ConnectProfile\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\ConnectProfile\Contrib.ConnectProfile.xml</DocumentationFile>
+    <DocumentationFile>..\..\bin\Debug\ConnectProfile\Contrib.ConnectProfile.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\ConnectProfile\</OutputPath>
+    <OutputPath>..\..\bin\Release\ConnectProfile\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\ConnectProfile\Contrib.ConnectProfile.xml</DocumentationFile>
+    <DocumentationFile>..\..\bin\Release\ConnectProfile\Contrib.ConnectProfile.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Granados, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\poderosa\bin\Release\Granados.dll</HintPath>
+      <HintPath>..\..\bin\Release\Granados.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Poderosa.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\poderosa\bin\Release\Poderosa.Core.dll</HintPath>
+      <HintPath>..\..\bin\Release\Poderosa.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Poderosa.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\poderosa\bin\Release\Poderosa.Plugin.dll</HintPath>
+      <HintPath>..\..\bin\Release\Poderosa.Plugin.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Poderosa.Protocols, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\poderosa\bin\Release\Poderosa.Protocols.dll</HintPath>
+      <HintPath>..\..\bin\Release\Poderosa.Protocols.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Poderosa.TerminalEmulator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\poderosa\bin\Release\Poderosa.TerminalEmulator.dll</HintPath>
+      <HintPath>..\..\bin\Release\Poderosa.TerminalEmulator.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Poderosa.TerminalSession, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\poderosa\bin\Release\Poderosa.TerminalSession.dll</HintPath>
+      <HintPath>..\..\bin\Release\Poderosa.TerminalSession.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Poderosa.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\poderosa\bin\Release\Poderosa.UI.dll</HintPath>
+      <HintPath>..\..\bin\Release\Poderosa.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -81,6 +81,15 @@
   <ItemGroup>
     <Compile Include="Commands.cs" />
     <Compile Include="ConnectProfileList.cs" />
+    <Compile Include="EditEscapeSequenceColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRenderProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProfileEditForm.cs">
       <SubType>Form</SubType>
     </Compile>

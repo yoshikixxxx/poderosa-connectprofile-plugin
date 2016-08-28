@@ -17,6 +17,7 @@ using Poderosa.Preferences;
 using Poderosa.Protocols;
 using Poderosa.Sessions;
 using Poderosa.Terminal;
+using Poderosa.View;
 
 
 /********* アセンブリ情報 *********/
@@ -28,7 +29,7 @@ namespace Contrib.ConnectProfile {
     /********* プラグイン情報 *********/
     [PluginInfo(
         ID = PLUGIN_ID,
-        Version = "1.3",
+        Version = "2.0",
         Author = "yoshikixxxx",
         Dependencies = "org.poderosa.core.commands;org.poderosa.core.preferences;org.poderosa.core.serializing;org.poderosa.core.sessions;org.poderosa.core.window;org.poderosa.protocols;org.poderosa.telnet_ssh;org.poderosa.terminalemulator;org.poderosa.terminalsessions;org.poderosa.terminalui;org.poderosa.usability"
     )]
@@ -416,6 +417,22 @@ namespace Contrib.ConnectProfile {
         private IStringPreferenceItem _terminalType;
         private ColorPreferenceItem _terminalFontColor;
         private ColorPreferenceItem _terminalBGColor;
+        private ColorPreferenceItem _terminalESCColor0;
+        private ColorPreferenceItem _terminalESCColor1;
+        private ColorPreferenceItem _terminalESCColor2;
+        private ColorPreferenceItem _terminalESCColor3;
+        private ColorPreferenceItem _terminalESCColor4;
+        private ColorPreferenceItem _terminalESCColor5;
+        private ColorPreferenceItem _terminalESCColor6;
+        private ColorPreferenceItem _terminalESCColor7;
+        private IStringPreferenceItem _terminalAsciiFont;
+        private IStringPreferenceItem _terminalCjkFont;
+        private IIntPreferenceItem _terminalFontSize;
+        private IBoolPreferenceItem _terminalClearType;
+        private IBoolPreferenceItem _terminalBoldStyle;
+        private IBoolPreferenceItem _terminalForceBoldStyle;
+        private IStringPreferenceItem _terminalBGImage;
+        private IStringPreferenceItem _terminalBGImagePos;
         private IIntPreferenceItem _commandSendInterval;
         private IIntPreferenceItem _promptRecvTimeout;
         private ColorPreferenceItem _profileItemColor;
@@ -426,6 +443,8 @@ namespace Contrib.ConnectProfile {
         /// コンストラクタ
         /// </summary>
         public void InitializePreference(IPreferenceBuilder builder, IPreferenceFolder folder) {
+            ITerminalEmulatorOptions terminalOptions = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions;
+
             _rootPreference = folder;
             _profileDefinition = builder.DefineFolderArray(folder, this, "profile");
             _hostName = builder.DefineStringValue(_profileDefinition, "hostName", "", null);
@@ -446,8 +465,24 @@ namespace Contrib.ConnectProfile {
             _newLine = builder.DefineStringValue(_profileDefinition, "newLine", "", null);
             _telnetNewLine = builder.DefineBoolValue(_profileDefinition, "telnetNewLine", true, null);
             _terminalType = builder.DefineStringValue(_profileDefinition, "terminalType", "", null);
-            _terminalFontColor = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalFontColor", "White", null), KnownColor.White);
-            _terminalBGColor = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalBGColor", "Black", null), KnownColor.Black);
+            _terminalFontColor = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalFontColor", terminalOptions.TextColor.Name, null), KnownColor.White);
+            _terminalBGColor = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalBGColor", terminalOptions.BGColor.Name, null), KnownColor.Black);
+            _terminalESCColor0 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor0", terminalOptions.EscapeSequenceColorSet[0].Color.Name, null), KnownColor.Black);
+            _terminalESCColor1 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor1", terminalOptions.EscapeSequenceColorSet[1].Color.Name, null), KnownColor.Red);
+            _terminalESCColor2 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor2", terminalOptions.EscapeSequenceColorSet[2].Color.Name, null), KnownColor.Green);
+            _terminalESCColor3 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor3", terminalOptions.EscapeSequenceColorSet[3].Color.Name, null), KnownColor.Yellow);
+            _terminalESCColor4 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor4", terminalOptions.EscapeSequenceColorSet[4].Color.Name, null), KnownColor.Blue);
+            _terminalESCColor5 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor5", terminalOptions.EscapeSequenceColorSet[5].Color.Name, null), KnownColor.Magenta);
+            _terminalESCColor6 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor6", terminalOptions.EscapeSequenceColorSet[6].Color.Name, null), KnownColor.Cyan);
+            _terminalESCColor7 = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "terminalESCColor7", terminalOptions.EscapeSequenceColorSet[7].Color.Name, null), KnownColor.White);
+            _terminalAsciiFont = builder.DefineStringValue(_profileDefinition, "terminalAsciiFont", terminalOptions.Font.Name, null);
+            _terminalCjkFont = builder.DefineStringValue(_profileDefinition, "terminalCjkFont", terminalOptions.CJKFont.Name, null);
+            _terminalFontSize = builder.DefineIntValue(_profileDefinition, "terminalFontSize", (int)terminalOptions.Font.Size, null);
+            _terminalClearType = builder.DefineBoolValue(_profileDefinition, "terminalClearType", terminalOptions.UseClearType, null);
+            _terminalBoldStyle = builder.DefineBoolValue(_profileDefinition, "terminalBoldStyle", terminalOptions.EnableBoldStyle, null);
+            _terminalForceBoldStyle = builder.DefineBoolValue(_profileDefinition, "terminalForceBoldStyle", terminalOptions.ForceBoldStyle, null);
+            _terminalBGImage = builder.DefineStringValue(_profileDefinition, "terminalBGImage", terminalOptions.BackgroundImageFileName, null);
+            _terminalBGImagePos = builder.DefineStringValue(_profileDefinition, "terminalBGImagePos", terminalOptions.ImageStyle.ToString(), null);
             _commandSendInterval = builder.DefineIntValue(_profileDefinition, "commandSendInterval", ConnectProfileStruct.DEFAULT_CMD_SEND_INTERVAL, null);
             _promptRecvTimeout = builder.DefineIntValue(_profileDefinition, "promptRecvTimeout", ConnectProfileStruct.DEFAULT_PROMPT_RECV_TIMEOUT, null);
             _profileItemColor = new ColorPreferenceItem(builder.DefineStringValue(_profileDefinition, "profileItemColor", "Black", null), KnownColor.Black);
@@ -460,7 +495,6 @@ namespace Contrib.ConnectProfile {
         public void SaveToPreference() {
             // 一度も読み込まれていない場合は読み込む(フォームが一度も表示されてない場合に設定が消滅してしまう)
             if (this.PreferenceLoaded != true) this.LoadFromPreference();
-
             IPreferenceFolderArray fa = _rootPreference.FindChildFolderArray(_profileDefinition.Id);
             fa.Clear();
 
@@ -492,8 +526,24 @@ namespace Contrib.ConnectProfile {
                 fa.ConvertItem(f, _newLine).AsString().Value = prof.NewLine.ToString();
                 fa.ConvertItem(f, _telnetNewLine).AsBool().Value = prof.TelnetNewLine;
                 fa.ConvertItem(f, _terminalType).AsString().Value = prof.TerminalType.ToString();
-                fa.ConvertItem(f, _terminalFontColor.PreferenceItem).AsString().Value = Convert.ToString(prof.TerminalFontColor.ToArgb(), 16);
-                fa.ConvertItem(f, _terminalBGColor.PreferenceItem).AsString().Value = Convert.ToString(prof.TerminalBGColor.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalFontColor.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ForeColor.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalBGColor.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.BackColor.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor0.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[0].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor1.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[1].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor2.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[2].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor3.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[3].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor4.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[4].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor5.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[5].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor6.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[6].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalESCColor7.PreferenceItem).AsString().Value = Convert.ToString(prof.RenderProfile.ESColorSet[7].Color.ToArgb(), 16);
+                fa.ConvertItem(f, _terminalAsciiFont).AsString().Value = prof.RenderProfile.FontName.ToString();
+                fa.ConvertItem(f, _terminalCjkFont).AsString().Value = prof.RenderProfile.CJKFontName.ToString();
+                fa.ConvertItem(f, _terminalFontSize).AsInt().Value = (int)prof.RenderProfile.FontSize;
+                fa.ConvertItem(f, _terminalClearType).AsBool().Value = prof.RenderProfile.UseClearType;
+                fa.ConvertItem(f, _terminalBoldStyle).AsBool().Value = prof.RenderProfile.EnableBoldStyle;
+                fa.ConvertItem(f, _terminalForceBoldStyle).AsBool().Value = prof.RenderProfile.ForceBoldStyle;
+                fa.ConvertItem(f, _terminalBGImage).AsString().Value = prof.RenderProfile.BackgroundImageFileName;
+                fa.ConvertItem(f, _terminalBGImagePos).AsString().Value = prof.RenderProfile.ImageStyle.ToString();
                 fa.ConvertItem(f, _commandSendInterval).AsInt().Value = prof.CommandSendInterval;
                 fa.ConvertItem(f, _promptRecvTimeout).AsInt().Value = prof.PromptRecvTimeout;
                 fa.ConvertItem(f, _profileItemColor.PreferenceItem).AsString().Value = Convert.ToString(prof.ProfileItemColor.ToArgb(), 16);
@@ -544,17 +594,46 @@ namespace Contrib.ConnectProfile {
                 if (fa.ConvertItem(f, _terminalType).AsString().Value == "KTerm") prof.TerminalType = TerminalType.KTerm;
                 else if (fa.ConvertItem(f, _terminalType).AsString().Value == "VT100") prof.TerminalType = TerminalType.VT100;
                 else if (fa.ConvertItem(f, _terminalType).AsString().Value == "XTerm") prof.TerminalType = TerminalType.XTerm;
-                prof.TerminalFontColor = Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalFontColor.PreferenceItem).AsString().Value, Color.White);
-                prof.TerminalBGColor = Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalBGColor.PreferenceItem).AsString().Value, Color.Black);
                 prof.CommandSendInterval = fa.ConvertItem(f, _commandSendInterval).AsInt().Value;
                 prof.PromptRecvTimeout = fa.ConvertItem(f, _promptRecvTimeout).AsInt().Value;
                 prof.ProfileItemColor = Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _profileItemColor.PreferenceItem).AsString().Value, Color.Black);
                 prof.Description = fa.ConvertItem(f, _description).AsString().Value;
 
+                // 表示オプション
+                prof.RenderProfile = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions.CreateRenderProfile();
+                prof.RenderProfile.ForeColor = Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalFontColor.PreferenceItem).AsString().Value, Color.White);
+                prof.RenderProfile.BackColor = Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalBGColor.PreferenceItem).AsString().Value, Color.Black);
+                prof.RenderProfile.ESColorSet = new EscapesequenceColorSet();
+                prof.RenderProfile.ESColorSet.ResetToDefault();
+                prof.RenderProfile.ESColorSet[0] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor0.PreferenceItem).AsString().Value, Color.Black), false);
+                prof.RenderProfile.ESColorSet[1] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor1.PreferenceItem).AsString().Value, Color.Red), false);
+                prof.RenderProfile.ESColorSet[2] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor2.PreferenceItem).AsString().Value, Color.Green), false);
+                prof.RenderProfile.ESColorSet[3] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor3.PreferenceItem).AsString().Value, Color.Yellow), false);
+                prof.RenderProfile.ESColorSet[4] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor4.PreferenceItem).AsString().Value, Color.Blue), false);
+                prof.RenderProfile.ESColorSet[5] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor5.PreferenceItem).AsString().Value, Color.Magenta), false);
+                prof.RenderProfile.ESColorSet[6] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor6.PreferenceItem).AsString().Value, Color.Cyan), false);
+                prof.RenderProfile.ESColorSet[7] = new ESColor(Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _terminalESCColor7.PreferenceItem).AsString().Value, Color.White), false);
+                prof.RenderProfile.FontName = fa.ConvertItem(f, _terminalAsciiFont).AsString().Value;
+                prof.RenderProfile.CJKFontName = fa.ConvertItem(f, _terminalCjkFont).AsString().Value;
+                prof.RenderProfile.FontSize = fa.ConvertItem(f, _terminalFontSize).AsInt().Value;
+                prof.RenderProfile.UseClearType = fa.ConvertItem(f, _terminalClearType).AsBool().Value;
+                prof.RenderProfile.EnableBoldStyle = fa.ConvertItem(f, _terminalBoldStyle).AsBool().Value;
+                prof.RenderProfile.ForceBoldStyle = fa.ConvertItem(f, _terminalForceBoldStyle).AsBool().Value;
+                prof.RenderProfile.BackgroundImageFileName = fa.ConvertItem(f, _terminalBGImage).AsString().Value;
+                if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "Center") prof.RenderProfile.ImageStyle = ImageStyle.Center;
+                else if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "TopLeft") prof.RenderProfile.ImageStyle = ImageStyle.TopLeft;
+                else if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "TopRight") prof.RenderProfile.ImageStyle = ImageStyle.TopRight;
+                else if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "BottomLeft") prof.RenderProfile.ImageStyle = ImageStyle.BottomLeft;
+                else if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "BottomRight") prof.RenderProfile.ImageStyle = ImageStyle.BottomRight;
+                else if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "Scaled") prof.RenderProfile.ImageStyle = ImageStyle.Scaled;
+                else if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "HorizontalFit") prof.RenderProfile.ImageStyle = ImageStyle.HorizontalFit;
+                else if (fa.ConvertItem(f, _terminalBGImagePos).AsString().Value == "VerticalFit") prof.RenderProfile.ImageStyle = ImageStyle.VerticalFit;
+
                 // パスワード複合化
                 if (prof.Password != "") prof.Password = DecryptString(prof.Password, ConnectProfilePlugin.PLUGIN_ID);
                 if (prof.SUPassword != "") prof.SUPassword = DecryptString(prof.SUPassword, ConnectProfilePlugin.PLUGIN_ID);
 
+                // プロファイル追加
                 ConnectProfilePlugin.Profiles.AddProfile(prof);
             }
 
@@ -567,23 +646,26 @@ namespace Contrib.ConnectProfile {
         /// <param name="sourceString">暗号化文字列</param>
         /// <param name="password">暗号化パスワード</param>
         /// <returns>暗号化後文字列</returns>
-        public static string EncryptString(string sourceString, string password) {
-            System.Security.Cryptography.RijndaelManaged rijndael = new System.Security.Cryptography.RijndaelManaged();
+        public string EncryptString(string sourceString, string password) {
+            byte[] key, iv, strBytes, encBytes;
+            System.Security.Cryptography.RijndaelManaged rijndael;
+            System.Security.Cryptography.ICryptoTransform encryptor;
 
-            // 共有キー/初期化ベクタ作成
-            byte[] key, iv;
-            GenerateKeyFromPassword(password, rijndael.KeySize, out key, rijndael.BlockSize, out iv);
-            rijndael.Key = key;
-            rijndael.IV = iv;
-
-            byte[] strBytes = System.Text.Encoding.UTF8.GetBytes(sourceString);
-            System.Security.Cryptography.ICryptoTransform encryptor = rijndael.CreateEncryptor();
-            byte[] encBytes = encryptor.TransformFinalBlock(strBytes, 0, strBytes.Length);
-            encryptor.Dispose();
+            try {
+                rijndael = new System.Security.Cryptography.RijndaelManaged();
+                GenerateKeyFromPassword(password, rijndael.KeySize, out key, rijndael.BlockSize, out iv, 100);
+                rijndael.Key = key;
+                rijndael.IV = iv;
+                strBytes = System.Text.Encoding.UTF8.GetBytes(sourceString);
+                encryptor = rijndael.CreateEncryptor();
+                encBytes = encryptor.TransformFinalBlock(strBytes, 0, strBytes.Length);
+                encryptor.Dispose();
+            } catch (Exception) {
+                throw;
+            }
 
             return System.Convert.ToBase64String(encBytes);
         }
-
 
         /// <summary>
         /// 文字列を復号化
@@ -591,47 +673,64 @@ namespace Contrib.ConnectProfile {
         /// <param name="sourceString">暗号化文字列</param>
         /// <param name="password">パスワード</param>
         /// <returns>復号化後文字列</returns>
-        public static string DecryptString(string sourceString, string password) {
-            System.Security.Cryptography.RijndaelManaged rijndael = new System.Security.Cryptography.RijndaelManaged();
+        public string DecryptString(string sourceString, string password) {
+            byte[] key, iv, strBytes, decBytes;
+            System.Security.Cryptography.RijndaelManaged rijndael;
+            System.Security.Cryptography.ICryptoTransform decryptor;
 
-            // 共有キー/初期化ベクタ作成
-            byte[] key, iv;
-            GenerateKeyFromPassword(password, rijndael.KeySize, out key, rijndael.BlockSize, out iv);
-            rijndael.Key = key;
-            rijndael.IV = iv;
-
-            byte[] strBytes = System.Convert.FromBase64String(sourceString);
-            System.Security.Cryptography.ICryptoTransform decryptor = rijndael.CreateDecryptor();
-            byte[] decBytes = decryptor.TransformFinalBlock(strBytes, 0, strBytes.Length);
-            decryptor.Dispose();
+            // 複合化(コンバートあり)
+            try {
+                // v2.0
+                rijndael = new System.Security.Cryptography.RijndaelManaged();
+                GenerateKeyFromPassword(password, rijndael.KeySize, out key, rijndael.BlockSize, out iv, 100);
+                rijndael.Key = key;
+                rijndael.IV = iv;
+                strBytes = System.Convert.FromBase64String(sourceString);
+                decryptor = rijndael.CreateDecryptor();
+                decBytes = decryptor.TransformFinalBlock(strBytes, 0, strBytes.Length);
+                decryptor.Dispose();
+            } catch (Exception) {
+                try {
+                    // v1.0-1.3
+                    rijndael = new System.Security.Cryptography.RijndaelManaged();
+                    GenerateKeyFromPassword(password, rijndael.KeySize, out key, rijndael.BlockSize, out iv, 1000);
+                    rijndael.Key = key;
+                    rijndael.IV = iv;
+                    strBytes = System.Convert.FromBase64String(sourceString);
+                    decryptor = rijndael.CreateDecryptor();
+                    decBytes = decryptor.TransformFinalBlock(strBytes, 0, strBytes.Length);
+                    decryptor.Dispose();
+                } catch (Exception) {
+                    throw;
+                }
+            }
 
             return System.Text.Encoding.UTF8.GetString(decBytes);
         }
-
 
         /// <summary>
         /// パスワードから共有キー/初期化ベクタを生成
         /// </summary>
         /// <param name="password">パスワード</param>
         /// <param name="keySize">共有キーサイズ(ビット)</param>
-        /// <param name="key">作成された共有キー</param>
+        /// <param name="key">共有キー</param>
         /// <param name="blockSize">初期化ベクタサイズ(ビット)</param>
-        /// <param name="iv">作成された初期化ベクタ</param>
-        private static void GenerateKeyFromPassword(string password, int keySize, out byte[] key, int blockSize, out byte[] iv) {
+        /// <param name="iv">初期化ベクタ</param>
+        /// <param name="iterationCnt">反復処理回数</param>
+        private void GenerateKeyFromPassword(string password, int keySize, out byte[] key, int blockSize, out byte[] iv, int iterationCnt) {
             // パスワードから共有キーと初期化ベクタを作成(salt決定)
             byte[] salt = System.Text.Encoding.UTF8.GetBytes("u+-J$ejeP/+%5lDe9_oVk#Q4p/cchi3C");
 
             // Rfc2898DeriveBytesオブジェクト作成
             System.Security.Cryptography.Rfc2898DeriveBytes deriveBytes = new System.Security.Cryptography.Rfc2898DeriveBytes(password, salt);
 
-            // 反復処理回数(デフォルト1000回)
-            deriveBytes.IterationCount = 1000;
+            // 反復処理回数
+            deriveBytes.IterationCount = iterationCnt;
 
             // 共有キー/初期化ベクタを生成
             key = deriveBytes.GetBytes(keySize / 8);
             iv = deriveBytes.GetBytes(blockSize / 8);
         }
-
 
         /// <summary>
         /// ValidateFolder

@@ -1,4 +1,4 @@
-# Poderosa 接続プロファイルプラグイン (v1.3)
+# Poderosa 接続プロファイルプラグイン (v2.0)
 ※日本語から英語への翻訳はBing翻訳を使用しています。  
 (* Japanese to English translations use the Bing translator.)
 
@@ -46,9 +46,9 @@ VisualC# 2013で開発し、Poderosa v4.3.16(.Net4.5と2.0)で動作確認して
 * 自動ログイン後に指定したコマンドの実行ができます  
 (You can run the command specified in the auto login after.)
 
-* プロファイル毎にリストの項目色とターミナルの背景色/フォント色を設定できます  
+* プロファイル毎にリストの項目色とターミナルの背景色/フォント色/フォント/エスケープシーケンス色/背景画像を設定できます  
 (開発環境/本番環境などで設定を使い分ける用途を想定)  
-(You can set profile every list item colors and background color and font color of Terminal.)  
+(You can set profile every list item colors, and background color, font color, font name, escape sequences color, background images of Terminal.)  
 (To use different settings, the development environment and the production environment)
 
 * プロファイルデータはoptions.confに保存されます (パスワードは暗号化保存)  
@@ -91,6 +91,28 @@ Poderosaディレクトリ内に下記のように配置します。
 
 
 ## <a name ="dl_history">Download & History
+* 2016/08/27 v2.0 [(.Net2.0)][DL-2.0-net20] [(.Net4.5)][DL-2.0-net45]  
+**※重要：v2.0プロファイル仕様が変更されているため、必ず「[PODEROSA_DIR]/options.conf」をバックアップ後にバージョンアップしてください。万一プロファイルデータが損失してしまった場合はダウングレードしてください。**  
+**(*Important: Please upgrade to v2.0 Profiles specification has changed, always backup the "[PODEROSA_DIR]/options.conf" after. If you lost the profile data should try to downgrade.)**  
+プロファイル編集画面に「表示オプション」を追加しました。（背景色、フォント色、フォント名、エスケープシーケンス色、背景画像を設定することができます）  
+(Added "show options" on the ProfileEdit Form. (You can set the background color, font color, font name, escape sequences color, background images.))  
+パスワード表示オプションを追加しました。（この設定は保存されません）  
+(Password display option was added. (This setting is not saved.))  
+パスワードプロンプト項目を任意設定にしました。  
+(Password prompt item in any setting.)  
+接続プロファイルのダイアログサイズを変更可能にしました。  
+(You can change the connection profiles dialog size.)  
+プロファイル削除時に確認メッセージを表示するようにしました。  
+(During profile deletion confirmation message is shown.)  
+SUコマンド項目に「sudo su」と「sudo su -」を追加しました。  
+(SU command item 'sudo su' and ' sudo su-' has been added.)  
+プロファイルの初回読み込みを高速化しました。  
+(Profile initial load faster.)  
+接続プロファイルダイアログに「コンソール表示サンプル」を表示するようにしました。（背景色、フォント色、ASCIIフォント、フォントサイズが適用されます）  
+(Connection profile dialog added to sample the console display. (Background color, font color, ASCII font, the font size will be applied))  
+文字列リソースを修正しました。  
+(Fixed a string resource.)
+
 * 2016/06/24 v1.3 [(.Net2.0)][DL-1.3-net20] [(.Net4.5)][DL-1.3-net45]  
 メインメニューまたはコンテキストメニューからアクティブセッションを接続プロファイルに追加する機能を追加しました。  
 (Added the ability to add active session connection profile from the main menu or the context menu.)  
@@ -129,4 +151,6 @@ you may not use this file except in compliance with the License.
 [DL-1.2-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.2/connectprofile_1.2_net45.zip
 [DL-1.3-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.3/connectprofile_1.3_net20.zip
 [DL-1.3-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.3/connectprofile_1.3_net45.zip
+[DL-2.0-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.0/connectprofile_2.0_net20.zip
+[DL-2.0-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.0/connectprofile_2.0_net45.zip
 [TWITTER]: https://twitter.com/yoshikixxxxaol

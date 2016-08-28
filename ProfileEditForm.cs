@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015 yoshikixxxx.
+ * Copyright 2015-2016 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,15 @@ using Poderosa.ConnectionParam;
 using Poderosa.Terminal;
 using Poderosa.UI;
 using Poderosa.Util;
-
+using Poderosa.View;
 
 namespace Contrib.ConnectProfile {
     /// <summary>
     /// プロファイルの追加/編集フォームクラス
     /// </summary>
     public partial class ProfileEditForm : Form {
-        private ConnectProfileStruct _result;
+        private ConnectProfileStruct _result = new ConnectProfileStruct();
+        private RenderProfile _renderProfile;
         private bool _Initialized = false;
 
         /// <summary>
@@ -33,8 +34,7 @@ namespace Contrib.ConnectProfile {
 
             // オブジェクト初期値設定
             if (prof == null) {
-                // 新規作成時はデフォルト値を設定(フォント色/背景色はターミナルオプション値を反映)
-                ITerminalEmulatorOptions terminalOptions = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions;
+                // 新規作成時はデフォルト値を設定
                 _protocolBox.SelectedItem = ConnectionMethod.SSH2;
                 _portBox.Value = ConnectProfileStruct.DEFAULT_SSH_PORT;
                 _authTypeBox.SelectedItem = AuthType.Password;
@@ -42,10 +42,11 @@ namespace Contrib.ConnectProfile {
                 _newLineTypeBox.SelectedItem = NewLine.CR;
                 _telnetNewLineCheck.Checked = true;
                 _terminalTypeBox.SelectedItem = TerminalType.XTerm;
-                _terminalFontColorButton.SelectedColor = terminalOptions.TextColor;
-                _terminalBGColorButton.SelectedColor = terminalOptions.BGColor;
                 _commandSendIntBox.Value = ConnectProfileStruct.DEFAULT_CMD_SEND_INTERVAL;
                 _promptRecvTimeoutBox.Value = ConnectProfileStruct.DEFAULT_PROMPT_RECV_TIMEOUT;
+
+                // コンソール表示オブジェクトはターミナルオプション値を反映
+                _renderProfile = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions.CreateRenderProfile();
             } else {
                 // 編集時は対象プロファイル値を設定
                 _hostNameBox.Text = prof.HostName;
@@ -63,16 +64,18 @@ namespace Contrib.ConnectProfile {
                 _suPasswordBox.Text = prof.SUPassword;
                 if (prof.SUType == _suTypeRadio1.Text) _suTypeRadio1.Checked = true;
                 else if (prof.SUType == _suTypeRadio2.Text) _suTypeRadio2.Checked = true;
+                else if (prof.SUType == _suTypeRadio3.Text) _suTypeRadio3.Checked = true;
+                else if (prof.SUType == _suTypeRadio4.Text) _suTypeRadio4.Checked = true;
                 _charCodeBox.SelectedItem = prof.CharCode;
                 _newLineTypeBox.SelectedItem = prof.NewLine;
                 _telnetNewLineCheck.Checked = prof.TelnetNewLine;
                 _terminalTypeBox.SelectedItem = prof.TerminalType;
-                _terminalFontColorButton.SelectedColor = prof.TerminalFontColor;
-                _terminalBGColorButton.SelectedColor = prof.TerminalBGColor;
                 _commandSendIntBox.Value = prof.CommandSendInterval;
                 _promptRecvTimeoutBox.Value = prof.PromptRecvTimeout;
                 _profileItemColorButton.SelectedColor = prof.ProfileItemColor;
                 _descriptionBox.Text = prof.Description;
+                _renderProfile = ConnectProfilePlugin.Instance.TerminalEmulatorService.TerminalEmulatorOptions.CreateRenderProfile();
+                _renderProfile = prof.RenderProfile;
             }
 
             _Initialized = true;
@@ -109,15 +112,18 @@ namespace Contrib.ConnectProfile {
             this._promptRecvTimeoutLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._promptRecvTimeoutLabel");
             this._protocolLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._protocolLabel");
             this._sshGroup.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._sshGroup");
+            this._showPasswordCheck.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._showPasswordCheck");
             this._suGroup.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suGroup");
             this._suPasswordLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suPasswordLabel");
             this._suTypeLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeLabel");
             this._suTypeRadio1.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio1");
             this._suTypeRadio2.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio2");
+            this._suTypeRadio3.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio3");
+            this._suTypeRadio4.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio4");
             this._suUserNameLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suUserNameLabel");
             this._telnetNewLineCheck.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._telnetNewLineCheck");
-            this._terminalBGColorLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._terminalBGColorLabel");
-            this._terminalFontColorLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._terminalFontColorLabel");
+            this._editRenderButton.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._editRenderButton");
+            this._editRenderLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._editRenderLabel");
             this._terminalGroup.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._terminalGroup");
             this._terminalTypeLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._terminalTypeLabel");
             this._userNameLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._userNameLabel");
@@ -148,7 +154,6 @@ namespace Contrib.ConnectProfile {
                 bool kbd = (authTypeItem != null && authTypeItem.Value == AuthType.KeyboardInteractive);
                 bool newline = (newLineItem != null && newLineItem.Value == NewLine.CRLF);
                 bool su = (_suUserNameBox.Text != "");
-                string watermarktext = ConnectProfilePlugin.Strings.GetString("Form.Common.WaterMark.Required");
 
                 // ユーザ名/パスワード
                 _userNameBox.Enabled = (ssh || autologin);
@@ -171,6 +176,8 @@ namespace Contrib.ConnectProfile {
                 _suPasswordBox.Enabled = (su && autologin);
                 _suTypeRadio1.Enabled = (su && autologin);
                 _suTypeRadio2.Enabled = (su && autologin);
+                _suTypeRadio3.Enabled = (su && autologin);
+                _suTypeRadio4.Enabled = (su && autologin);
 
                 // TelnetNewLine
                 _telnetNewLineCheck.Enabled = (!ssh && newline);
@@ -214,7 +221,7 @@ namespace Contrib.ConnectProfile {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._suUserNameBox");
             } else if (sender == _suPasswordBox) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._suPasswordBox");
-            } else if ((sender == _suTypeRadio1) || sender == _suTypeRadio2) {
+            } else if ((sender == _suTypeRadio1) || (sender == _suTypeRadio2) || (sender == _suTypeRadio3) || (sender == _suTypeRadio4)) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._suTypeRadio");
             } else if (sender == _charCodeBox) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._charCodeBox");
@@ -224,10 +231,8 @@ namespace Contrib.ConnectProfile {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._telnetNewLineCheck");
             } else if (sender == _terminalTypeBox) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._terminalTypeBox");
-            } else if (sender == _terminalFontColorButton) {
-                this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._terminalFontColorButton");
-            } else if (sender == _terminalBGColorButton) {
-                this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._terminalBGColorButton");
+            } else if (sender == _editRenderButton) {
+                this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._editRenderButton");
             } else if (sender == _commandSendIntBox) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._commandSendIntBox");
             } else if (sender == _promptRecvTimeoutBox) {
@@ -236,6 +241,8 @@ namespace Contrib.ConnectProfile {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._profileItemColorButton");
             } else if (sender == _descriptionBox) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._descriptionBox");
+            } else if (sender == _showPasswordCheck) {
+                this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._showPasswordCheck");
             } else {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint.None");
             }
@@ -250,7 +257,6 @@ namespace Contrib.ConnectProfile {
             // 入力チェック
             try {
                 // 初期化
-                _result = new ConnectProfileStruct();
                 _result.HostName = _hostNameBox.Text;
                 _result.Protocol = ((ListItem<ConnectionMethod>)_protocolBox.SelectedItem).Value;
                 _result.Port = (int)_portBox.Value;
@@ -269,12 +275,11 @@ namespace Contrib.ConnectProfile {
                 _result.NewLine = ((EnumListItem<NewLine>)_newLineTypeBox.SelectedItem).Value;
                 _result.TelnetNewLine = _telnetNewLineCheck.Checked;
                 _result.TerminalType = ((EnumListItem<TerminalType>)_terminalTypeBox.SelectedItem).Value;
-                _result.TerminalFontColor = _terminalFontColorButton.SelectedColor;
-                _result.TerminalBGColor = _terminalBGColorButton.SelectedColor;
                 _result.CommandSendInterval = (int)_commandSendIntBox.Value;
                 _result.PromptRecvTimeout = (int)_promptRecvTimeoutBox.Value;
                 _result.ProfileItemColor = _profileItemColorButton.SelectedColor;
                 _result.Description = _descriptionBox.Text;
+                _result.RenderProfile = _renderProfile;
 
                 // ホスト名
                 if (_hostNameBox.Text == "") throw new Exception(ConnectProfilePlugin.Strings.GetString("Message.AddProfile.EmptyHostName"));
@@ -302,10 +307,7 @@ namespace Contrib.ConnectProfile {
                 }
 
                 // パスワードプロンプト
-                if (_passwordPromptBox.Enabled == true) {
-                    if (_passwordPromptBox.Text != "") _result.PasswordPrompt = _passwordPromptBox.Text;
-                    else throw new Exception(ConnectProfilePlugin.Strings.GetString("Message.AddProfile.EmptyPasswordPrompt"));
-                }
+                if (_passwordPromptBox.Enabled == true) _result.PasswordPrompt = _passwordPromptBox.Text;
 
                 // 実行コマンド
                 if ((_execCommandBox.Enabled == true) && _execCommandBox.Text != "") _result.ExecCommand = _execCommandBox.Text;
@@ -316,6 +318,8 @@ namespace Contrib.ConnectProfile {
                     _result.SUPassword = _suPasswordBox.Text;
                     if (_suTypeRadio1.Checked == true) _result.SUType = _suTypeRadio1.Text;
                     else if (_suTypeRadio2.Checked == true) _result.SUType = _suTypeRadio2.Text;
+                    else if (_suTypeRadio3.Checked == true) _result.SUType = _suTypeRadio3.Text;
+                    else if (_suTypeRadio4.Checked == true) _result.SUType = _suTypeRadio4.Text;
                     else throw new Exception(ConnectProfilePlugin.Strings.GetString("Message.AddProfile.SUTypeNotSelect"));
                 }
 
@@ -332,6 +336,24 @@ namespace Contrib.ConnectProfile {
             string fn = TerminalUtil.SelectPrivateKeyFileByDialog(this);
             if (fn != null) _keyFileBox.Text = fn;
             _keyFileBox.Focus();
+        }
+
+        /// <summary>
+        /// 表示オプションボタンクリックイベント
+        /// </summary>
+        private void _editRenderButton_Click(object sender, EventArgs e) {
+            EditRenderProfile dlg = new EditRenderProfile(_renderProfile);
+            if (dlg.ShowDialog() == DialogResult.OK) {
+                _renderProfile = dlg.Result;
+            }
+        }
+
+        /// <summary>
+        /// パスワード表示チェックボックスクリックイベント
+        /// </summary>
+        private void _showPasswordCheck_CheckedChanged(object sender, EventArgs e) {
+            if (_showPasswordCheck.Checked == true) _passwordBox.UseSystemPasswordChar = _suPasswordBox.UseSystemPasswordChar = false;
+            else _passwordBox.UseSystemPasswordChar = _suPasswordBox.UseSystemPasswordChar = true;
         }
 
         /// <summary>

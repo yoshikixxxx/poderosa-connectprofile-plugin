@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015 yoshikixxxx.
+ * Copyright 2015-2016 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ namespace Contrib.ConnectProfile {
             this._portColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this._suSwitchColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this._execCommandColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this._terminalBGColorColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this._terminalDisplayColorColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this._descriptionColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this._filterLabel = new System.Windows.Forms.Label();
             this._okButton = new System.Windows.Forms.Button();
@@ -79,6 +79,9 @@ namespace Contrib.ConnectProfile {
             // _profileListView
             //
             this._profileListView.AllowColumnReorder = true;
+            this._profileListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._profileListView.CheckBoxes = true;
             this._profileListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this._hostNameColumn,
@@ -88,9 +91,8 @@ namespace Contrib.ConnectProfile {
             this._portColumn,
             this._suSwitchColumn,
             this._execCommandColumn,
-            this._terminalBGColorColumn,
+            this._terminalDisplayColorColumn,
             this._descriptionColumn});
-            this._profileListView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._profileListView.FullRowSelect = true;
             this._profileListView.GridLines = true;
             this._profileListView.HideSelection = false;
@@ -174,10 +176,10 @@ namespace Contrib.ConnectProfile {
             this._execCommandColumn.Text = "_execCommandColumn";
             this._execCommandColumn.Width = 128;
             //
-            // _terminalBGColorColumn
+            // _terminalDisplayColorColumn
             //
-            this._terminalBGColorColumn.Text = "_terminalBGColorColumn";
-            this._terminalBGColorColumn.Width = 138;
+            this._terminalDisplayColorColumn.Text = "_terminalDisplayColorColumn";
+            this._terminalDisplayColorColumn.Width = 138;
             //
             // _descriptionColumn
             //
@@ -366,7 +368,6 @@ namespace Contrib.ConnectProfile {
             this.Controls.Add(this._okButton);
             this.Controls.Add(this._filterLabel);
             this.Controls.Add(this._profileListView);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConnectProfileForm";
@@ -398,7 +399,7 @@ namespace Contrib.ConnectProfile {
         private System.Windows.Forms.Button _delProfileButton;
         private System.Windows.Forms.Button _csvExportButton;
         private System.Windows.Forms.Button _csvImportButton;
-        private System.Windows.Forms.ColumnHeader _terminalBGColorColumn;
+        private System.Windows.Forms.ColumnHeader _terminalDisplayColorColumn;
         private System.Windows.Forms.ColumnHeader _descriptionColumn;
         private System.Windows.Forms.Label _profileCountLabel;
         private System.Windows.Forms.Button _editProfileButton;

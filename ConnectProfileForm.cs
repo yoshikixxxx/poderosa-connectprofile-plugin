@@ -70,7 +70,7 @@ namespace Contrib.ConnectProfile {
             this._saveCSVFileDialog.Title = ConnectProfilePlugin.Strings.GetString("Form.ConnectProfile._saveCSVFileDialog.Caption");
             this._selectedProfileCountLabel.Text = String.Format(ConnectProfilePlugin.Strings.GetString("Form.ConnectProfile._selectedProfileCountLabel"), 0);
             this._suSwitchColumn.Text = ConnectProfilePlugin.Strings.GetString("Form.ConnectProfile._suSwitchColumn");
-            this._terminalBGColorColumn.Text = ConnectProfilePlugin.Strings.GetString("Form.ConnectProfile._terminalBGColorColumn");
+            this._terminalDisplayColorColumn.Text = ConnectProfilePlugin.Strings.GetString("Form.ConnectProfile._terminalDisplayColorColumn");
             this._userNameColumn.Text = ConnectProfilePlugin.Strings.GetString("Form.ConnectProfile._userNameColumn");
 
             // ファイル保存/開くダイアログ設定
@@ -88,7 +88,7 @@ namespace Contrib.ConnectProfile {
             this._portColumn.Width = -2;
             this._suSwitchColumn.Width = -2;
             this._execCommandColumn.Width = -1;
-            this._terminalBGColorColumn.Width = -2;
+            this._terminalDisplayColorColumn.Width = -2;
             this._descriptionColumn.Width = -2;
 
             // プロファイルリストソートイベント作成/設定
@@ -147,7 +147,15 @@ namespace Contrib.ConnectProfile {
                     li.ForeColor = prof.ProfileItemColor;
                     for (int i = 0; i < li.SubItems.Count; i++) {
                         li.SubItems[i].ForeColor = prof.ProfileItemColor;
-                        if (i == 7) li.SubItems[i].BackColor = prof.TerminalBGColor;
+                        if (i == 7) {
+                            li.SubItems[i].BackColor = prof.RenderProfile.BackColor;
+                            li.SubItems[i].ForeColor = prof.RenderProfile.ForeColor;
+                            System.Drawing.FontStyle fs;
+                            if (prof.RenderProfile.ForceBoldStyle == true) fs = li.SubItems[i].Font.Style | System.Drawing.FontStyle.Bold;
+                            else fs = li.SubItems[i].Font.Style;
+                            li.SubItems[i].Font = new System.Drawing.Font(prof.RenderProfile.FontName, prof.RenderProfile.FontSize, fs);
+                            li.SubItems[i].Text = "ABC012";
+                        }
                     }
 
                     // チェック状態復元
@@ -259,9 +267,11 @@ namespace Contrib.ConnectProfile {
         private void DeleteProfile() {
             ConnectProfileStruct prof = GetSelectedProfile();
             if (prof != null) {
-                _cmd.DeleteProfileCommand(ConnectProfilePlugin.Profiles, prof);
-                RefreshAllProfiles();
-                RefreshSelectCount();
+                if (ConnectProfilePlugin.AskUserYesNoInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.ConfirmProfileDelete"), MessageBoxIcon.Question) == DialogResult.Yes) {
+                    _cmd.DeleteProfileCommand(ConnectProfilePlugin.Profiles, prof);
+                    RefreshAllProfiles();
+                    RefreshSelectCount();
+                }
             }
         }
 
@@ -448,13 +458,14 @@ namespace Contrib.ConnectProfile {
             int lineCnt = 1;
 
             if (_openCSVFileDialog.ShowDialog() == DialogResult.OK) {
-                // 追加/削除確認
-                if (ConnectProfilePlugin.AskUserYesNoInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportAppendProfileList"), MessageBoxIcon.Question) == DialogResult.Yes) {
-                    appendFlg = true;
-                }
-
-                // 実行確認
+                // インポート実行確認
                 if (ConnectProfilePlugin.AskUserYesNoInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportConfirm"), MessageBoxIcon.Question) == DialogResult.Yes) {
+                    // 追加/削除確認
+                    if (ConnectProfilePlugin.AskUserYesNoInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportAppendProfileList"), MessageBoxIcon.Question) == DialogResult.Yes) {
+                        appendFlg = true;
+                    }
+
+                    // インポート実行
                     try {
                         sr = new System.IO.StreamReader(_openCSVFileDialog.FileName, System.Text.Encoding.UTF8);
                         while (!sr.EndOfStream) {
