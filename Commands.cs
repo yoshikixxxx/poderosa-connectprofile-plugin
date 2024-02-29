@@ -314,6 +314,8 @@ namespace Contrib.ConnectProfile {
             else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio2")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio2");
             else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio3")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio3");
             else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio4")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio4");
+            else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio5")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio5");
+            else if (ary[13].ToLower() == ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio6")) prof.SUType = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio6");
             else {
                 ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidSUType"), MessageBoxIcon.Error);
                 return null;
@@ -620,12 +622,14 @@ namespace Contrib.ConnectProfile {
         /// </summary>
         private bool TelnetAutoLogin() {
             // ユーザ名
-            if (WaitRecv(_prof.LoginPrompt) != true) {
-                ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.Connect.LoginPromptNotFound"), MessageBoxIcon.Warning);
-                _terminalSession.Terminal.EndModalTerminalTask();
-                return false;
+            if (_prof.UserName != "#") {
+                if (WaitRecv(_prof.LoginPrompt) != true) {
+                    ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.Connect.LoginPromptNotFound"), MessageBoxIcon.Warning);
+                    _terminalSession.Terminal.EndModalTerminalTask();
+                    return false;
+                }
+                TransmitLn(_prof.UserName);
             }
-            TransmitLn(_prof.UserName);
 
             // パスワード
             if (WaitRecv(_prof.PasswordPrompt) != true) {
@@ -643,7 +647,11 @@ namespace Contrib.ConnectProfile {
         /// </summary>
         private bool SUSwitch() {
             // ユーザ名
-            TransmitLn(string.Format("{0} {1}", _prof.SUType, _prof.SUUserName));
+            if (_prof.SUUserName != "#") {
+                TransmitLn(string.Format("{0} {1}", _prof.SUType, _prof.SUUserName));
+            } else {
+                TransmitLn(string.Format("{0}", _prof.SUType));
+            }
 
             // パスワード
             if (WaitRecv(_prof.PasswordPrompt) != true) {

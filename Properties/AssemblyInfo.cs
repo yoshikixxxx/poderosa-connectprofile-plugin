@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ConnectProfile")]
-[assembly: AssemblyCopyright("Copyright (C) yoshikixxxx 2015-2016")]
+[assembly: AssemblyCopyright("Copyright (C) yoshikixxxx 2015-2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

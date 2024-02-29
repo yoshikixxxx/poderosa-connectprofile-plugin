@@ -32,6 +32,10 @@ namespace Contrib.ConnectProfile {
             this.InitializeComponent();
             InitializeComponentValue();
 
+            // ListViewダブルバッファリング
+            System.Reflection.PropertyInfo controlProperty = typeof(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            controlProperty.SetValue(_profileListView, true, null);
+
             // 設定ファイル読み込み
             if (ConnectProfilePlugin.Instance.ConnectProfileOptionSupplier.PreferenceLoaded != true) {
                 ConnectProfilePlugin.Instance.ConnectProfileOptionSupplier.LoadFromPreference();

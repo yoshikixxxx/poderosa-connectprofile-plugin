@@ -29,7 +29,7 @@ namespace Contrib.ConnectProfile {
     /********* プラグイン情報 *********/
     [PluginInfo(
         ID = PLUGIN_ID,
-        Version = "2.0",
+        Version = "2.1",
         Author = "yoshikixxxx",
         Dependencies = "org.poderosa.core.commands;org.poderosa.core.preferences;org.poderosa.core.serializing;org.poderosa.core.sessions;org.poderosa.core.window;org.poderosa.protocols;org.poderosa.telnet_ssh;org.poderosa.terminalemulator;org.poderosa.terminalsessions;org.poderosa.terminalui;org.poderosa.usability"
     )]

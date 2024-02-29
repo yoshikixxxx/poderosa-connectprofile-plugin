@@ -1,4 +1,4 @@
-# Poderosa 接続プロファイルプラグイン (v2.0)
+# Poderosa 接続プロファイルプラグイン (v2.1)
 ※日本語から英語への翻訳はBing翻訳を使用しています。  
 (* Japanese to English translations use the Bing translator.)
 
@@ -11,8 +11,8 @@ Poderosaのプラグインです。(接続プロファイルプラグイン)
 このプラグインは、接続先ホストをプロファイル管理するものです。  
 (This plugin is a connected host to manage profile.)
 
-VisualC# 2013で開発し、Poderosa v4.3.16(.Net4.5と2.0)で動作確認しています。  
-(Developed in VisualC# 2013, has confirmed on the Poderosa v4.3.16(.Net4.5 and 2.0).)
+VC#2022で開発し、Poderosa v4.6.0(.Net4.8)で動作確認しています。  
+(Developed with VC#2022 and confirmed operation with Poderosa v4.6.0 (.Net4.8).)
 
 
 ## Features
@@ -91,6 +91,22 @@ Poderosaディレクトリ内に下記のように配置します。
 
 
 ## <a name ="dl_history">Download & History
+* 2024/03/01 v2.1 [(.Net4.8)][DL-2.1-net48]  
+開発環境をVS2022に変更しました。  
+(Changed the development environment to VS2022.)  
+.Netバージョンをv4.8に変更しました。  
+(Changed .Net version to v4.8.)  
+自動ログイン時のスイッチコマンドに「enable」と「admin」を追加しました。これはCiscoなどのネットワーク機器における特権EXECモードへのスイッチを想定しています。  
+(Added "enable" and "admin" to the switch commands for automatic login. This is intended for switching to privileged EXEC mode in network equipment such as Cisco.)  
+ユーザ名にシャープ記号「#」のみを設定するとユーザ名の送信は行わないようにしました。これはパスワードのみの送信が必要な場合を想定しています。  
+(The user name will no longer be sent if only the pound sign "#" is set in the user name. This assumes that only the password needs to be sent.)  
+プロファイル編集時にポート番号が初期化されてしまう問題を修正しました。  
+(Fixed an issue where the port number would be initialized when editing a profile.)  
+プラグイン名称を「Telnet/SSH 接続プロファイル」から「接続プロファイル」に変更しました。  
+(The plugin name has been changed from "Telnet/SSH Connection Profile" to "Connection Profile".)  
+プロファイルリストのListViewをダブルバッファリングによる描画に変更しました。  
+(The ListView of the profile list has been changed to drawing using double buffering.)
+
 * 2016/08/28 v2.0 [(.Net2.0)][DL-2.0-net20] [(.Net4.5)][DL-2.0-net45]  
 **※重要：v2.0プロファイル仕様が変更されているため、必ず「[PODEROSA_DIR]/options.conf」をバックアップ後にバージョンアップしてください。万一プロファイルデータが損失してしまった場合はダウングレードしてください。**  
 **(*Important: Please upgrade to v2.0 Profiles specification has changed, always backup the "[PODEROSA_DIR]/options.conf" after. If you lost the profile data should try to downgrade.)**  
@@ -153,4 +169,5 @@ you may not use this file except in compliance with the License.
 [DL-1.3-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/1.3/connectprofile_1.3_net45.zip
 [DL-2.0-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.0/connectprofile_2.0_net20.zip
 [DL-2.0-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.0/connectprofile_2.0_net45.zip
+[DL-2.1-net48]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.1/connectprofile_2.1_net48.zip
 [TWITTER]: https://twitter.com/yoshikixxxxaol

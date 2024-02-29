@@ -66,6 +66,8 @@ namespace Contrib.ConnectProfile {
                 else if (prof.SUType == _suTypeRadio2.Text) _suTypeRadio2.Checked = true;
                 else if (prof.SUType == _suTypeRadio3.Text) _suTypeRadio3.Checked = true;
                 else if (prof.SUType == _suTypeRadio4.Text) _suTypeRadio4.Checked = true;
+                else if (prof.SUType == _suTypeRadio5.Text) _suTypeRadio5.Checked = true;
+                else if (prof.SUType == _suTypeRadio6.Text) _suTypeRadio6.Checked = true;
                 _charCodeBox.SelectedItem = prof.CharCode;
                 _newLineTypeBox.SelectedItem = prof.NewLine;
                 _telnetNewLineCheck.Checked = prof.TelnetNewLine;
@@ -120,6 +122,8 @@ namespace Contrib.ConnectProfile {
             this._suTypeRadio2.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio2");
             this._suTypeRadio3.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio3");
             this._suTypeRadio4.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio4");
+            this._suTypeRadio5.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio5");
+            this._suTypeRadio6.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suTypeRadio6");
             this._suUserNameLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._suUserNameLabel");
             this._telnetNewLineCheck.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._telnetNewLineCheck");
             this._editRenderButton.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile._editRenderButton");
@@ -178,6 +182,8 @@ namespace Contrib.ConnectProfile {
                 _suTypeRadio2.Enabled = (su && autologin);
                 _suTypeRadio3.Enabled = (su && autologin);
                 _suTypeRadio4.Enabled = (su && autologin);
+                _suTypeRadio5.Enabled = (su && autologin);
+                _suTypeRadio6.Enabled = (su && autologin);
 
                 // TelnetNewLine
                 _telnetNewLineCheck.Enabled = (!ssh && newline);
@@ -187,7 +193,7 @@ namespace Contrib.ConnectProfile {
                 _promptRecvTimeoutBox.Enabled = autologin;
 
                 // ポート番号
-                _portBox.Value = ssh ? ConnectProfileStruct.DEFAULT_SSH_PORT : ConnectProfileStruct.DEFAULT_TELNET_PORT;
+                //_portBox.Value = ssh ? ConnectProfileStruct.DEFAULT_SSH_PORT : ConnectProfileStruct.DEFAULT_TELNET_PORT;
             }
         }
 
@@ -221,7 +227,7 @@ namespace Contrib.ConnectProfile {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._suUserNameBox");
             } else if (sender == _suPasswordBox) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._suPasswordBox");
-            } else if ((sender == _suTypeRadio1) || (sender == _suTypeRadio2) || (sender == _suTypeRadio3) || (sender == _suTypeRadio4)) {
+            } else if ((sender == _suTypeRadio1) || (sender == _suTypeRadio2) || (sender == _suTypeRadio3) || (sender == _suTypeRadio4) || (sender == _suTypeRadio5) || (sender == _suTypeRadio6)) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._suTypeRadio");
             } else if (sender == _charCodeBox) {
                 this._hintLabel.Text = ConnectProfilePlugin.Strings.GetString("Form.AddProfile.Hint._charCodeBox");
@@ -320,6 +326,8 @@ namespace Contrib.ConnectProfile {
                     else if (_suTypeRadio2.Checked == true) _result.SUType = _suTypeRadio2.Text;
                     else if (_suTypeRadio3.Checked == true) _result.SUType = _suTypeRadio3.Text;
                     else if (_suTypeRadio4.Checked == true) _result.SUType = _suTypeRadio4.Text;
+                    else if (_suTypeRadio5.Checked == true) _result.SUType = _suTypeRadio5.Text;
+                    else if (_suTypeRadio6.Checked == true) _result.SUType = _suTypeRadio6.Text;
                     else throw new Exception(ConnectProfilePlugin.Strings.GetString("Message.AddProfile.SUTypeNotSelect"));
                 }
 

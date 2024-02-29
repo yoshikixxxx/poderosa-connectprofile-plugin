@@ -1,533 +1,648 @@
-﻿<root>
-  <resheader name="ResMimeType">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
-  <resheader name="Version">
-    <value>1.0.0.0</value>
+  <resheader name="version">
+    <value>2.0</value>
   </resheader>
-  <resheader name="Reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3102.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <resheader name="Writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3102.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Caption.AddProfile">
+  <data name="Caption.AddProfile" xml:space="preserve">
     <value>プロファイルの編集</value>
   </data>
-  <data name="Caption.ConnectProfile">
-    <value>Telnet/SSH接続プロファイル</value>
+  <data name="Caption.ConnectProfile" xml:space="preserve">
+    <value>接続プロファイル</value>
   </data>
-  <data name="Caption.ConnectProfile.Connecting">
-    <value>Telnet/SSH接続プロファイル ({0} に接続中)</value>
+  <data name="Caption.ConnectProfile.Connecting" xml:space="preserve">
+    <value>接続プロファイル ({0} に接続中)</value>
   </data>
-  <data name="Command.ConnectProfile">
-    <value>Telnet/SSH接続プロファイル</value>
+  <data name="Command.ConnectProfile" xml:space="preserve">
+    <value>接続プロファイル</value>
   </data>
-  <data name="Command.AddConnectProfile">
+  <data name="Command.AddConnectProfile" xml:space="preserve">
     <value>接続プロファイルに追加</value>
   </data>
-  <data name="Form.AddProfile._accountGroup">
+  <data name="Form.AddProfile._accountGroup" xml:space="preserve">
     <value>アカウント</value>
   </data>
-  <data name="Form.AddProfile._authTypeLabel">
+  <data name="Form.AddProfile._authTypeLabel" xml:space="preserve">
     <value>認証方法</value>
   </data>
-  <data name="Form.AddProfile._autoLoginCheck">
+  <data name="Form.AddProfile._autoLoginCheck" xml:space="preserve">
     <value>使用する</value>
   </data>
-  <data name="Form.AddProfile._autoLoginGroup">
+  <data name="Form.AddProfile._autoLoginGroup" xml:space="preserve">
     <value>自動ログイン</value>
   </data>
-  <data name="Form.AddProfile._basicGroup">
+  <data name="Form.AddProfile._basicGroup" xml:space="preserve">
     <value>基本情報</value>
   </data>
-  <data name="Form.AddProfile._charCodeLabel">
+  <data name="Form.AddProfile._charCodeLabel" xml:space="preserve">
     <value>文字コード</value>
   </data>
-  <data name="Form.AddProfile._commandSendIntLabel">
+  <data name="Form.AddProfile._commandSendIntLabel" xml:space="preserve">
     <value>コマンド発行間隔 (ミリ秒)</value>
   </data>
-  <data name="Form.AddProfile._descriptionLabel">
+  <data name="Form.AddProfile._descriptionLabel" xml:space="preserve">
     <value>備考</value>
   </data>
-  <data name="Form.AddProfile._editRenderButton">
+  <data name="Form.AddProfile._editRenderButton" xml:space="preserve">
     <value>編集</value>
   </data>
-  <data name="Form.AddProfile._editRenderLabel">
+  <data name="Form.AddProfile._editRenderLabel" xml:space="preserve">
     <value>表示オプション</value>
   </data>
-  <data name="Form.AddProfile._etcGroup">
+  <data name="Form.AddProfile._etcGroup" xml:space="preserve">
     <value>その他</value>
   </data>
-  <data name="Form.AddProfile._execCommandLabel">
+  <data name="Form.AddProfile._execCommandLabel" xml:space="preserve">
     <value>実行コマンド</value>
   </data>
-  <data name="Form.AddProfile._hostNameLabel">
+  <data name="Form.AddProfile._hostNameLabel" xml:space="preserve">
     <value>ホスト名</value>
   </data>
-  <data name="Form.AddProfile._keyFileLabel">
+  <data name="Form.AddProfile._keyFileLabel" xml:space="preserve">
     <value>秘密鍵ファイル</value>
   </data>
-  <data name="Form.AddProfile._loginPromptLabel">
+  <data name="Form.AddProfile._loginPromptLabel" xml:space="preserve">
     <value>ログインプロンプト</value>
   </data>
-  <data name="Form.AddProfile._newLineTypeLabel">
+  <data name="Form.AddProfile._newLineTypeLabel" xml:space="preserve">
     <value>改行コード</value>
   </data>
-  <data name="Form.AddProfile._openKeyFileButton">
+  <data name="Form.AddProfile._openKeyFileButton" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="Form.AddProfile._passwordLabel">
+  <data name="Form.AddProfile._passwordLabel" xml:space="preserve">
     <value>パスワード</value>
   </data>
-  <data name="Form.AddProfile._passwordPromptLabel">
+  <data name="Form.AddProfile._passwordPromptLabel" xml:space="preserve">
     <value>パスワードプロンプト</value>
   </data>
-  <data name="Form.AddProfile._portLabel">
+  <data name="Form.AddProfile._portLabel" xml:space="preserve">
     <value>ポート</value>
   </data>
-  <data name="Form.AddProfile._profileItemColorLabel">
+  <data name="Form.AddProfile._profileItemColorLabel" xml:space="preserve">
     <value>プロファイル項目色</value>
   </data>
-  <data name="Form.AddProfile._promptRecvTimeoutLabel">
+  <data name="Form.AddProfile._promptRecvTimeoutLabel" xml:space="preserve">
     <value>プロンプト受信タイムアウト (ミリ秒)</value>
   </data>
-  <data name="Form.AddProfile._protocolLabel">
+  <data name="Form.AddProfile._protocolLabel" xml:space="preserve">
     <value>プロトコル</value>
   </data>
-  <data name="Form.AddProfile._sshGroup">
+  <data name="Form.AddProfile._sshGroup" xml:space="preserve">
     <value>SSHパラメータ</value>
   </data>
-  <data name="Form.AddProfile._showPasswordCheck">
+  <data name="Form.AddProfile._showPasswordCheck" xml:space="preserve">
     <value>パスワードを表示</value>
   </data>
-  <data name="Form.AddProfile._suGroup">
+  <data name="Form.AddProfile._suGroup" xml:space="preserve">
     <value>SUスイッチ</value>
   </data>
-  <data name="Form.AddProfile._suPasswordLabel">
+  <data name="Form.AddProfile._suPasswordLabel" xml:space="preserve">
     <value>SUパスワード</value>
   </data>
-  <data name="Form.AddProfile._suTypeLabel">
+  <data name="Form.AddProfile._suTypeLabel" xml:space="preserve">
     <value>SUコマンド</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio1">
+  <data name="Form.AddProfile._suTypeRadio1" xml:space="preserve">
     <value>su</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio2">
+  <data name="Form.AddProfile._suTypeRadio2" xml:space="preserve">
     <value>su -</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio3">
+  <data name="Form.AddProfile._suTypeRadio3" xml:space="preserve">
     <value>sudo su</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio4">
+  <data name="Form.AddProfile._suTypeRadio4" xml:space="preserve">
     <value>sudo su -</value>
   </data>
-  <data name="Form.AddProfile._suUserNameLabel">
+  <data name="Form.AddProfile._suUserNameLabel" xml:space="preserve">
     <value>SUユーザ名</value>
   </data>
-  <data name="Form.AddProfile._telnetNewLineCheck">
+  <data name="Form.AddProfile._telnetNewLineCheck" xml:space="preserve">
     <value>TelnetNewLine</value>
   </data>
-  <data name="Form.AddProfile._terminalFontColorLabel">
+  <data name="Form.AddProfile._terminalFontColorLabel" xml:space="preserve">
     <value>フォント色</value>
   </data>
-  <data name="Form.AddProfile._terminalGroup">
+  <data name="Form.AddProfile._terminalGroup" xml:space="preserve">
     <value>ターミナル</value>
   </data>
-  <data name="Form.AddProfile._terminalTypeLabel">
+  <data name="Form.AddProfile._terminalTypeLabel" xml:space="preserve">
     <value>種類</value>
   </data>
-  <data name="Form.AddProfile._userNameLabel">
+  <data name="Form.AddProfile._userNameLabel" xml:space="preserve">
     <value>ユーザ名</value>
   </data>
-  <data name="Form.AddProfile.Hint._authTypeBox">
+  <data name="Form.AddProfile.Hint._authTypeBox" xml:space="preserve">
     <value>SSH接続の認証方法を選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._autoLoginCheck">
+  <data name="Form.AddProfile.Hint._autoLoginCheck" xml:space="preserve">
     <value>自動ログインを使用する場合はチェックをONにします。
 この機能を使用した場合は「実行コマンド」と「SUスイッチ」が使用できます。</value>
   </data>
-  <data name="Form.AddProfile.Hint._charCodeBox">
+  <data name="Form.AddProfile.Hint._charCodeBox" xml:space="preserve">
     <value>文字コードを選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._commandSendIntBox">
+  <data name="Form.AddProfile.Hint._commandSendIntBox" xml:space="preserve">
     <value>コマンド発行の間隔を入力します。単位はミリ秒です。</value>
   </data>
-  <data name="Form.AddProfile.Hint._descriptionBox">
+  <data name="Form.AddProfile.Hint._descriptionBox" xml:space="preserve">
     <value>プロファイルの説明を入力します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._editRenderButton">
+  <data name="Form.AddProfile.Hint._editRenderButton" xml:space="preserve">
     <value>背景色やフォント色などの表示オプションを編集します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._execCommandBox">
+  <data name="Form.AddProfile.Hint._execCommandBox" xml:space="preserve">
     <value>自動ログイン完了後に実行するコマンドをワンライナーで入力します。
 SUスイッチ機能を使用する場合は、SUスイッチ後に実行されます。
 この機能を使用する場合は十分注意してください。
 未入力の場合はこの機能は使用されません。</value>
   </data>
-  <data name="Form.AddProfile.Hint._hostNameBox">
+  <data name="Form.AddProfile.Hint._hostNameBox" xml:space="preserve">
     <value>接続先のホスト名またはIPアドレスを入力します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._keyFileBox">
+  <data name="Form.AddProfile.Hint._keyFileBox" xml:space="preserve">
     <value>秘密鍵ファイルを指定します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._loginPromptBox">
+  <data name="Form.AddProfile.Hint._loginPromptBox" xml:space="preserve">
     <value>ログインプロンプトを入力します。
 指定されたプロンプト文字列を受信後に自動的にユーザ名が入力されます。
 この項目では正規表現を使用することができます。</value>
   </data>
-  <data name="Form.AddProfile.Hint._newLineTypeBox">
+  <data name="Form.AddProfile.Hint._newLineTypeBox" xml:space="preserve">
     <value>改行コードを選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._passwordBox">
+  <data name="Form.AddProfile.Hint._passwordBox" xml:space="preserve">
     <value>ログインパスワードを入力します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._passwordPromptBox">
+  <data name="Form.AddProfile.Hint._passwordPromptBox" xml:space="preserve">
     <value>パスワードプロンプトを入力します。
 指定されたプロンプト文字列を受信後に自動的にパスワードが入力されます。
 この項目では正規表現を使用することができます。</value>
   </data>
-  <data name="Form.AddProfile.Hint._portBox">
+  <data name="Form.AddProfile.Hint._portBox" xml:space="preserve">
     <value>接続ポート番号を入力します。
 通常、Telnetは23番、SSHは22番です。</value>
   </data>
-  <data name="Form.AddProfile.Hint._profileItemColorButton">
+  <data name="Form.AddProfile.Hint._profileItemColorButton" xml:space="preserve">
     <value>プロファイルの表示色を選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._promptRecvTimeoutBox">
+  <data name="Form.AddProfile.Hint._promptRecvTimeoutBox" xml:space="preserve">
     <value>自動ログイン機能を使用する際のプロンプトの受信タイムアウトを入力します。
 単位はミリ秒です。</value>
   </data>
-  <data name="Form.AddProfile.Hint._protocolBox">
+  <data name="Form.AddProfile.Hint._protocolBox" xml:space="preserve">
     <value>接続プロトコルを選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._showPasswordCheck">
+  <data name="Form.AddProfile.Hint._showPasswordCheck" xml:space="preserve">
     <value>パスワードを表示します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._suPasswordBox">
+  <data name="Form.AddProfile.Hint._suPasswordBox" xml:space="preserve">
     <value>スイッチするユーザのパスワードを入力します。
 パスワードは「パスワードプロンプト」で指定された文字列を受信後に自動的に入力されます。</value>
   </data>
-  <data name="Form.AddProfile.Hint._suTypeRadio">
-    <value>スイッチコマンドを選択します。</value>
+  <data name="Form.AddProfile.Hint._suTypeRadio" xml:space="preserve">
+    <value>スイッチコマンドを選択します。
+suコマンド以外はCiscoなどのネットワーク機器における特権EXECモードを想定しています。</value>
   </data>
-  <data name="Form.AddProfile.Hint._suUserNameBox">
+  <data name="Form.AddProfile.Hint._suUserNameBox" xml:space="preserve">
     <value>自動ログイン完了後にスイッチするユーザ名を入力します。
+シャープ記号「#」1文字のみを設定した場合はユーザ名の送信は行われません。これはパスワードのみの送信が必要な場合を想定しています。
 この機能を使用する場合は十分注意してください。
 未入力の場合はこの機能は使用されません。</value>
   </data>
-  <data name="Form.AddProfile.Hint._telnetNewLineCheck">
+  <data name="Form.AddProfile.Hint._telnetNewLineCheck" xml:space="preserve">
     <value>TelnetNewLineを使用する場合はチェックをONにします。</value>
   </data>
-  <data name="Form.AddProfile.Hint._terminalBGColorButton">
+  <data name="Form.AddProfile.Hint._terminalBGColorButton" xml:space="preserve">
     <value>背景色を選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._terminalFontColorButton">
+  <data name="Form.AddProfile.Hint._terminalFontColorButton" xml:space="preserve">
     <value>フォント色を選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._terminalTypeBox">
+  <data name="Form.AddProfile.Hint._terminalTypeBox" xml:space="preserve">
     <value>ターミナルの種類を選択します。</value>
   </data>
-  <data name="Form.AddProfile.Hint._userNameBox">
-    <value>ログインユーザ名を入力します。</value>
+  <data name="Form.AddProfile.Hint._userNameBox" xml:space="preserve">
+    <value>ログインユーザ名を入力します。
+シャープ記号「#」1文字のみを設定した場合はユーザ名の送信は行われません。これはパスワードのみの送信が必要な場合を想定しています。</value>
   </data>
-  <data name="Form.AddProfile.Hint.None">
+  <data name="Form.AddProfile.Hint.None" xml:space="preserve">
     <value>ここに説明が表示されます。</value>
   </data>
-  <data name="Form.Common._cancelButton">
+  <data name="Form.Common._cancelButton" xml:space="preserve">
     <value>キャンセル</value>
   </data>
-  <data name="Form.Common._okButton">
+  <data name="Form.Common._okButton" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="Form.ConnectProfile._addProfileButton">
+  <data name="Form.ConnectProfile._addProfileButton" xml:space="preserve">
     <value>追加(&amp;A)</value>
   </data>
-  <data name="Form.ConnectProfile._autoLoginColumn">
+  <data name="Form.ConnectProfile._autoLoginColumn" xml:space="preserve">
     <value>自動ログイン</value>
   </data>
-  <data name="Form.ConnectProfile._checkAllOffButton">
+  <data name="Form.ConnectProfile._checkAllOffButton" xml:space="preserve">
     <value>チェック全解除(&amp;U)</value>
   </data>
-  <data name="Form.ConnectProfile._copyButton">
+  <data name="Form.ConnectProfile._copyButton" xml:space="preserve">
     <value>コピー(&amp;C)</value>
   </data>
-  <data name="Form.ConnectProfile._csvExportButton">
+  <data name="Form.ConnectProfile._csvExportButton" xml:space="preserve">
     <value>CSV出力(&amp;X)</value>
   </data>
-  <data name="Form.ConnectProfile._csvImportButton">
+  <data name="Form.ConnectProfile._csvImportButton" xml:space="preserve">
     <value>CSV入力(&amp;I)</value>
   </data>
-  <data name="Form.ConnectProfile._delProfileButton">
+  <data name="Form.ConnectProfile._delProfileButton" xml:space="preserve">
     <value>削除(&amp;D)</value>
   </data>
-  <data name="Form.ConnectProfile._descriptionColumn">
+  <data name="Form.ConnectProfile._descriptionColumn" xml:space="preserve">
     <value>説明</value>
   </data>
-  <data name="Form.ConnectProfile._displaySelectedOnlyCheck">
+  <data name="Form.ConnectProfile._displaySelectedOnlyCheck" xml:space="preserve">
     <value>選択済みプロファイルのみ表示(&amp;S)</value>
   </data>
-  <data name="Form.ConnectProfile._editProfileButton">
+  <data name="Form.ConnectProfile._editProfileButton" xml:space="preserve">
     <value>編集(&amp;E)</value>
   </data>
-  <data name="Form.ConnectProfile._execCommandColumn">
+  <data name="Form.ConnectProfile._execCommandColumn" xml:space="preserve">
     <value>実行コマンド</value>
   </data>
-  <data name="Form.ConnectProfile._filterLabel">
+  <data name="Form.ConnectProfile._filterLabel" xml:space="preserve">
     <value>フィルタ</value>
   </data>
-  <data name="Form.ConnectProfile._hintLabel">
+  <data name="Form.ConnectProfile._hintLabel" xml:space="preserve">
     <value>リスト上のダブルクリック操作 (左ボタン = 接続 / 中ボタン = 追加 / 右ボタン = 編集)</value>
   </data>
-  <data name="Form.ConnectProfile._hostNameColumn">
+  <data name="Form.ConnectProfile._hostNameColumn" xml:space="preserve">
     <value>ホスト名</value>
   </data>
-  <data name="Form.ConnectProfile._openCSVFileDialog.Caption">
+  <data name="Form.ConnectProfile._openCSVFileDialog.Caption" xml:space="preserve">
     <value>CSVファイルを選択</value>
   </data>
-  <data name="Form.ConnectProfile._openCSVFileDialog.Filter">
+  <data name="Form.ConnectProfile._openCSVFileDialog.Filter" xml:space="preserve">
     <value>CSVファイル (*.csv)|*.csv|すべてのファイル (*.*)|*.*</value>
   </data>
-  <data name="Form.ConnectProfile._portColumn">
+  <data name="Form.ConnectProfile._portColumn" xml:space="preserve">
     <value>ポート</value>
   </data>
-  <data name="Form.ConnectProfile._profileCountLabel">
+  <data name="Form.ConnectProfile._profileCountLabel" xml:space="preserve">
     <value>プロファイル数：{0}</value>
   </data>
-  <data name="Form.ConnectProfile._protocolColumn">
+  <data name="Form.ConnectProfile._protocolColumn" xml:space="preserve">
     <value>プロトコル</value>
   </data>
-  <data name="Form.ConnectProfile._saveCSVFileDialog.Caption">
+  <data name="Form.ConnectProfile._saveCSVFileDialog.Caption" xml:space="preserve">
     <value>接続プロファイルをCSVに保存</value>
   </data>
-  <data name="Form.ConnectProfile._saveCSVFileDialog.Filter">
+  <data name="Form.ConnectProfile._saveCSVFileDialog.Filter" xml:space="preserve">
     <value>CSVファイル (*.csv)|*.csv|すべてのファイル (*.*)|*.*</value>
   </data>
-  <data name="Form.ConnectProfile._selectedProfileCountLabel">
+  <data name="Form.ConnectProfile._selectedProfileCountLabel" xml:space="preserve">
     <value>選択数：{0}</value>
   </data>
-  <data name="Form.ConnectProfile._suSwitchColumn">
+  <data name="Form.ConnectProfile._suSwitchColumn" xml:space="preserve">
     <value>SU</value>
   </data>
-  <data name="Form.ConnectProfile._terminalDisplayColorColumn">
+  <data name="Form.ConnectProfile._terminalDisplayColorColumn" xml:space="preserve">
     <value>表示色</value>
   </data>
-  <data name="Form.ConnectProfile._userNameColumn">
+  <data name="Form.ConnectProfile._userNameColumn" xml:space="preserve">
     <value>ユーザ名</value>
   </data>
-  <data name="Form.ConnectProfile_profileListView.No">
+  <data name="Form.ConnectProfile_profileListView.No" xml:space="preserve">
     <value>しない</value>
   </data>
-  <data name="Form.ConnectProfile_profileListView.Yes">
+  <data name="Form.ConnectProfile_profileListView.Yes" xml:space="preserve">
     <value>する</value>
   </data>
-  <data name="Menu.ConnectProfile">
-    <value>Telnet/SSH接続プロファイル</value>
+  <data name="Menu.ConnectProfile" xml:space="preserve">
+    <value>接続プロファイル</value>
   </data>
-  <data name="Menu.AddConnectProfile">
+  <data name="Menu.AddConnectProfile" xml:space="preserve">
     <value>接続プロファイルに追加</value>
   </data>
-  <data name="Message.AddProfile.EmptyHostName">
+  <data name="Message.AddProfile.EmptyHostName" xml:space="preserve">
     <value>ホスト名が入力されていません。</value>
   </data>
-  <data name="Message.AddProfile.EmptyKeyFile">
+  <data name="Message.AddProfile.EmptyKeyFile" xml:space="preserve">
     <value>秘密鍵ファイルが指定されていません。</value>
   </data>
-  <data name="Message.AddProfile.EmptyLoginPrompt">
+  <data name="Message.AddProfile.EmptyLoginPrompt" xml:space="preserve">
     <value>ログインプロンプトが入力されていません。</value>
   </data>
-  <data name="Message.AddProfile.EmptyUserName">
+  <data name="Message.AddProfile.EmptyUserName" xml:space="preserve">
     <value>ユーザ名が入力されていません。</value>
   </data>
-  <data name="Message.AddProfile.KeyFileNotExist">
+  <data name="Message.AddProfile.KeyFileNotExist" xml:space="preserve">
     <value>指定した秘密鍵ファイルが存在しません。</value>
   </data>
-  <data name="Message.AddProfile.SUTypeNotSelect">
+  <data name="Message.AddProfile.SUTypeNotSelect" xml:space="preserve">
     <value>SUコマンドの種類が選択されていません。</value>
   </data>
-  <data name="Message.Connect.LoginPromptNotFound">
+  <data name="Message.Connect.LoginPromptNotFound" xml:space="preserve">
     <value>指定されたログインプロンプトが見つかりませんでした。</value>
   </data>
-  <data name="Message.Connect.PasswordPromptNotFound">
+  <data name="Message.Connect.PasswordPromptNotFound" xml:space="preserve">
     <value>指定されたパスワードプロンプトが見つかりませんでした。</value>
   </data>
-  <data name="Message.ConnectProfile.ConnectCancel">
+  <data name="Message.ConnectProfile.ConnectCancel" xml:space="preserve">
     <value>キャンセルしました。</value>
   </data>
-  <data name="Message.ConnectProfile.ConnectConfirm">
+  <data name="Message.ConnectProfile.ConnectConfirm" xml:space="preserve">
     <value>{0}個のプロファイルが選択されています。接続しますか？
 {1}</value>
   </data>
-  <data name="Message.ConnectProfile.ConfirmProfileDelete">
+  <data name="Message.ConnectProfile.ConfirmProfileDelete" xml:space="preserve">
     <value>プロファイルを削除しますか？</value>
   </data>
-  <data name="Message.ConnectProfile.CSVExportComplete">
+  <data name="Message.ConnectProfile.CSVExportComplete" xml:space="preserve">
     <value>CSVエクスポートが完了しました。文字コードはUTF8です。
 CSVヘッダー情報はインポート時に整合性確認を行っているため変更や削除は行わないでください。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVExportDetetePasssword">
+  <data name="Message.ConnectProfile.CSVExportDetetePasssword" xml:space="preserve">
     <value>パスワードを削除して出力しますか？</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportAppendProfileList">
+  <data name="Message.ConnectProfile.CSVImportAppendProfileList" xml:space="preserve">
     <value>現在のプロファイルリストに追加しますか？
 いいえを選択した場合は現在のプロファイルリストは全て削除されます。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportCancel">
+  <data name="Message.ConnectProfile.CSVImportCancel" xml:space="preserve">
     <value>インポートをキャンセルしました。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportComplete">
+  <data name="Message.ConnectProfile.CSVImportComplete" xml:space="preserve">
     <value>CSVインポートが完了しました。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportConfirm">
+  <data name="Message.ConnectProfile.CSVImportConfirm" xml:space="preserve">
     <value>インポートを実行しますか？
 インポート中にエラーが発生した場合は処理が中止され、現在のプロファイルリストが保持されます。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportFailed">
+  <data name="Message.ConnectProfile.CSVImportFailed" xml:space="preserve">
     <value>CSVインポートに失敗しました。({0}行目)</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidAuthType">
+  <data name="Message.ConnectProfile.CSVImportInvalidAuthType" xml:space="preserve">
     <value>SSH認証方法の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidAutoLogin">
+  <data name="Message.ConnectProfile.CSVImportInvalidAutoLogin" xml:space="preserve">
     <value>SSH認証方法の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidCharCode">
+  <data name="Message.ConnectProfile.CSVImportInvalidCharCode" xml:space="preserve">
     <value>文字コードの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidCommandSendInterval">
+  <data name="Message.ConnectProfile.CSVImportInvalidCommandSendInterval" xml:space="preserve">
     <value>コマンド発行間隔の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidFieldCount">
+  <data name="Message.ConnectProfile.CSVImportInvalidFieldCount" xml:space="preserve">
     <value>CSVのフィールド数が正しくありません。 ({0}行目)</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidHeader">
+  <data name="Message.ConnectProfile.CSVImportInvalidHeader" xml:space="preserve">
     <value>CSVヘッダーの整合性チェックに失敗しました。({0}行目)
 CSVエクスポート時に出力されるヘッダーと同一にしてください。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidHostName">
+  <data name="Message.ConnectProfile.CSVImportInvalidHostName" xml:space="preserve">
     <value>ホスト名の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidNewLine">
+  <data name="Message.ConnectProfile.CSVImportInvalidNewLine" xml:space="preserve">
     <value>改行コードの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidPort">
+  <data name="Message.ConnectProfile.CSVImportInvalidPort" xml:space="preserve">
     <value>ポートの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidPromptRecvTimeout">
+  <data name="Message.ConnectProfile.CSVImportInvalidPromptRecvTimeout" xml:space="preserve">
     <value>プロンプト受信タイムアウトの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidProtocol">
+  <data name="Message.ConnectProfile.CSVImportInvalidProtocol" xml:space="preserve">
     <value>プロトコルの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidSUType">
+  <data name="Message.ConnectProfile.CSVImportInvalidSUType" xml:space="preserve">
     <value>SUコマンドの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidTelnetNewLine">
+  <data name="Message.ConnectProfile.CSVImportInvalidTelnetNewLine" xml:space="preserve">
     <value>TelnetNewLineの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidTerminalType">
+  <data name="Message.ConnectProfile.CSVImportInvalidTerminalType" xml:space="preserve">
     <value>ターミナル種類の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidFontSize">
+  <data name="Message.ConnectProfile.CSVImportInvalidFontSize" xml:space="preserve">
     <value>フォントサイズの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidClearType">
+  <data name="Message.ConnectProfile.CSVImportInvalidClearType" xml:space="preserve">
     <value>ClearTypeの指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidBoldStyle">
+  <data name="Message.ConnectProfile.CSVImportInvalidBoldStyle" xml:space="preserve">
     <value>太字使用有無の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidForceBoldStyle">
+  <data name="Message.ConnectProfile.CSVImportInvalidForceBoldStyle" xml:space="preserve">
     <value>太字強制使用の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidBackgroundImageFileName">
+  <data name="Message.ConnectProfile.CSVImportInvalidBackgroundImageFileName" xml:space="preserve">
     <value>背景画像に指定されているファイルが存在しません。</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidImageStyle">
+  <data name="Message.ConnectProfile.CSVImportInvalidImageStyle" xml:space="preserve">
     <value>背景画像配置の指定が正しくありません。</value>
   </data>
-  <data name="Message.ConnectProfile.ProfileNotSelected">
+  <data name="Message.ConnectProfile.ProfileNotSelected" xml:space="preserve">
     <value>プロファイルが選択されていません。</value>
   </data>
-  <data name="Common.OK">
+  <data name="Common.OK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="Common.Cancel">
+  <data name="Common.Cancel" xml:space="preserve">
     <value>キャンセル</value>
   </data>
-  <data name="Common.FontSample">
+  <data name="Common.FontSample" xml:space="preserve">
     <value>Poderosa</value>
   </data>
-  <data name="Common.CJKFontSample">
+  <data name="Common.CJKFontSample" xml:space="preserve">
     <value>ポデローザ</value>
   </data>
-  <data name="Form.EditRenderProfile._bgColorLabel">
+  <data name="Form.EditRenderProfile._bgColorLabel" xml:space="preserve">
     <value>背景色(&amp;B)</value>
   </data>
-  <data name="Form.EditRenderProfile._textColorLabel">
+  <data name="Form.EditRenderProfile._textColorLabel" xml:space="preserve">
     <value>テキスト色(&amp;T)</value>
   </data>
-  <data name="Form.EditRenderProfile._editEscapeSequenceColorBox">
+  <data name="Form.EditRenderProfile._editEscapeSequenceColorBox" xml:space="preserve">
     <value>色指定エスケープシーケンスの設定...(&amp;E)</value>
   </data>
-  <data name="Form.EditRenderProfile._fontSelectButton">
+  <data name="Form.EditRenderProfile._fontSelectButton" xml:space="preserve">
     <value>変更...</value>
   </data>
-  <data name="Form.EditRenderProfile._fontLabel">
+  <data name="Form.EditRenderProfile._fontLabel" xml:space="preserve">
     <value>フォント(&amp;F)</value>
   </data>
-  <data name="Form.EditRenderProfile._backgroungImageLabel">
+  <data name="Form.EditRenderProfile._backgroungImageLabel" xml:space="preserve">
     <value>背景画像(&amp;P)</value>
   </data>
-  <data name="Form.EditRenderProfile._imageStyleLabel">
+  <data name="Form.EditRenderProfile._imageStyleLabel" xml:space="preserve">
     <value>画像の配置(&amp;L)</value>
   </data>
-  <data name="Form.EditRenderProfile._setToDefaultButton">
+  <data name="Form.EditRenderProfile._setToDefaultButton" xml:space="preserve">
     <value>標準に戻す(&amp;R)</value>
   </data>
-  <data name="Form.EditRenderProfile.Text">
+  <data name="Form.EditRenderProfile.Text" xml:space="preserve">
     <value>表示プロファイルの編集</value>
   </data>
-  <data name="Message.EditRenderProfile.InvalidPicture">
+  <data name="Message.EditRenderProfile.InvalidPicture" xml:space="preserve">
     <value>{0}は有効な画像ファイル名ではありません。</value>
   </data>
-  <data name="Util.SelectPicture.Caption">
+  <data name="Util.SelectPicture.Caption" xml:space="preserve">
     <value>画像の選択</value>
   </data>
-  <data name="Form.EditEscapesequenceColor.Text">
+  <data name="Form.EditEscapesequenceColor.Text" xml:space="preserve">
     <value>色指定エスケープシーケンスの設定</value>
   </data>
-  <data name="Form.EditEscapesequenceColor._setDefaultButton">
+  <data name="Form.EditEscapesequenceColor._setDefaultButton" xml:space="preserve">
     <value>デフォルトに戻す(&amp;D)</value>
   </data>
-  <data name="Caption.EditEscapesequenceColor.DefaultColor">
+  <data name="Caption.EditEscapesequenceColor.DefaultColor" xml:space="preserve">
     <value>標準</value>
   </data>
-  <data name="Caption.EditEscapesequenceColor.BackColor">
+  <data name="Caption.EditEscapesequenceColor.BackColor" xml:space="preserve">
     <value>背景</value>
   </data>
-  <data name="Form.GFontDialog._lAsciiFont">
+  <data name="Form.GFontDialog._lAsciiFont" xml:space="preserve">
     <value>ASCII文字のフォント</value>
   </data>
-  <data name="Form.GFontDialog._lCJKFont">
+  <data name="Form.GFontDialog._lCJKFont" xml:space="preserve">
     <value>CJK文字のフォント</value>
   </data>
-  <data name="Form.GFontDialog._lFontSize">
+  <data name="Form.GFontDialog._lFontSize" xml:space="preserve">
     <value>サイズ(&amp;S)</value>
   </data>
-  <data name="Form.GFontDialog._checkClearType">
+  <data name="Form.GFontDialog._checkClearType" xml:space="preserve">
     <value>可能であれば常にClearTypeフォントを使う(&amp;C)</value>
   </data>
-  <data name="Form.GFontDialog._checkBoldStyle">
+  <data name="Form.GFontDialog._checkBoldStyle" xml:space="preserve">
     <value>ボールドフォントを有効にする(&amp;B)</value>
   </data>
-  <data name="Form.GFontDialog._checkForceBoldStyle">
+  <data name="Form.GFontDialog._checkForceBoldStyle" xml:space="preserve">
     <value>ボールドフォントを強制する(&amp;F)</value>
   </data>
-  <data name="Form.GFontDialog.Text">
+  <data name="Form.GFontDialog.Text" xml:space="preserve">
     <value>フォントの選択</value>
   </data>
-  <data name="Message.GFontDialog.NotTrueTypeWarning">
+  <data name="Message.GFontDialog.NotTrueTypeWarning" xml:space="preserve">
     <value>TrueTypeでない{0}フォントを使っているため、サイズは{1}に変更されます。</value>
+  </data>
+  <data name="Form.AddProfile._suTypeRadio5" xml:space="preserve">
+    <value>enable</value>
+  </data>
+  <data name="Form.AddProfile._suTypeRadio6" xml:space="preserve">
+    <value>admin</value>
   </data>
 </root>

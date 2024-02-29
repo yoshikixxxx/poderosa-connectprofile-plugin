@@ -1,534 +1,648 @@
-﻿<root>
-  <resheader name="ResMimeType">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
-  <resheader name="Version">
-    <value>1.0.0.0</value>
+  <resheader name="version">
+    <value>2.0</value>
   </resheader>
-  <resheader name="Reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3102.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <resheader name="Writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3102.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Caption.AddProfile">
+  <data name="Caption.AddProfile" xml:space="preserve">
     <value>Edit Profile</value>
   </data>
-  <data name="Caption.ConnectProfile">
-    <value>Telnet/SSH Connection Profile</value>
+  <data name="Caption.ConnectProfile" xml:space="preserve">
+    <value>Connection Profile</value>
   </data>
-  <data name="Caption.ConnectProfile.Connecting">
-    <value>Telnet/SSH Connection Profile (Connecting to {0})</value>
+  <data name="Caption.ConnectProfile.Connecting" xml:space="preserve">
+    <value>Connection Profile (Connecting to {0})</value>
   </data>
-  <data name="Command.ConnectProfile">
-    <value>Telnet/SSH Connection Profile</value>
+  <data name="Command.ConnectProfile" xml:space="preserve">
+    <value>Connection Profile</value>
   </data>
-  <data name="Command.AddConnectProfile">
+  <data name="Command.AddConnectProfile" xml:space="preserve">
     <value>Add Connection Profile</value>
   </data>
-  <data name="Form.AddProfile._accountGroup">
+  <data name="Form.AddProfile._accountGroup" xml:space="preserve">
     <value>Account</value>
   </data>
-  <data name="Form.AddProfile._authTypeLabel">
+  <data name="Form.AddProfile._authTypeLabel" xml:space="preserve">
     <value>Auth Type</value>
   </data>
-  <data name="Form.AddProfile._autoLoginCheck">
+  <data name="Form.AddProfile._autoLoginCheck" xml:space="preserve">
     <value>To Use</value>
   </data>
-  <data name="Form.AddProfile._autoLoginGroup">
+  <data name="Form.AddProfile._autoLoginGroup" xml:space="preserve">
     <value>Auto Login</value>
   </data>
-  <data name="Form.AddProfile._basicGroup">
+  <data name="Form.AddProfile._basicGroup" xml:space="preserve">
     <value>Basic Information</value>
   </data>
-  <data name="Form.AddProfile._charCodeLabel">
+  <data name="Form.AddProfile._charCodeLabel" xml:space="preserve">
     <value>Char Code</value>
   </data>
-  <data name="Form.AddProfile._commandSendIntLabel">
+  <data name="Form.AddProfile._commandSendIntLabel" xml:space="preserve">
     <value>Command transmit interval (ms)</value>
   </data>
-  <data name="Form.AddProfile._descriptionLabel">
+  <data name="Form.AddProfile._descriptionLabel" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="Form.AddProfile._editRenderButton">
+  <data name="Form.AddProfile._editRenderButton" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="Form.AddProfile._editRenderLabel">
+  <data name="Form.AddProfile._editRenderLabel" xml:space="preserve">
     <value>Display option</value>
   </data>
-  <data name="Form.AddProfile._etcGroup">
+  <data name="Form.AddProfile._etcGroup" xml:space="preserve">
     <value>Etc</value>
   </data>
-  <data name="Form.AddProfile._execCommandLabel">
+  <data name="Form.AddProfile._execCommandLabel" xml:space="preserve">
     <value>Run Command</value>
   </data>
-  <data name="Form.AddProfile._hostNameLabel">
+  <data name="Form.AddProfile._hostNameLabel" xml:space="preserve">
     <value>Host Name</value>
   </data>
-  <data name="Form.AddProfile._keyFileLabel">
+  <data name="Form.AddProfile._keyFileLabel" xml:space="preserve">
     <value>Private Key File</value>
   </data>
-  <data name="Form.AddProfile._loginPromptLabel">
+  <data name="Form.AddProfile._loginPromptLabel" xml:space="preserve">
     <value>Login Prompt</value>
   </data>
-  <data name="Form.AddProfile._newLineTypeLabel">
+  <data name="Form.AddProfile._newLineTypeLabel" xml:space="preserve">
     <value>New Line</value>
   </data>
-  <data name="Form.AddProfile._openKeyFileButton">
+  <data name="Form.AddProfile._openKeyFileButton" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="Form.AddProfile._passwordLabel">
+  <data name="Form.AddProfile._passwordLabel" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="Form.AddProfile._passwordPromptLabel">
+  <data name="Form.AddProfile._passwordPromptLabel" xml:space="preserve">
     <value>Password Prompt</value>
   </data>
-  <data name="Form.AddProfile._portLabel">
+  <data name="Form.AddProfile._portLabel" xml:space="preserve">
     <value>Port</value>
   </data>
-  <data name="Form.AddProfile._profileItemColorLabel">
+  <data name="Form.AddProfile._profileItemColorLabel" xml:space="preserve">
     <value>Profile Item Color</value>
   </data>
-  <data name="Form.AddProfile._promptRecvTimeoutLabel">
+  <data name="Form.AddProfile._promptRecvTimeoutLabel" xml:space="preserve">
     <value>Prompt Recv timeout (ms)</value>
   </data>
-  <data name="Form.AddProfile._protocolLabel">
+  <data name="Form.AddProfile._protocolLabel" xml:space="preserve">
     <value>Protocol</value>
   </data>
-  <data name="Form.AddProfile._sshGroup">
+  <data name="Form.AddProfile._sshGroup" xml:space="preserve">
     <value>SSH Parameter</value>
   </data>
-  <data name="Form.AddProfile._showPasswordCheck">
+  <data name="Form.AddProfile._showPasswordCheck" xml:space="preserve">
     <value>Show password</value>
   </data>
-  <data name="Form.AddProfile._suGroup">
+  <data name="Form.AddProfile._suGroup" xml:space="preserve">
     <value>SU Switch</value>
   </data>
-  <data name="Form.AddProfile._suPasswordLabel">
+  <data name="Form.AddProfile._suPasswordLabel" xml:space="preserve">
     <value>SU Password</value>
   </data>
-  <data name="Form.AddProfile._suTypeLabel">
+  <data name="Form.AddProfile._suTypeLabel" xml:space="preserve">
     <value>SU Command</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio1">
+  <data name="Form.AddProfile._suTypeRadio1" xml:space="preserve">
     <value>su</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio2">
+  <data name="Form.AddProfile._suTypeRadio2" xml:space="preserve">
     <value>su -</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio3">
+  <data name="Form.AddProfile._suTypeRadio3" xml:space="preserve">
     <value>sudo su</value>
   </data>
-  <data name="Form.AddProfile._suTypeRadio4">
+  <data name="Form.AddProfile._suTypeRadio4" xml:space="preserve">
     <value>sudo su -</value>
   </data>
-  <data name="Form.AddProfile._suUserNameLabel">
+  <data name="Form.AddProfile._suUserNameLabel" xml:space="preserve">
     <value>SU UserName</value>
   </data>
-  <data name="Form.AddProfile._telnetNewLineCheck">
+  <data name="Form.AddProfile._telnetNewLineCheck" xml:space="preserve">
     <value>TelnetNewLine</value>
   </data>
-  <data name="Form.AddProfile._terminalFontColorLabel">
+  <data name="Form.AddProfile._terminalFontColorLabel" xml:space="preserve">
     <value>Font Color</value>
   </data>
-  <data name="Form.AddProfile._terminalGroup">
+  <data name="Form.AddProfile._terminalGroup" xml:space="preserve">
     <value>Terminal</value>
   </data>
-  <data name="Form.AddProfile._terminalTypeLabel">
+  <data name="Form.AddProfile._terminalTypeLabel" xml:space="preserve">
     <value>Terminal Type</value>
   </data>
-  <data name="Form.AddProfile._userNameLabel">
+  <data name="Form.AddProfile._userNameLabel" xml:space="preserve">
     <value>User Name</value>
   </data>
-  <data name="Form.AddProfile.Hint._authTypeBox">
+  <data name="Form.AddProfile.Hint._authTypeBox" xml:space="preserve">
     <value>Select the SSH authentication method.</value>
   </data>
-  <data name="Form.AddProfile.Hint._autoLoginCheck">
+  <data name="Form.AddProfile.Hint._autoLoginCheck" xml:space="preserve">
     <value>If you use the auto-login feature on the check.
 When using this feature can be used Run Command"" and ""SU switch"".""</value>
   </data>
-  <data name="Form.AddProfile.Hint._charCodeBox">
+  <data name="Form.AddProfile.Hint._charCodeBox" xml:space="preserve">
     <value>Select a character set.</value>
   </data>
-  <data name="Form.AddProfile.Hint._commandSendIntBox">
+  <data name="Form.AddProfile.Hint._commandSendIntBox" xml:space="preserve">
     <value>Enter the interval for issuing commands.
 Unit is milliseconds.</value>
   </data>
-  <data name="Form.AddProfile.Hint._descriptionBox">
+  <data name="Form.AddProfile.Hint._descriptionBox" xml:space="preserve">
     <value>Enter a description for the profile.</value>
   </data>
-  <data name="Form.AddProfile.Hint._editRenderButton">
+  <data name="Form.AddProfile.Hint._editRenderButton" xml:space="preserve">
     <value>Edit the display options such as background color and font color.</value>
   </data>
-  <data name="Form.AddProfile.Hint._execCommandBox">
+  <data name="Form.AddProfile.Hint._execCommandBox" xml:space="preserve">
     <value>Enter the one-liner command to run automatically after login.
 If you use SU switch function runs SU switch later.
 If you use this feature with caution.
 This feature is not used if left blank.</value>
   </data>
-  <data name="Form.AddProfile.Hint._hostNameBox">
+  <data name="Form.AddProfile.Hint._hostNameBox" xml:space="preserve">
     <value>Enter the destination host name or IP address.</value>
   </data>
-  <data name="Form.AddProfile.Hint._keyFileBox">
+  <data name="Form.AddProfile.Hint._keyFileBox" xml:space="preserve">
     <value>Specifies the private key file.</value>
   </data>
-  <data name="Form.AddProfile.Hint._loginPromptBox">
+  <data name="Form.AddProfile.Hint._loginPromptBox" xml:space="preserve">
     <value>Enter the login prompt.
 After receiving the prompt string given the username is entered automatically.
 This item can use regular expressions.</value>
   </data>
-  <data name="Form.AddProfile.Hint._newLineTypeBox">
+  <data name="Form.AddProfile.Hint._newLineTypeBox" xml:space="preserve">
     <value>Select the new line code.</value>
   </data>
-  <data name="Form.AddProfile.Hint._passwordBox">
+  <data name="Form.AddProfile.Hint._passwordBox" xml:space="preserve">
     <value>Enter the login password.</value>
   </data>
-  <data name="Form.AddProfile.Hint._passwordPromptBox">
+  <data name="Form.AddProfile.Hint._passwordPromptBox" xml:space="preserve">
     <value>Enter the password prompt.
 After receiving the prompt string given the password is entered automatically.
 This item can use regular expressions.</value>
   </data>
-  <data name="Form.AddProfile.Hint._portBox">
+  <data name="Form.AddProfile.Hint._portBox" xml:space="preserve">
     <value>Enter the connection port. Usually Telnet is 23, SSH is 22.</value>
   </data>
-  <data name="Form.AddProfile.Hint._profileItemColorButton">
+  <data name="Form.AddProfile.Hint._profileItemColorButton" xml:space="preserve">
     <value>Select the profile item color.</value>
   </data>
-  <data name="Form.AddProfile.Hint._promptRecvTimeoutBox">
+  <data name="Form.AddProfile.Hint._promptRecvTimeoutBox" xml:space="preserve">
     <value>If you use the auto-login feature, enter the prompts the receive timeout.
 Unit is milliseconds.</value>
   </data>
-  <data name="Form.AddProfile.Hint._protocolBox">
+  <data name="Form.AddProfile.Hint._protocolBox" xml:space="preserve">
     <value>Select the connection protocol.</value>
   </data>
-  <data name="Form.AddProfile.Hint._showPasswordCheck">
+  <data name="Form.AddProfile.Hint._showPasswordCheck" xml:space="preserve">
     <value>Displays the password.</value>
   </data>
-  <data name="Form.AddProfile.Hint._suPasswordBox">
+  <data name="Form.AddProfile.Hint._suPasswordBox" xml:space="preserve">
     <value>Enter the password for the user to switch.
 Passwords are automatically populated after receiving prompt string specified in item "Password Prompt".</value>
   </data>
-  <data name="Form.AddProfile.Hint._suTypeRadio">
-    <value>Select the switch command.</value>
+  <data name="Form.AddProfile.Hint._suTypeRadio" xml:space="preserve">
+    <value>Select the switch command.
+Except for the su command, privileged EXEC mode on network devices such as Cisco is assumed.</value>
   </data>
-  <data name="Form.AddProfile.Hint._suUserNameBox">
+  <data name="Form.AddProfile.Hint._suUserNameBox" xml:space="preserve">
     <value>Enter the user name to switch to auto login after.
+If only one pound sign "#" character is set, the user name is not sent. This is intended if you only need to send a password.
 If you use this feature with caution.
 This feature is not used if left blank.</value>
   </data>
-  <data name="Form.AddProfile.Hint._telnetNewLineCheck">
+  <data name="Form.AddProfile.Hint._telnetNewLineCheck" xml:space="preserve">
     <value>If you use the "Telnet NewLine" on the check.</value>
   </data>
-  <data name="Form.AddProfile.Hint._terminalBGColorButton">
+  <data name="Form.AddProfile.Hint._terminalBGColorButton" xml:space="preserve">
     <value>Select the background color.</value>
   </data>
-  <data name="Form.AddProfile.Hint._terminalFontColorButton">
+  <data name="Form.AddProfile.Hint._terminalFontColorButton" xml:space="preserve">
     <value>Select a font color.</value>
   </data>
-  <data name="Form.AddProfile.Hint._terminalTypeBox">
+  <data name="Form.AddProfile.Hint._terminalTypeBox" xml:space="preserve">
     <value>Select the type of Terminal.</value>
   </data>
-  <data name="Form.AddProfile.Hint._userNameBox">
-    <value>Enter the login name.</value>
+  <data name="Form.AddProfile.Hint._userNameBox" xml:space="preserve">
+    <value>Enter the login name.
+If only one pound sign "#" character is set, the user name is not sent. This is intended if you only need to send a password.</value>
   </data>
-  <data name="Form.AddProfile.Hint.None">
+  <data name="Form.AddProfile.Hint.None" xml:space="preserve">
     <value>The description will be listed here.</value>
   </data>
-  <data name="Form.Common._cancelButton">
+  <data name="Form.Common._cancelButton" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="Form.Common._okButton">
+  <data name="Form.Common._okButton" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="Form.ConnectProfile._addProfileButton">
+  <data name="Form.ConnectProfile._addProfileButton" xml:space="preserve">
     <value>Add(&amp;A)</value>
   </data>
-  <data name="Form.ConnectProfile._autoLoginColumn">
+  <data name="Form.ConnectProfile._autoLoginColumn" xml:space="preserve">
     <value>Auto Login</value>
   </data>
-  <data name="Form.ConnectProfile._checkAllOffButton">
+  <data name="Form.ConnectProfile._checkAllOffButton" xml:space="preserve">
     <value>Check All OFF(&amp;U)</value>
   </data>
-  <data name="Form.ConnectProfile._copyButton">
+  <data name="Form.ConnectProfile._copyButton" xml:space="preserve">
     <value>Copy(&amp;C)</value>
   </data>
-  <data name="Form.ConnectProfile._csvExportButton">
+  <data name="Form.ConnectProfile._csvExportButton" xml:space="preserve">
     <value>Export(&amp;X)</value>
   </data>
-  <data name="Form.ConnectProfile._csvImportButton">
+  <data name="Form.ConnectProfile._csvImportButton" xml:space="preserve">
     <value>Import(&amp;I)</value>
   </data>
-  <data name="Form.ConnectProfile._delProfileButton">
+  <data name="Form.ConnectProfile._delProfileButton" xml:space="preserve">
     <value>Delete(&amp;D)</value>
   </data>
-  <data name="Form.ConnectProfile._descriptionColumn">
+  <data name="Form.ConnectProfile._descriptionColumn" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="Form.ConnectProfile._displaySelectedOnlyCheck">
+  <data name="Form.ConnectProfile._displaySelectedOnlyCheck" xml:space="preserve">
     <value>Display selected profile only(&amp;S)</value>
   </data>
-  <data name="Form.ConnectProfile._editProfileButton">
+  <data name="Form.ConnectProfile._editProfileButton" xml:space="preserve">
     <value>Edit(&amp;E)</value>
   </data>
-  <data name="Form.ConnectProfile._execCommandColumn">
+  <data name="Form.ConnectProfile._execCommandColumn" xml:space="preserve">
     <value>Run Command</value>
   </data>
-  <data name="Form.ConnectProfile._filterLabel">
+  <data name="Form.ConnectProfile._filterLabel" xml:space="preserve">
     <value>Filter</value>
   </data>
-  <data name="Form.ConnectProfile._hintLabel">
+  <data name="Form.ConnectProfile._hintLabel" xml:space="preserve">
     <value>Double-click action on the list (LeftButton = Connect / MiddleButton = Add / RightButton = Edit)</value>
   </data>
-  <data name="Form.ConnectProfile._hostNameColumn">
+  <data name="Form.ConnectProfile._hostNameColumn" xml:space="preserve">
     <value>Host Name</value>
   </data>
-  <data name="Form.ConnectProfile._openCSVFileDialog.Caption">
+  <data name="Form.ConnectProfile._openCSVFileDialog.Caption" xml:space="preserve">
     <value>Select CSV File</value>
   </data>
-  <data name="Form.ConnectProfile._openCSVFileDialog.Filter">
+  <data name="Form.ConnectProfile._openCSVFileDialog.Filter" xml:space="preserve">
     <value>CSV Files (*.csv)|*.csv|All Files (*.*)|*.*</value>
   </data>
-  <data name="Form.ConnectProfile._portColumn">
+  <data name="Form.ConnectProfile._portColumn" xml:space="preserve">
     <value>Port</value>
   </data>
-  <data name="Form.ConnectProfile._profileCountLabel">
+  <data name="Form.ConnectProfile._profileCountLabel" xml:space="preserve">
     <value>Profile Count : {0}</value>
   </data>
-  <data name="Form.ConnectProfile._protocolColumn">
+  <data name="Form.ConnectProfile._protocolColumn" xml:space="preserve">
     <value>Protocol</value>
   </data>
-  <data name="Form.ConnectProfile._saveCSVFileDialog.Caption">
+  <data name="Form.ConnectProfile._saveCSVFileDialog.Caption" xml:space="preserve">
     <value>Save connection profiles to CSV</value>
   </data>
-  <data name="Form.ConnectProfile._saveCSVFileDialog.Filter">
+  <data name="Form.ConnectProfile._saveCSVFileDialog.Filter" xml:space="preserve">
     <value>CSV Files (*.csv)|*.csv|All Files (*.*)|*.*</value>
   </data>
-  <data name="Form.ConnectProfile._selectedProfileCountLabel">
+  <data name="Form.ConnectProfile._selectedProfileCountLabel" xml:space="preserve">
     <value>Selected : {0}</value>
   </data>
-  <data name="Form.ConnectProfile._suSwitchColumn">
+  <data name="Form.ConnectProfile._suSwitchColumn" xml:space="preserve">
     <value>SU</value>
   </data>
-  <data name="Form.ConnectProfile._terminalDisplayColorColumn">
+  <data name="Form.ConnectProfile._terminalDisplayColorColumn" xml:space="preserve">
     <value>Display Color</value>
   </data>
-  <data name="Form.ConnectProfile._userNameColumn">
+  <data name="Form.ConnectProfile._userNameColumn" xml:space="preserve">
     <value>User Name</value>
   </data>
-  <data name="Form.ConnectProfile_profileListView.No">
+  <data name="Form.ConnectProfile_profileListView.No" xml:space="preserve">
     <value>No</value>
   </data>
-  <data name="Form.ConnectProfile_profileListView.Yes">
+  <data name="Form.ConnectProfile_profileListView.Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
-  <data name="Menu.ConnectProfile">
-    <value>Telnet/SSH Connection Profile</value>
+  <data name="Menu.ConnectProfile" xml:space="preserve">
+    <value>Connection Profile</value>
   </data>
-  <data name="Menu.AddConnectProfile">
+  <data name="Menu.AddConnectProfile" xml:space="preserve">
     <value>Add Connection Profile</value>
   </data>
-  <data name="Message.AddProfile.EmptyHostName">
+  <data name="Message.AddProfile.EmptyHostName" xml:space="preserve">
     <value>Host name has not been entered.</value>
   </data>
-  <data name="Message.AddProfile.EmptyKeyFile">
+  <data name="Message.AddProfile.EmptyKeyFile" xml:space="preserve">
     <value>The private key file has not been specified.</value>
   </data>
-  <data name="Message.AddProfile.EmptyLoginPrompt">
+  <data name="Message.AddProfile.EmptyLoginPrompt" xml:space="preserve">
     <value>Login prompt has not been entered.</value>
   </data>
-  <data name="Message.AddProfile.EmptyUserName">
+  <data name="Message.AddProfile.EmptyUserName" xml:space="preserve">
     <value>User name has not been entered.</value>
   </data>
-  <data name="Message.AddProfile.KeyFileNotExist">
+  <data name="Message.AddProfile.KeyFileNotExist" xml:space="preserve">
     <value>The specified private key file does not exist.</value>
   </data>
-  <data name="Message.AddProfile.SUTypeNotSelect">
+  <data name="Message.AddProfile.SUTypeNotSelect" xml:space="preserve">
     <value>Kind of SU command has not been selected.</value>
   </data>
-  <data name="Message.Connect.LoginPromptNotFound">
+  <data name="Message.Connect.LoginPromptNotFound" xml:space="preserve">
     <value>The specified login prompt was not found.</value>
   </data>
-  <data name="Message.Connect.PasswordPromptNotFound">
+  <data name="Message.Connect.PasswordPromptNotFound" xml:space="preserve">
     <value>The specified password prompt was not found.</value>
   </data>
-  <data name="Message.ConnectProfile.ConnectCancel">
+  <data name="Message.ConnectProfile.ConnectCancel" xml:space="preserve">
     <value>Has been cancelled.</value>
   </data>
-  <data name="Message.ConnectProfile.ConnectConfirm">
+  <data name="Message.ConnectProfile.ConnectConfirm" xml:space="preserve">
     <value>{0} profile is selected. Do you want to connect?
 {1}</value>
   </data>
-  <data name="Message.ConnectProfile.ConfirmProfileDelete">
+  <data name="Message.ConnectProfile.ConfirmProfileDelete" xml:space="preserve">
     <value>Delete profile?</value>
   </data>
-  <data name="Message.ConnectProfile.CSVExportComplete">
+  <data name="Message.ConnectProfile.CSVExportComplete" xml:space="preserve">
     <value>CSV export is complete. Encoding is UTF8.
 Because consistency checks during the Import CSV header information please do not modify or delete.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVExportDetetePasssword">
+  <data name="Message.ConnectProfile.CSVExportDetetePasssword" xml:space="preserve">
     <value>Removing password from the output?</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportAppendProfileList">
+  <data name="Message.ConnectProfile.CSVImportAppendProfileList" xml:space="preserve">
     <value>Do you add in the current profile it?
 If you choose 'NO' will remove all current profile list.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportCancel">
+  <data name="Message.ConnectProfile.CSVImportCancel" xml:space="preserve">
     <value>Import has been canceled.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportComplete">
+  <data name="Message.ConnectProfile.CSVImportComplete" xml:space="preserve">
     <value>CSV import is complete.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportConfirm">
+  <data name="Message.ConnectProfile.CSVImportConfirm" xml:space="preserve">
     <value>Perform the import?
 If you encounter errors during the import process is aborted, retains the current profile.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportFailed">
+  <data name="Message.ConnectProfile.CSVImportFailed" xml:space="preserve">
     <value>CSV import failed. (at line {0})</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidAuthType">
+  <data name="Message.ConnectProfile.CSVImportInvalidAuthType" xml:space="preserve">
     <value>SSH AuthType specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidAutoLogin">
+  <data name="Message.ConnectProfile.CSVImportInvalidAutoLogin" xml:space="preserve">
     <value>AutoLogin specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidCharCode">
+  <data name="Message.ConnectProfile.CSVImportInvalidCharCode" xml:space="preserve">
     <value>Character Code specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidCommandSendInterval">
+  <data name="Message.ConnectProfile.CSVImportInvalidCommandSendInterval" xml:space="preserve">
     <value>Command Transmit Interval specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidFieldCount">
+  <data name="Message.ConnectProfile.CSVImportInvalidFieldCount" xml:space="preserve">
     <value>Incorrect number of CSV fields. (at line {0})</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidHeader">
+  <data name="Message.ConnectProfile.CSVImportInvalidHeader" xml:space="preserve">
     <value>CSV header integrity check failed.  (at line {0})
 See identical to the header to print on CSV export.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidHostName">
+  <data name="Message.ConnectProfile.CSVImportInvalidHostName" xml:space="preserve">
     <value>HostName specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidNewLine">
+  <data name="Message.ConnectProfile.CSVImportInvalidNewLine" xml:space="preserve">
     <value>NewLine specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidPort">
+  <data name="Message.ConnectProfile.CSVImportInvalidPort" xml:space="preserve">
     <value>Port specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidPromptRecvTimeout">
+  <data name="Message.ConnectProfile.CSVImportInvalidPromptRecvTimeout" xml:space="preserve">
     <value>Prompt Receive Timeout specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidProtocol">
+  <data name="Message.ConnectProfile.CSVImportInvalidProtocol" xml:space="preserve">
     <value>Protocol specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidSUType">
+  <data name="Message.ConnectProfile.CSVImportInvalidSUType" xml:space="preserve">
     <value>SU Type specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidTelnetNewLine">
+  <data name="Message.ConnectProfile.CSVImportInvalidTelnetNewLine" xml:space="preserve">
     <value>TelnetNewLine specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidTerminalType">
+  <data name="Message.ConnectProfile.CSVImportInvalidTerminalType" xml:space="preserve">
     <value>TerminalType specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidFontSize">
+  <data name="Message.ConnectProfile.CSVImportInvalidFontSize" xml:space="preserve">
     <value>FontSize specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidClearType">
+  <data name="Message.ConnectProfile.CSVImportInvalidClearType" xml:space="preserve">
     <value>ClearType specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidBoldStyle">
+  <data name="Message.ConnectProfile.CSVImportInvalidBoldStyle" xml:space="preserve">
     <value>BoldStyle specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidForceBoldStyle">
+  <data name="Message.ConnectProfile.CSVImportInvalidForceBoldStyle" xml:space="preserve">
     <value>ForceBoldStyle specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidBackgroundImageFileName">
+  <data name="Message.ConnectProfile.CSVImportInvalidBackgroundImageFileName" xml:space="preserve">
     <value>Background image specified file does not exist.</value>
   </data>
-  <data name="Message.ConnectProfile.CSVImportInvalidImageStyle">
+  <data name="Message.ConnectProfile.CSVImportInvalidImageStyle" xml:space="preserve">
     <value>ImageStyle specified is not valid.</value>
   </data>
-  <data name="Message.ConnectProfile.ProfileNotSelected">
+  <data name="Message.ConnectProfile.ProfileNotSelected" xml:space="preserve">
     <value>Profile is not selected.</value>
   </data>
-  <data name="Common.OK">
+  <data name="Common.OK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="Common.Cancel">
+  <data name="Common.Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="Common.FontSample">
+  <data name="Common.FontSample" xml:space="preserve">
     <value>Poderosa</value>
   </data>
-  <data name="Common.CJKFontSample">
-    <value>
-    </value>
+  <data name="Common.CJKFontSample" xml:space="preserve">
+    <value>Poderosa</value>
   </data>
-  <data name="Form.EditRenderProfile._bgColorLabel">
+  <data name="Form.EditRenderProfile._bgColorLabel" xml:space="preserve">
     <value>&amp;Back color</value>
   </data>
-  <data name="Form.EditRenderProfile._textColorLabel">
+  <data name="Form.EditRenderProfile._textColorLabel" xml:space="preserve">
     <value>&amp;Text color</value>
   </data>
-  <data name="Form.EditRenderProfile._editEscapeSequenceColorBox">
+  <data name="Form.EditRenderProfile._editEscapeSequenceColorBox" xml:space="preserve">
     <value>Color settings for &amp;escape sequences...</value>
   </data>
-  <data name="Form.EditRenderProfile._fontSelectButton">
+  <data name="Form.EditRenderProfile._fontSelectButton" xml:space="preserve">
     <value>Change...</value>
   </data>
-  <data name="Form.EditRenderProfile._fontLabel">
+  <data name="Form.EditRenderProfile._fontLabel" xml:space="preserve">
     <value>&amp;Font</value>
   </data>
-  <data name="Form.EditRenderProfile._backgroungImageLabel">
+  <data name="Form.EditRenderProfile._backgroungImageLabel" xml:space="preserve">
     <value>Back &amp;picture</value>
   </data>
-  <data name="Form.EditRenderProfile._imageStyleLabel">
+  <data name="Form.EditRenderProfile._imageStyleLabel" xml:space="preserve">
     <value>Picture &amp;location</value>
   </data>
-  <data name="Form.EditRenderProfile._setToDefaultButton">
+  <data name="Form.EditRenderProfile._setToDefaultButton" xml:space="preserve">
     <value>&amp;Reset</value>
   </data>
-  <data name="Form.EditRenderProfile.Text">
+  <data name="Form.EditRenderProfile.Text" xml:space="preserve">
     <value>Edit display profile</value>
   </data>
-  <data name="Message.EditRenderProfile.InvalidPicture">
+  <data name="Message.EditRenderProfile.InvalidPicture" xml:space="preserve">
     <value>{0} is not a correct picture file.</value>
   </data>
-  <data name="Util.SelectPicture.Caption">
+  <data name="Util.SelectPicture.Caption" xml:space="preserve">
     <value>Select picture file</value>
   </data>
-  <data name="Form.EditEscapesequenceColor.Text">
+  <data name="Form.EditEscapesequenceColor.Text" xml:space="preserve">
     <value>Color settings for escape sequences</value>
   </data>
-  <data name="Form.EditEscapesequenceColor._setDefaultButton">
+  <data name="Form.EditEscapesequenceColor._setDefaultButton" xml:space="preserve">
     <value>Set to &amp;default</value>
   </data>
-  <data name="Caption.EditEscapesequenceColor.DefaultColor">
+  <data name="Caption.EditEscapesequenceColor.DefaultColor" xml:space="preserve">
     <value>Default</value>
   </data>
-  <data name="Caption.EditEscapesequenceColor.BackColor">
+  <data name="Caption.EditEscapesequenceColor.BackColor" xml:space="preserve">
     <value>Background</value>
   </data>
-  <data name="Form.GFontDialog._lAsciiFont">
+  <data name="Form.GFontDialog._lAsciiFont" xml:space="preserve">
     <value>Font Name</value>
   </data>
-  <data name="Form.GFontDialog._lCJKFont">
+  <data name="Form.GFontDialog._lCJKFont" xml:space="preserve">
     <value>CJK Font Name</value>
   </data>
-  <data name="Form.GFontDialog._lFontSize">
+  <data name="Form.GFontDialog._lFontSize" xml:space="preserve">
     <value>&amp;Size</value>
   </data>
-  <data name="Form.GFontDialog._checkClearType">
+  <data name="Form.GFontDialog._checkClearType" xml:space="preserve">
     <value>Use &amp;Clear Type Font as much as possible</value>
   </data>
-  <data name="Form.GFontDialog._checkBoldStyle">
+  <data name="Form.GFontDialog._checkBoldStyle" xml:space="preserve">
     <value>Enables &amp;bold fonts</value>
   </data>
-  <data name="Form.GFontDialog._checkForceBoldStyle">
+  <data name="Form.GFontDialog._checkForceBoldStyle" xml:space="preserve">
     <value>&amp;Force bold fonts</value>
   </data>
-  <data name="Form.GFontDialog.Text">
+  <data name="Form.GFontDialog.Text" xml:space="preserve">
     <value>Select font</value>
   </data>
-  <data name="Message.GFontDialog.NotTrueTypeWarning">
+  <data name="Message.GFontDialog.NotTrueTypeWarning" xml:space="preserve">
     <value>The size was changed to {1} since {0} is not a TrueType font.</value>
+  </data>
+  <data name="Form.AddProfile._suTypeRadio5" xml:space="preserve">
+    <value>enable</value>
+  </data>
+  <data name="Form.AddProfile._suTypeRadio6" xml:space="preserve">
+    <value>admin</value>
   </data>
 </root>
