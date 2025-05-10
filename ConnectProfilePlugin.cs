@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015-2016 yoshikixxxx.
+ * Copyright 2015-2025 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ namespace Contrib.ConnectProfile {
     /********* プラグイン情報 *********/
     [PluginInfo(
         ID = PLUGIN_ID,
-        Version = "2.1",
+        Version = "2.2",
         Author = "yoshikixxxx",
         Dependencies = "org.poderosa.core.commands;org.poderosa.core.preferences;org.poderosa.core.serializing;org.poderosa.core.sessions;org.poderosa.core.window;org.poderosa.protocols;org.poderosa.telnet_ssh;org.poderosa.terminalemulator;org.poderosa.terminalsessions;org.poderosa.terminalui;org.poderosa.usability"
     )]
@@ -594,6 +594,7 @@ namespace Contrib.ConnectProfile {
                 if (fa.ConvertItem(f, _terminalType).AsString().Value == "KTerm") prof.TerminalType = TerminalType.KTerm;
                 else if (fa.ConvertItem(f, _terminalType).AsString().Value == "VT100") prof.TerminalType = TerminalType.VT100;
                 else if (fa.ConvertItem(f, _terminalType).AsString().Value == "XTerm") prof.TerminalType = TerminalType.XTerm;
+                else if (fa.ConvertItem(f, _terminalType).AsString().Value == "XTerm256Color") prof.TerminalType = TerminalType.XTerm256Color;
                 prof.CommandSendInterval = fa.ConvertItem(f, _commandSendInterval).AsInt().Value;
                 prof.PromptRecvTimeout = fa.ConvertItem(f, _promptRecvTimeout).AsInt().Value;
                 prof.ProfileItemColor = Poderosa.ParseUtil.ParseColor(fa.ConvertItem(f, _profileItemColor.PreferenceItem).AsString().Value, Color.Black);

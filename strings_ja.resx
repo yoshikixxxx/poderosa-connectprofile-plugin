@@ -154,7 +154,7 @@
     <value>コマンド発行間隔 (ミリ秒)</value>
   </data>
   <data name="Form.AddProfile._descriptionLabel" xml:space="preserve">
-    <value>備考</value>
+    <value>説明</value>
   </data>
   <data name="Form.AddProfile._editRenderButton" xml:space="preserve">
     <value>編集</value>

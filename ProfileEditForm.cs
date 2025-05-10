@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015-2016 yoshikixxxx.
+ * Copyright 2015-2025 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ namespace Contrib.ConnectProfile {
                 _charCodeBox.SelectedItem = EncodingType.UTF8;
                 _newLineTypeBox.SelectedItem = NewLine.CR;
                 _telnetNewLineCheck.Checked = true;
-                _terminalTypeBox.SelectedItem = TerminalType.XTerm;
+                _terminalTypeBox.SelectedItem = TerminalType.XTerm256Color;
                 _commandSendIntBox.Value = ConnectProfileStruct.DEFAULT_CMD_SEND_INTERVAL;
                 _promptRecvTimeoutBox.Value = ConnectProfileStruct.DEFAULT_PROMPT_RECV_TIMEOUT;
 

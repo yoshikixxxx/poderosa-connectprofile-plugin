@@ -72,6 +72,10 @@
       <HintPath>..\poderosa\bin\Release\Poderosa.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Poderosa.Usability">
+      <HintPath>..\poderosa\bin\Release\Poderosa.Usability.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -112,8 +116,15 @@
     <EmbeddedResource Include="ConnectProfileForm.resx">
       <DependentUpon>ConnectProfileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="strings.resx" />
-    <EmbeddedResource Include="strings_ja.resx" />
+    <EmbeddedResource Include="strings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="strings_ja.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontDialog.resx">
+      <DependentUpon>FontDialog.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

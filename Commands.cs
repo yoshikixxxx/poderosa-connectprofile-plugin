@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2015-2016 yoshikixxxx.
+ * Copyright 2015-2025 yoshikixxxx.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -354,10 +354,11 @@ namespace Contrib.ConnectProfile {
                 return null;
             }
 
-            // ターミナル種類(空白=XTerm)
+            // ターミナル種類(空白=XTerm256Color)
             if (ary[17].ToLower() == "kterm") prof.TerminalType = TerminalType.KTerm;
             else if (ary[17].ToLower() == "vt100") prof.TerminalType = TerminalType.VT100;
-            else if ((ary[17].ToLower() == "xterm") || (ary[17] == "")) prof.TerminalType = TerminalType.XTerm;
+            else if (ary[17].ToLower() == "xterm") prof.TerminalType = TerminalType.XTerm;
+            else if ((ary[17].ToLower() == "xterm256color") || (ary[17] == "")) prof.TerminalType = TerminalType.XTerm256Color;
             else {
                 ConnectProfilePlugin.MessageBoxInvoke(ConnectProfilePlugin.Strings.GetString("Message.ConnectProfile.CSVImportInvalidTerminalType"), MessageBoxIcon.Error);
                 return null;
@@ -565,11 +566,13 @@ namespace Contrib.ConnectProfile {
             terminalSettings.RenderProfile = _prof.RenderProfile;
             terminalSettings.TransmitNL = _prof.NewLine;
             terminalSettings.Encoding = _prof.CharCode;
+            terminalSettings.TerminalType = _prof.TerminalType;
             terminalSettings.LocalEcho = false;
             terminalSettings.EndUpdate();
 
             // TerminalParameter
             ITerminalParameter terminalParam = (ITerminalParameter)tcp.GetAdapter(typeof(ITerminalParameter));
+            terminalParam.SetTerminalName(terminalSettings.TerminalType.ToTermValue());
 
             // ターミナルサイズ(これを行わないとPoderosa起動直後のOnReceptionが何故か機能しない, 行わない場合は2回目以降の接続時は正常)
             IViewManager viewManager = CommandTargetUtil.AsWindow(ConnectProfilePlugin.Instance.WindowManager.ActiveWindow).ViewManager;

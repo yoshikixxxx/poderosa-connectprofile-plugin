@@ -1,4 +1,4 @@
-# Poderosa 接続プロファイルプラグイン (v2.1)
+# Poderosa 接続プロファイルプラグイン (v2.2)
 ※日本語から英語への翻訳はBing翻訳を使用しています。  
 (* Japanese to English translations use the Bing translator.)
 
@@ -91,6 +91,18 @@ Poderosaディレクトリ内に下記のように配置します。
 
 
 ## <a name ="dl_history">Download & History
+* 2025/05/11 v2.2 [(.Net4.8)][DL-2.2-net48]  
+**※重要：Poderosa v4.8.0未満のバージョンでは使用できませんのでご注意ください。**  
+**(*Important: Please note that this cannot be used with versions of Poderosa earlier than v4.8.0.)**  
+Poderosa v4.8.0の新しいフォントダイアログに対応しました。  
+(Supported the new font dialog of Poderosa v4.8.0.)  
+デフォルトのターミナルタイプを「xterm-256color」に設定しました。  
+(The default terminal type has been set to "xterm-256color".)  
+TERM環境変数が常にxtermとなってしまう問題を修正しました。  
+(Fixed the issue where the TERM environment variable always defaults to xterm.)  
+文字列リソースを修正しました。  
+(Fixed a string resource.)  
+
 * 2024/03/01 v2.1 [(.Net4.8)][DL-2.1-net48]  
 開発環境をVS2022に変更しました。  
 (Changed the development environment to VS2022.)  
@@ -151,7 +163,7 @@ SUコマンド項目に「sudo su」と「sudo su -」を追加しました。
 
 
 ## License
-Copyright 2015-2016 yoshikixxxx. ([Twitter][TWITTER])  
+Copyright 2015-2025 yoshikixxxx. ([Twitter][TWITTER])  
 Licensed under the Apache License, Version 2.0 (the "License");  
 you may not use this file except in compliance with the License.
 
@@ -170,4 +182,5 @@ you may not use this file except in compliance with the License.
 [DL-2.0-net20]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.0/connectprofile_2.0_net20.zip
 [DL-2.0-net45]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.0/connectprofile_2.0_net45.zip
 [DL-2.1-net48]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.1/connectprofile_2.1_net48.zip
+[DL-2.2-net48]: https://github.com/yoshikixxxx/poderosa-connectprofile-plugin/releases/download/2.2/connectprofile_2.2_net48.zip
 [TWITTER]: https://twitter.com/yoshikixxxxaol
